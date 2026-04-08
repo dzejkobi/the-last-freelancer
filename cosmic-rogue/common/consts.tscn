@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dtlbhxcbbmb6l"]
+
+[ext_resource type="Script" uid="uid://ddc7vwgy7phbj" path="res://common/consts.gd" id="1_41j0g"]
+
+[node name="Consts" type="Node" unique_id=291084993]
+script = ExtResource("1_41j0g")
+metadata/_custom_type_script = "uid://dobwc8a2ss8oy"

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://rp6fj0kernwc"]
+
+[ext_resource type="Script" uid="uid://b3n383o4s7uhy" path="res://common/colors.gd" id="1_obi86"]
+
+[node name="Colors" type="Node" unique_id=316855154]
+script = ExtResource("1_obi86")
+bg_color = Color(0.07751515, 0.06551238, 0.15609443, 1)
+wall_color = Color(0.22471818, 0.25776342, 1, 1)
+stone_color = Color(0.65, 0.43333334, 0.325, 1)
+metadata/_custom_type_script = "uid://dobwc8a2ss8oy"

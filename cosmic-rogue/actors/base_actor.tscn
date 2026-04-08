@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bdjwh05ad0jfk"]
+
+[ext_resource type="Script" uid="uid://kk24snwcd2er" path="res://actors/actor.gd" id="1_0y2jj"]
+[ext_resource type="Texture2D" uid="uid://bjb4cu3103uy3" path="res://assets/graphics/terrain.png" id="1_rn16t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y2jj"]
+atlas = ExtResource("1_rn16t")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_240qr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y2jj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[node name="Actor" type="Node2D" unique_id=1742221200]
+script = ExtResource("1_0y2jj")
+
+[node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_240qr")
+animation = &"idle"
+centered = false

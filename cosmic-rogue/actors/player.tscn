@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://cs6skxxirsc7n"]
+
+[ext_resource type="PackedScene" uid="uid://bdjwh05ad0jfk" path="res://actors/base_actor.tscn" id="1_niuxy"]
+[ext_resource type="Script" uid="uid://kk24snwcd2er" path="res://actors/actor.gd" id="2_1yqc4"]
+[ext_resource type="Texture2D" uid="uid://cudj45yj27ei4" path="res://assets/graphics/actors.png" id="2_mvpqy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yqc4"]
+atlas = ExtResource("2_mvpqy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esgq3"]
+atlas = ExtResource("2_mvpqy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjkj0"]
+atlas = ExtResource("2_mvpqy")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvpqy"]
+atlas = ExtResource("2_mvpqy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tue77"]
+atlas = ExtResource("2_mvpqy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33vod"]
+atlas = ExtResource("2_mvpqy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er1rk"]
+atlas = ExtResource("2_mvpqy")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7yfm"]
+atlas = ExtResource("2_mvpqy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ua707"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yqc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esgq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjkj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvpqy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tue77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33vod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er1rk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7yfm")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[node name="Actor" unique_id=1742221200 instance=ExtResource("1_niuxy")]
+script = ExtResource("2_1yqc4")
+
+[node name="AnimSprite" parent="." index="0" unique_id=578793987]
+sprite_frames = SubResource("SpriteFrames_ua707")
+autoplay = "idle"
+frame_progress = 0.88102484

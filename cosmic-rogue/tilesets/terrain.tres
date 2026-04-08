@@ -1,0 +1,28 @@
+[gd_resource type="TileSet" format=3 uid="uid://sw64kb2abd4r"]
+
+[ext_resource type="Texture2D" uid="uid://bjb4cu3103uy3" path="res://assets/graphics/terrain.png" id="1_ufxj2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ndmgv"]
+texture = ExtResource("1_ufxj2")
+0:0/0 = 0
+0:0/0/modulate = Color(1, 0.27999997, 0.27999997, 1)
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+2:0/0 = 0
+2:0/0/modulate = Color(0.22352941, 0.25882354, 1, 1)
+2:0/0/terrain_set = 0
+2:0/0/terrain = 1
+3:0/0 = 0
+3:0/0/modulate = Color(0.6509804, 0.43529412, 0.3254902, 1)
+3:0/0/terrain_set = 0
+3:0/0/terrain = 2
+
+[resource]
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Floor"
+terrain_set_0/terrain_0/color = Color(0.46875, 0.5, 0.25, 1)
+terrain_set_0/terrain_1/name = "Walls"
+terrain_set_0/terrain_1/color = Color(0.22352941, 0.25882354, 1, 1)
+terrain_set_0/terrain_2/name = "Rocks"
+terrain_set_0/terrain_2/color = Color(0.6509804, 0.43529412, 0.3254902, 1)
+sources/0 = SubResource("TileSetAtlasSource_ndmgv")

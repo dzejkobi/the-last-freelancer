@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cs02me5wqeif6"]
+
+[ext_resource type="Script" uid="uid://dcukdbf1lqb2g" path="res://game/game.gd" id="1_h7iqs"]
+[ext_resource type="PackedScene" uid="uid://1s0uywhr1pp7" path="res://game/board.tscn" id="1_l1rk1"]
+[ext_resource type="PackedScene" uid="uid://cyd5qjbx1wgjd" path="res://levels/level.tscn" id="3_4fuuu"]
+
+[node name="Game" type="Node2D" unique_id=540794393]
+script = ExtResource("1_h7iqs")
+
+[node name="Board" parent="." unique_id=1900201133 instance=ExtResource("1_l1rk1")]
+
+[node name="Level1" parent="." unique_id=186858389 instance=ExtResource("3_4fuuu")]
