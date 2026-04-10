@@ -26,6 +26,7 @@ Consts="*uid://dtlbhxcbbmb6l"
 
 window/size/viewport_width=1024
 window/size/viewport_height=768
+window/stretch/mode="canvas_items"
 
 [physics]
 
