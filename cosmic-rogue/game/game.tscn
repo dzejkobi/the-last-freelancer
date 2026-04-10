@@ -5,6 +5,31 @@
 [ext_resource type="PackedScene" uid="uid://cyd5qjbx1wgjd" path="res://levels/level.tscn" id="3_4fuuu"]
 [ext_resource type="PackedScene" uid="uid://dksx8adgvjahv" path="res://game/elements/main_menu.tscn" id="4_4fuuu"]
 [ext_resource type="PackedScene" uid="uid://bghihuxbtw58j" path="res://game/elements/settings_menu.tscn" id="5_dxrkv"]
+[ext_resource type="Shader" uid="uid://d0gd0l2ni37ak" path="res://shaders/crt.gdshader" id="6_dakft"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u5opy"]
+shader = ExtResource("6_dakft")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.15200000722
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.070000003325
+shader_parameter/aberration = 0.010000047974999982
+shader_parameter/brightness = 1.8
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.34400001634
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.3850000182875
 
 [node name="Game" type="Control" unique_id=116307472]
 layout_mode = 3
@@ -66,5 +91,16 @@ offset_right = 100.5
 offset_bottom = 79.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="EffectsLayer" type="CanvasLayer" parent="." unique_id=1661826613]
+
+[node name="ColorRect" type="ColorRect" parent="EffectsLayer" unique_id=1192878540]
+material = SubResource("ShaderMaterial_u5opy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="resized" from="." to="." method="_on_resized"]
