@@ -36,17 +36,13 @@ vertical_alignment = 1
 [node name="BackBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=168627006]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Back to main"
-
-[node name="DisplayBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1689634140]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Display: "
+text = "Go back
+"
 
 [node name="SoundLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1267920539]
 layout_mode = 2
-theme_override_font_sizes/font_size = 42
-text = "Sounds:"
+theme_override_font_sizes/font_size = 36
+text = "Sound:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -66,7 +62,7 @@ step = 0.01
 [node name="SoundVolLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=222705682]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Sound volume:"
+text = "Sound effects volume:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -89,8 +85,34 @@ layout_mode = 2
 max_value = 1.0
 step = 0.01
 
+[node name="GraphicsLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=302957204]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Graphics:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DisplayBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1689634140]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Display: "
+
+[node name="BloomChkBtn" type="CheckButton" parent="PanelContainer/VBoxContainer" unique_id=1891461490]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Glow"
+
+[node name="CrtChkBtn" type="CheckButton" parent="PanelContainer/VBoxContainer" unique_id=891038181]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "CRT"
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/BackBtn" to="." method="_on_back_btn_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/DisplayBtn" to="." method="_on_display_btn_pressed"]
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/MasterVolSlider" to="." method="_on_master_vol_slider_value_changed"]
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/SoundVolSlider" to="." method="_on_sound_vol_slider_value_changed"]
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/DisplayBtn" to="." method="_on_display_btn_pressed"]
+[connection signal="toggled" from="PanelContainer/VBoxContainer/BloomChkBtn" to="." method="_on_glow_chk_btn_toggled"]
+[connection signal="toggled" from="PanelContainer/VBoxContainer/CrtChkBtn" to="." method="_on_crt_chk_btn_toggled"]

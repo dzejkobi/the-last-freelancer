@@ -106,3 +106,11 @@ func _on_music_vol_slider_value_changed(value: float) -> void:
 		toggle_music()
 		
 		
+
+
+func _on_glow_chk_btn_toggled(toggled_on: bool) -> void:
+	%BloomLayer.visible = toggled_on
+
+
+func _on_crt_chk_btn_toggled(toggled_on: bool) -> void:
+	%CrtLayer.visible = toggled_on

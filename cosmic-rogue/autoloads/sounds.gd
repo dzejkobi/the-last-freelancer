@@ -6,7 +6,7 @@ extends Node
 var music := AudioPlayer.Music.new(
 	"res://assets/music/trance5.ogg",
 	{
-		"volume": 0.6
+		"volume": 0.5
 	}
 )
 
@@ -41,7 +41,7 @@ var footstep := AudioPlayer.Sound.new(
 var game_over := AudioPlayer.Sound.new(
 	"res://assets/sounds/game_over.ogg",
 	{
-		"volume": 0.8,
+		"volume": 1.0,
 		"pitch_scale_variancy": 0.2
 	},
 	true
@@ -50,8 +50,8 @@ var game_over := AudioPlayer.Sound.new(
 var laser := AudioPlayer.Sound.new(
 	"res://assets/sounds/laser.ogg",
 	{
-		"volume": 0.6,
-		"pitch_scale_variancy": 0.2
+		"volume": 0.7,
+		"pitch_scale_variancy": 0.4
 	},
 	true
 )
@@ -59,7 +59,7 @@ var laser := AudioPlayer.Sound.new(
 var victory := AudioPlayer.Sound.new(
 	"res://assets/sounds/victory.ogg",
 	{
-		"volume": 0.8,
+		"volume": 1.0,
 		"pitch_scale_variancy": 0.2
 	},
 	true

@@ -10,8 +10,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u5opy"]
 shader = ExtResource("6_dakft")
-shader_parameter/bloom_spread = 0.5
-shader_parameter/bloom_intensity = 0.5
+shader_parameter/bloom_spread = 0.6
+shader_parameter/bloom_intensity = 0.6
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y36n6"]
 shader = ExtResource("7_u5opy")
@@ -28,9 +28,9 @@ shader_parameter/roll_variation = 1.8
 shader_parameter/distort_intensity = 0.05
 shader_parameter/noise_opacity = 0.4
 shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.06000000285
+shader_parameter/static_noise_intensity = 0.0400000019
 shader_parameter/aberration = 0.010000047974999982
-shader_parameter/brightness = 1.4
+shader_parameter/brightness = 1.3
 shader_parameter/discolor = true
 shader_parameter/warp_amount = 0.262000012445
 shader_parameter/clip_warp = false
@@ -99,6 +99,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BloomLayer" type="CanvasLayer" parent="." unique_id=1661826613]
+unique_name_in_owner = true
 
 [node name="Bloom" type="ColorRect" parent="BloomLayer" unique_id=1745205871]
 material = SubResource("ShaderMaterial_u5opy")
@@ -110,6 +111,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="CrtLayer" type="CanvasLayer" parent="." unique_id=1344653467]
+unique_name_in_owner = true
 
 [node name="CRT" type="ColorRect" parent="CrtLayer" unique_id=703444585]
 material = SubResource("ShaderMaterial_y36n6")
