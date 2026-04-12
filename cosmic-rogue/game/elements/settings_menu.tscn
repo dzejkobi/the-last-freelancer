@@ -59,14 +59,14 @@ layout_mode = 2
 max_value = 1.0
 step = 0.01
 
-[node name="SoundVolLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=222705682]
+[node name="SfxVolLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=222705682]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Sound effects volume:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SoundVolSlider" type="HSlider" parent="PanelContainer/VBoxContainer" unique_id=490165276]
+[node name="SfxVolSlider" type="HSlider" parent="PanelContainer/VBoxContainer" unique_id=490165276]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
@@ -111,8 +111,8 @@ text = "CRT"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/BackBtn" to="." method="_on_back_btn_pressed"]
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/MasterVolSlider" to="." method="_on_master_vol_slider_value_changed"]
-[connection signal="value_changed" from="PanelContainer/VBoxContainer/SoundVolSlider" to="." method="_on_sound_vol_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/SfxVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/DisplayBtn" to="." method="_on_display_btn_pressed"]
-[connection signal="toggled" from="PanelContainer/VBoxContainer/BloomChkBtn" to="." method="_on_glow_chk_btn_toggled"]
+[connection signal="toggled" from="PanelContainer/VBoxContainer/BloomChkBtn" to="." method="_on_bloom_chk_btn_toggled"]
 [connection signal="toggled" from="PanelContainer/VBoxContainer/CrtChkBtn" to="." method="_on_crt_chk_btn_toggled"]
