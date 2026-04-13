@@ -7,6 +7,7 @@ const projectile_scene = preload("res://projectiles/projectile.tscn")
 @export var is_enemy: bool = true
 @export var score: int = 5
 @export var color_name: String
+@export var projectile_type: Enums.PROJECTILE_TYPE
 
 var is_moving: bool = false
 var grid_pos: Vector2i
@@ -81,6 +82,7 @@ func shoot(target: Actor) -> void:
 	var projectile: Projectile = projectile_scene.instantiate()
 	Sounds.laser.play({"global_position": global_position})
 	projectile.position = position
+	projectile.kind = projectile_type
 	Globals.board.actor_layer.add_child(projectile)
 	projectile.move_to(target.grid_pos)
 

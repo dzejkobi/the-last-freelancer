@@ -77,6 +77,7 @@ animations = [{
 script = ExtResource("1_1yqc4")
 attack_range = 5
 color_name = "player_color"
+projectile_type = 1
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
 scale = Vector2(4, 4)

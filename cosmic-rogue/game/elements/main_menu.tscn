@@ -48,6 +48,8 @@ vertical_alignment = 1
 [node name="ResumeBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1059358787]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../QuitBtn")
+focus_previous = NodePath("../QuitBtn")
 disabled = true
 text = "Resume
 "
@@ -67,6 +69,8 @@ text = "Settings
 [node name="QuitBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1269426005]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../ResumeBtn")
+focus_next = NodePath("../ResumeBtn")
 text = "Quit
 "
 

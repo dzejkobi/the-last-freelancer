@@ -62,6 +62,7 @@ animations = [{
 [node name="Manipulant" type="Node2D" unique_id=1742221200]
 script = ExtResource("1_ck2s2")
 color_name = "manipulant_color"
+projectile_type = 3
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
 scale = Vector2(4, 4)

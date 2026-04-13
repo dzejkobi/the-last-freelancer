@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dpuqgtrcu0kia"]
+
+[ext_resource type="Script" uid="uid://ue2871stn4cd" path="res://projectiles/splash.gd" id="1_clj3c"]
+
+[sub_resource type="Curve" id="Curve_gwvus"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.74999994, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_clj3c"]
+curve = SubResource("Curve_gwvus")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1b0yi"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 120.0
+initial_velocity_min = 280.0
+initial_velocity_max = 480.0
+gravity = Vector3(0, 60, 0)
+scale_min = 8.0
+scale_max = 8.0
+color = Color(0, 1, 0.41568628, 1)
+alpha_curve = SubResource("CurveTexture_clj3c")
+
+[node name="Splash" type="Node2D" unique_id=1808132841]
+script = ExtResource("1_clj3c")
+anim_time = 0.25
+
+[node name="Particles" type="GPUParticles2D" parent="." unique_id=390708365]
+amount = 12
+lifetime = 0.25
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1b0yi")
+
+[node name="Timer" type="Timer" parent="." unique_id=509911733]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

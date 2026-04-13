@@ -36,6 +36,10 @@ window/size/viewport_height=960
 window/size/mode=3
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+projectile=""
+
 [gui]
 
 theme/custom="uid://dxyb5rrlf3o8v"
