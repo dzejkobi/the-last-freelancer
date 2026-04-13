@@ -14,4 +14,5 @@ func die() -> void:
 	
 func _movement_finished_callback() -> void:
 	super._movement_finished_callback()
+	await Globals.board.until_no_projectiles()
 	Globals.board.player_movement_finished.emit(self)

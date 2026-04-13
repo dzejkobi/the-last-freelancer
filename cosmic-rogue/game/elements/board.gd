@@ -70,10 +70,14 @@ func complete_level() -> void:
 	setup()
 
 
+func until_no_projectiles() -> void:
+	while get_tree().get_nodes_in_group("projectile").size() > 0:
+		await get_tree().process_frame
+
+
 func check_level_completion() -> void:
 	if not enemies.size():
 		# lets firstly wait for all projectiles to hit their targets
-		while get_tree().get_nodes_in_group("projectile").size():
-			await get_tree().create_timer(0.1).timeout
+		await until_no_projectiles()
 		if is_set:
 			complete_level()
