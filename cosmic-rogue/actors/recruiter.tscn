@@ -75,6 +75,7 @@ animations = [{
 
 [node name="Recruiter" type="Node2D" unique_id=1742221200]
 script = ExtResource("1_f2fmp")
+verbose_name = "Recruiter"
 attack_range = 4
 score = 8
 color_name = "recruiter_color"

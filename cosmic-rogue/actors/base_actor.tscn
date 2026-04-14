@@ -25,7 +25,6 @@ animations = [{
 
 [node name="Actor" type="Node2D" unique_id=1742221200]
 script = ExtResource("1_0y2jj")
-movement_duration = 0.6
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
 scale = Vector2(4, 4)

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bh7xgp04liqma" path="res://game/elements/board.gd" id="1_sci5y"]
 [ext_resource type="TileSet" uid="uid://sw64kb2abd4r" path="res://tilesets/terrain.tres" id="2_0c24q"]
 [ext_resource type="Script" uid="uid://ditt6sjhkns4e" path="res://game/elements/terrain_layer.gd" id="3_wxh40"]
-[ext_resource type="PackedScene" uid="uid://cyd5qjbx1wgjd" path="res://levels/level_loader.tscn" id="4_2nrni"]
+[ext_resource type="PackedScene" uid="uid://cyd5qjbx1wgjd" path="res://levels/level_man.tscn" id="4_2nrni"]
 
 [node name="Board" type="Node2D" unique_id=1900201133 node_paths=PackedStringArray("grid")]
 script = ExtResource("1_sci5y")

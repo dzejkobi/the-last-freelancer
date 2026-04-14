@@ -1,4 +1,4 @@
-class_name LevelLoader extends Node
+class_name LevelMan extends Node
 
 # TODO: Bonus points to collect in each level, dropping down after each move
 
@@ -9,10 +9,6 @@ const TERRAIN_CHAR_MAP = {
 }
 
 const ACTOR_CHAR_MAP: Dictionary = {
-	"": {
-		"type": Enums.ACTOR_TYPE.UNKNOWN,
-		"scene": null
-	},
 	" ": {
 		"type": Enums.ACTOR_TYPE.NONE,
 		"scene": null
@@ -22,8 +18,8 @@ const ACTOR_CHAR_MAP: Dictionary = {
 		"scene": preload("res://actors/player.tscn")
 	},
 	"m": {
-		"type": Enums.ACTOR_TYPE.MANIPULANT,
-		"scene": preload("res://actors/manipulant.tscn")
+		"type": Enums.ACTOR_TYPE.CRAWLER,
+		"scene": preload("res://actors/crawler.tscn")
 	},
 	"r": {
 		"type": Enums.ACTOR_TYPE.RECRUITER,
@@ -35,27 +31,55 @@ const ACTOR_CHAR_MAP: Dictionary = {
 	}
 }
 
-@export var level_names: Array[String] = [
-	"level1"
-]
-@export var curr_level_index: int = 0
+const EMPTY_CELL = [TERRAIN_CHAR_MAP[" "], ACTOR_CHAR_MAP[" "]]
+
+@export var level_names: Array[String] = ["level1"]
+@export var first_loop: int = 1
+@export var last_loop: int = 3
+@export var first_level_index: int = 0
+
+var curr_loop: int = 1
+var curr_level_index: int = 0
+
+var curr_level: int:
+	get():
+		return curr_level_index + 1
+
+var curr_progress: String:
+	get():
+		return "%s / %s" % [curr_loop, curr_level]
 
 
-func read_cell_from_str(cell_str: String) -> Array:
+func read_cell_from_str(_cell_str: String) -> Array:
+	var cell_str: String = _cell_str
+	var apply_at_loop: int
+
 	if len(cell_str) == 1:
-		cell_str += ' '
+		cell_str += '1'
 	assert(
 		len(cell_str) == 2,
-		"Parameter cell_str should be a String of length 2."
+		'Parameter _cell_str "%s" should be a String of length 2.' % _cell_str
 	)
+	if cell_str[1] == ' ':
+		cell_str[1] = '1'
+	assert(
+		cell_str[0] in TERRAIN_CHAR_MAP or cell_str[0] in ACTOR_CHAR_MAP,
+		'Unknown _cell_str definition "%s".' % _cell_str
+	)
+	if not cell_str[1].is_valid_int():
+		push_error('Invalid loop number in _cell_str "%s".' % _cell_str)
+		return EMPTY_CELL
+	
+	apply_at_loop = int(cell_str[1])
+	if curr_loop < apply_at_loop:
+		return EMPTY_CELL
+		
 	var terrain_type: Enums.TERRAIN_TYPE = TERRAIN_CHAR_MAP.get(
-		cell_str[0], Enums.TERRAIN_TYPE.UNKNOWN
+		cell_str[0], Enums.TERRAIN_TYPE.FLOOR
 	)
 	var actor_def: Dictionary = ACTOR_CHAR_MAP.get(
-		cell_str[1], ACTOR_CHAR_MAP[""]
+		cell_str[0], ACTOR_CHAR_MAP[" "]
 	)
-	assert(terrain_type, "Unknown terrain type.")
-	assert(actor_def["type"], "Unknown actor type.")
 	return [terrain_type, actor_def]
 	
 
@@ -94,11 +118,23 @@ func setup_board(board: Board):
 	grid.size = grid_pos
 	
 	
-func set_next_level(level_index: int = -1) -> void:
-	if level_index == -1:
+func set_next_level(level_index: int = -1, loop: int = -1) -> bool:
+	if loop > 0:
+		curr_loop = loop
+	if level_index > -1:
+		curr_level_index = level_index
+	else:
 		curr_level_index += 1
 		if curr_level_index >= level_names.size():
+			curr_loop += 1
 			curr_level_index = 0
+		
+	curr_loop = clamp(curr_loop, 1, last_loop + 1)
+	curr_level_index = clamp(curr_level_index, 0, level_names.size() - 1)
+	
+	if curr_loop > last_loop:
+		Globals.board.victory()
+		return false
 	else:
-		curr_level_index = level_index
-	%LevelLabel.text = "Level: %s" % (curr_level_index + 1)
+		%LevelLabel.text = "Level: %s" % curr_progress
+		return true

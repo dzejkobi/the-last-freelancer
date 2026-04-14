@@ -1,31 +1,31 @@
 [gd_scene format=3 uid="uid://2e637uqlsrmt"]
 
-[ext_resource type="Script" uid="uid://kk24snwcd2er" path="res://actors/actor.gd" id="1_ck2s2"]
-[ext_resource type="Texture2D" uid="uid://cudj45yj27ei4" path="res://assets/graphics/actors.png" id="2_ck2s2"]
-[ext_resource type="PackedScene" uid="uid://b1x2jw1behuyh" path="res://actors/components/random_movement_ai.tscn" id="3_o54sw"]
+[ext_resource type="Script" uid="uid://kk24snwcd2er" path="res://actors/actor.gd" id="1_g6tml"]
+[ext_resource type="Texture2D" uid="uid://cudj45yj27ei4" path="res://assets/graphics/actors.png" id="2_caswg"]
+[ext_resource type="PackedScene" uid="uid://b1x2jw1behuyh" path="res://actors/components/random_movement_ai.tscn" id="3_nesf5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o54sw"]
-atlas = ExtResource("2_ck2s2")
+atlas = ExtResource("2_caswg")
 region = Rect2(32, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qte6l"]
-atlas = ExtResource("2_ck2s2")
+atlas = ExtResource("2_caswg")
 region = Rect2(0, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nff7f"]
-atlas = ExtResource("2_ck2s2")
+atlas = ExtResource("2_caswg")
 region = Rect2(16, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j82pr"]
-atlas = ExtResource("2_ck2s2")
+atlas = ExtResource("2_caswg")
 region = Rect2(32, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pxh0a"]
-atlas = ExtResource("2_ck2s2")
+atlas = ExtResource("2_caswg")
 region = Rect2(80, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pl6l6"]
-atlas = ExtResource("2_ck2s2")
+atlas = ExtResource("2_caswg")
 region = Rect2(48, 64, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_240qr"]
@@ -59,10 +59,11 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Manipulant" type="Node2D" unique_id=1742221200]
-script = ExtResource("1_ck2s2")
-color_name = "manipulant_color"
-projectile_type = 3
+[node name="Crawler" type="Node2D" unique_id=1742221200]
+script = ExtResource("1_g6tml")
+verbose_name = "Crawler"
+color_name = "crawler_color"
+projectile_type = 4
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
 scale = Vector2(4, 4)
@@ -71,4 +72,4 @@ animation = &"walking"
 autoplay = "idle"
 centered = false
 
-[node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_o54sw")]
+[node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_nesf5")]

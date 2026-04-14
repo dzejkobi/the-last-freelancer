@@ -2,11 +2,14 @@ extends PanelContainer
 
 @onready var level_label: Label = $VBoxContainer/LevelLabel
 @onready var score_label: Label = $VBoxContainer/ScoreLabel
+@onready var killer_label: Label = $VBoxContainer/KillerLabel
 
 
-func display(level: int, score: int) -> void:
-	level_label.text = "You died on level: %s" % level
-	score_label.text = "with score: %s" % score
+func display(killer: Actor = null) -> void:
+	killer_label.text = \
+		"by: %s" % (killer.verbose_name if killer else "Something")
+	level_label.text = "at level: %s" % Globals.board.level_man.curr_progress
+	score_label.text = "your score: %s" % Globals.board.score
 	visible = true
 	
 	

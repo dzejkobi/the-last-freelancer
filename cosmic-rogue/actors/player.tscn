@@ -75,6 +75,7 @@ animations = [{
 
 [node name="Player" type="Node2D" unique_id=1742221200]
 script = ExtResource("1_1yqc4")
+verbose_name = "Player"
 attack_range = 5
 color_name = "player_color"
 projectile_type = 1

@@ -2,6 +2,7 @@ class_name Actor extends Node2D
 
 const projectile_scene = preload("res://entities/projectile.tscn")
 
+@export var verbose_name: String = "Actor"
 @export var movement_time: float = 0.5
 @export var attack_range: int = 3
 @export var is_enemy: bool = true
@@ -86,7 +87,8 @@ func shoot(target: Actor) -> void:
 	Sounds.laser.play({"global_position": global_position})
 	projectile.position = position
 	projectile.kind = projectile_type
-	Globals.board.actor_layer.add_child(projectile)
+	projectile.shooter = self
+	Globals.board.entity_layer.add_child(projectile)
 	projectile.move_to(target.grid_pos)
 
 
@@ -103,20 +105,19 @@ func try_to_shoot() -> void:
 		shoot(targets[0])
 
 
-func die() -> void:
+func die(_killer: Actor = null) -> void:
 	Globals.grid.cells.get(grid_pos).actor = null
-	if self is Player:
-		Globals.board.player = null
-	elif is_enemy:
-		Globals.board.score += score
+	if is_enemy:
+		if Globals.board.player:
+			Globals.board.score += score
 		Globals.board.enemies.erase(self)
 		Sounds.enemy_dies.play({"global_position": global_position})
 		Globals.board.check_level_completion()
 	queue_free()
 
 
-func hit_by_projectile(_projectile: Projectile) -> void:
-	die()
+func hit_by_projectile(projectile: Projectile) -> void:
+	die(projectile.shooter if is_instance_valid(projectile.shooter) else null)
 
 
 func get_predicted_grid_pos() -> Vector2i:

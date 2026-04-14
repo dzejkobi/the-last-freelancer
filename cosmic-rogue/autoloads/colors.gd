@@ -10,6 +10,6 @@ extends Node
 
 @export_group("Actors")
 @export var player_color: Color
-@export var manipulant_color: Color
+@export var crawler_color: Color
 @export var recruiter_color: Color
 @export var headhunter_color: Color

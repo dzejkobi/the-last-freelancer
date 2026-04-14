@@ -10,6 +10,7 @@ var enemies: Array[Actor] = []
 
 var is_set: bool = false
 var pending_projectiles: bool = false
+var killer_name: String = "Enemy"
 
 var score: int = 0:
 	set(value):
@@ -22,7 +23,7 @@ var score: int = 0:
 @onready var actor_layer: Node2D = $ActorLayer
 @onready var entity_layer: Node2D = $EntityLayer
 @onready var camera: Camera2D = %Camera
-@onready var level_loader: LevelLoader = %LevelLoader
+@onready var level_man: LevelMan = %LevelMan
 
 @warning_ignore("unused_signal")
 signal player_movement_started(player: Actor)
@@ -50,28 +51,34 @@ func setup() -> void:
 		enemy.queue_free()
 	enemies.clear()
 	grid.cleanup()
-	level_loader.setup_board(self)
+	level_man.setup_board(self)
 	terrain_layer.update_tilemaps(grid)
 	is_set = true
 
 
 func reset() -> void:
 	score = 0
-	level_loader.set_next_level(0)
+	level_man.set_next_level(level_man.first_level_index, level_man.first_loop)
 	setup()
 
 
-func game_over() -> void:
-	%GameOverPanel.display(level_loader.curr_level_index + 1, score)
+func game_over(killer: Actor) -> void:
+	%GameOverPanel.display(killer)
 	Sounds.game_over.play()
+	is_paused = true
+	is_set = false
+	
+
+func victory() -> void:
+	%VictoryPanel.display()
 	is_paused = true
 	is_set = false
 
 
 func complete_level() -> void:
 	Sounds.victory.play()
-	level_loader.set_next_level()
-	setup()
+	if level_man.set_next_level():
+		setup()
 
 
 func until_no_projectiles() -> void:

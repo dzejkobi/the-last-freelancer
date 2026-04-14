@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cyd5qjbx1wgjd"]
+
+[ext_resource type="Script" uid="uid://dobwc8a2ss8oy" path="res://levels/level_man.gd" id="1_gps36"]
+
+[node name="LevelMan" type="Node" unique_id=186858389]
+script = ExtResource("1_gps36")
+level_names = Array[String](["Level1", "Level2", "Level3"])

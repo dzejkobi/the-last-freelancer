@@ -18,9 +18,13 @@ func try_to_shoot() -> void:
 	else:
 		crosshair = crosshair_scene.instantiate()
 		Globals.board.entity_layer.add_child(crosshair)
-		crosshair.appear_at(Globals.board.player.get_predicted_grid_pos())
+		crosshair.appear_at(grid_pos)
+		crosshair.move_to(
+			Globals.board.player.get_predicted_grid_pos()
+		)
 		
 
-func die() -> void:
-	crosshair.disappear()
-	super.die()
+func die(killer: Actor = null) -> void:
+	if crosshair:
+		crosshair.disappear()
+	super.die(killer)

@@ -1,15 +1,15 @@
 x x x x x x x x x x x x x x x x x x x x
 x                                     x
-x                    m                x 
-x      p                    x x x     x
-x                           x  rx     x
-x                m          x x x     x
+x                     m               x 
+x     p                     x x x     x
+x                           x r2x     x
+x                 m2        x x x     x
 x                                     x
-x                          r          x
+x                           r3        x
 x                                     x
-x     x x x  m              x x x     x
-x     x  rx              m  x  rx     x
+x     x x x   m             x x x     x
+x     x r2x             m   x r x     x
 x     x x x                 x x x     x
-x                  r                  x
+x                 r2                  x
 x                                     x
 x x x x x x x x x x x x x x x x x x x x

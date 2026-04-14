@@ -7,9 +7,9 @@ func move_to_cell(to_grid_pos: Vector2i) -> void:
 	Globals.board.player_movement_started.emit(self)
 
 
-func die() -> void:
-	super.die()
-	Globals.board.game_over()
+func die(killer: Actor = null) -> void:
+	super.die(killer)
+	Globals.board.game_over(killer)
 	
 	
 func _movement_finished_callback() -> void:
