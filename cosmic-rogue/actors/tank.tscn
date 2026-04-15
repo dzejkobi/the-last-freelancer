@@ -169,6 +169,8 @@ attack_range = -1
 score = 12
 color_name = "tank_color"
 projectile_type = 4
+hint = "Such vehicles have infinite range
+but can only shoot in straight lines."
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
 scale = Vector2(4, 4)

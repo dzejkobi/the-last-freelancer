@@ -54,3 +54,9 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "your score: xyz"
 horizontal_alignment = 1
+
+[node name="HintLabel" type="Label" parent="VBoxContainer" unique_id=860029345]
+visible = false
+layout_mode = 2
+text = "Did you know?: Something"
+horizontal_alignment = 1

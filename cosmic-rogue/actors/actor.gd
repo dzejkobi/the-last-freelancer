@@ -9,6 +9,7 @@ const projectile_scene = preload("res://entities/projectile.tscn")
 @export var score: int = 5
 @export var color_name: String
 @export var projectile_type: Enums.PROJECTILE_TYPE
+@export_multiline var hint: String
 
 var is_moving: bool = false
 var grid_pos: Vector2i

@@ -64,6 +64,9 @@ script = ExtResource("1_g6tml")
 verbose_name = "Crawler"
 color_name = "crawler_color"
 projectile_type = 5
+hint = "It is very humiliating to be
+defeated by such a pathetic
+and disgusting creature."
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
 scale = Vector2(4, 4)

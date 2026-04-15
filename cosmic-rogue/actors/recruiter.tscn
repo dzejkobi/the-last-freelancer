@@ -80,6 +80,10 @@ attack_range = 4
 score = 8
 color_name = "recruiter_color"
 projectile_type = 2
+hint = "Recruiters can be ruthless and cunning,
+but they can be overcome
+by keeping your distance
+and approaching from an angle."
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
 scale = Vector2(4, 4)

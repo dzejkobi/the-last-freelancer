@@ -80,6 +80,10 @@ attack_range = -1
 score = 15
 color_name = "headhunter_color"
 projectile_type = 3
+hint = "Headhunters having infinite range,
+will try to predict your next move
+and aim there.
+Try to outsmart them."
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
 scale = Vector2(4, 4)
