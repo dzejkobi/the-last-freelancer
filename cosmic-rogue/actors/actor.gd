@@ -90,6 +90,7 @@ func move_to_cell(to_grid_pos: Vector2i) -> void:
 
 
 func wait() -> void:
+	prev_grid_pos = grid_pos
 	movement_started.emit()
 	_movement_finished_callback(true)
 	delayed_try_to_shoot()
@@ -158,12 +159,7 @@ func hit_by_projectile(projectile: Projectile) -> void:
 
 func get_predicted_grid_pos() -> Vector2i:
 	if prev_grid_pos == grid_pos:
-		return [
-			grid_pos + Vector2i.UP,
-			grid_pos + Vector2i.RIGHT,
-			grid_pos + Vector2i.DOWN,
-			grid_pos + Vector2i.LEFT,
-		].pick_random()
+		return grid_pos
 	else:
 		var _direction: Vector2i = grid_pos - prev_grid_pos
 		return grid_pos + _direction

@@ -94,3 +94,5 @@ frame_progress = 0.53797966
 centered = false
 
 [node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_2gi4b")]
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
