@@ -1,7 +1,5 @@
 class_name Tank extends Actor
 
-@export var direction: Vector2i = Vector2i.UP
-
 
 static func get_dir_name(_direction: Vector2i) -> String:
 	match _direction:
@@ -22,40 +20,12 @@ func _movement_finished_callback() -> void:
 	anim_sprite.play("idle_%s" % get_dir_name(direction))
 	position = Grid.grid_pos_to_pos(grid_pos)
 	is_moving = false
-	
-	
-func move_to_cell(to_grid_pos: Vector2i) -> void:
-	var target_pos: Vector2 = Grid.grid_pos_to_pos(to_grid_pos)
-	var tween: Tween = create_tween()
-	
-	assert(not is_moving, "Can't move already moving actor.")
-	assert(
-		is_movement_valid(to_grid_pos),
-		"Invalid movement to %s." % to_grid_pos
-	)
-	
-	is_moving = true
-	direction = to_grid_pos - grid_pos
+	Globals.board.movement_man.unregister_actor(self)
 
-	# final position has to be set immidiately
-	Globals.grid.cells[grid_pos].actor = null
-	Globals.grid.cells[to_grid_pos].actor = self
-	prev_grid_pos = grid_pos
-	grid_pos = to_grid_pos
 
+func play_movement_animation() -> void:
 	anim_sprite.play("moving_%s" % get_dir_name(direction))
-	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(
-		self, "position", target_pos, movement_time
-	)
-	tween.tween_callback(_movement_finished_callback)
-	
-	var timer: SceneTreeTimer = get_tree().create_timer(0.1 * movement_time)
-	timer.timeout.connect(func ():
-		# we need to wait until all actors updates their grid positions
-		try_to_shoot()
-	)
-	
+
 
 func find_enemies_in_range() -> Array[Actor]:
 	var player = Globals.board.player
@@ -85,5 +55,3 @@ func shoot(target: Actor) -> void:
 			anim_sprite.play("moving_%s" % dir_name)
 		super.shoot(target)
 	)
-
-	

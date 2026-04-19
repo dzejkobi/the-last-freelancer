@@ -2,7 +2,15 @@
 
 extends Node
 
+enum BuildKind {
+	UNKNOWN=0,
+	WINDOWS=1,
+	WEB=2,
+	MAC=3
+}
+
 @export var config_path: String = "user://settings.cfg"
+@export var build: BuildKind
 
 var master_vol: float
 var sfx_vol: float
@@ -12,9 +20,26 @@ var fullscreen_on: bool
 var bloom_on: bool
 var crt_on: bool
 
+var menu_key_name: String = "ESC"
+
 
 func ensure_dir(path: String):
 	DirAccess.make_dir_recursive_absolute(path.get_base_dir())
+
+
+func set_build() -> void:
+	if build == BuildKind.WEB:
+		var action_name := "ui_cancel"
+		var key_event := InputEventKey.new()
+		
+		InputMap.action_erase_events(action_name)
+		key_event.physical_keycode = KEY_F1
+		menu_key_name = "F1"
+		InputMap.action_add_event(action_name, key_event)
+
+
+func _ready() -> void:
+	set_build()
 
 
 func save():

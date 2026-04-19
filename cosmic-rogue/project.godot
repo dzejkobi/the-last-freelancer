@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Cosmic Freelancer"
+config/name="The Last Freelancer"
 run/main_scene="uid://cs02me5wqeif6"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://demfopeaqhnj8"

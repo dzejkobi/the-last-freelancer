@@ -12,8 +12,10 @@ const projectile_scene = preload("res://entities/projectile.tscn")
 @export_multiline var hint: String
 
 var is_moving: bool = false
+var is_dying: bool = false
 var grid_pos: Vector2i
 var prev_grid_pos: Vector2i
+var direction: Vector2i = Vector2i.UP
 
 @onready var anim_sprite: AnimatedSprite2D = $AnimSprite
 
@@ -40,6 +42,11 @@ func _movement_finished_callback() -> void:
 	anim_sprite.play("idle")
 	position = Grid.grid_pos_to_pos(grid_pos)
 	is_moving = false
+	Globals.board.movement_man.unregister_actor(self)
+
+
+func play_movement_animation() -> void:
+	anim_sprite.play("walking")
 
 
 func move_to_cell(to_grid_pos: Vector2i) -> void:
@@ -51,16 +58,19 @@ func move_to_cell(to_grid_pos: Vector2i) -> void:
 		is_movement_valid(to_grid_pos),
 		"Invalid movement to %s." % to_grid_pos
 	)
+	assert(not is_dying, "Dying actor can't be ordered to move.")
 	
+	Globals.board.movement_man.register_actor(self)
 	is_moving = true
 
 	# final position has to be set immidiately
 	Globals.grid.cells[grid_pos].actor = null
 	Globals.grid.cells[to_grid_pos].actor = self
+	direction = to_grid_pos - grid_pos
 	prev_grid_pos = grid_pos
 	grid_pos = to_grid_pos
 
-	anim_sprite.play("walking")
+	play_movement_animation()
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(
 		self, "position", target_pos, movement_time
@@ -108,6 +118,7 @@ func try_to_shoot() -> void:
 
 func die(_killer: Actor = null) -> void:
 	Globals.grid.cells.get(grid_pos).actor = null
+	is_dying = true
 	if is_enemy:
 		if Globals.board.player:
 			Globals.board.score += score
@@ -116,7 +127,10 @@ func die(_killer: Actor = null) -> void:
 		Globals.board.check_level_completion()
 	var tween := create_tween()
 	tween.tween_property(self, "modulate:a", 0, 0.1)
-	tween.tween_callback(func (): queue_free())
+	tween.tween_callback(func (): 
+		Globals.board.movement_man.unregister_actor(self, true)
+		queue_free()
+	)
 
 
 func hit_by_projectile(projectile: Projectile) -> void:

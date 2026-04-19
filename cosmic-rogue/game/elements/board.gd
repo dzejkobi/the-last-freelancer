@@ -24,6 +24,7 @@ var score: int = 0:
 @onready var entity_layer: Node2D = $EntityLayer
 @onready var camera: Camera2D = %Camera
 @onready var level_man: LevelMan = %LevelMan
+@onready var movement_man: MovementMan = $MovementMan
 
 @warning_ignore("unused_signal")
 signal player_movement_started(player: Actor)
@@ -81,16 +82,14 @@ func complete_level() -> void:
 		setup()
 
 
-func until_no_projectiles() -> void:
-	while get_tree().get_nodes_in_group("projectile").size() > 0:
-		pending_projectiles = true
+func until_no_movement() -> void:
+	while movement_man.in_movement:
 		await get_tree().process_frame
-	pending_projectiles = false
 
 
 func check_level_completion() -> void:
 	if not enemies.size():
 		# lets firstly wait for all projectiles to hit their targets
-		await until_no_projectiles()
+		await until_no_movement()
 		if is_set:
 			complete_level()

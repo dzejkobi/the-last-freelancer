@@ -16,4 +16,5 @@ func move() -> void:
 
 
 func _on_player_movement_started(_player: Actor):
-	move()
+	if not actor.is_dying:
+		move()

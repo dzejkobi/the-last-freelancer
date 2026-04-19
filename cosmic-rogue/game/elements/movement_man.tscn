@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bfdibbvxvqage"]
+
+[ext_resource type="Script" uid="uid://btj27p15l1aaq" path="res://game/elements/movement_man.gd" id="1_difgv"]
+
+[node name="MovementMan" type="Node" unique_id=1136183174]
+script = ExtResource("1_difgv")

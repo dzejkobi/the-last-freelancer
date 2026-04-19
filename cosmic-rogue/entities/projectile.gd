@@ -52,6 +52,7 @@ func move_to(_to_grid_pos: Vector2i) -> void:
 	var duration: float = distance / speed
 	var tween = create_tween()
 	
+	Globals.board.movement_man.register_projectile(self)
 	tween.tween_property(self, "position", to_pos, duration)
 	tween.tween_callback(_at_target_reached)
 	
@@ -65,4 +66,5 @@ func _at_target_reached() -> void:
 		Globals.board.entity_layer.add_child(splash)
 		splash.display(Colors.get(cell.actor.color_name))
 		cell.actor.hit_by_projectile(self)
+	Globals.board.movement_man.unregister_projectile(self)
 	queue_free()
