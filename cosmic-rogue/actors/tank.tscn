@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dvy3ou8pj6wja" path="res://actors/tank.gd" id="1_nr1qx"]
 [ext_resource type="Texture2D" uid="uid://be80qfcg11psg" path="res://assets/graphics/tank.png" id="2_nr1qx"]
 [ext_resource type="PackedScene" uid="uid://b1x2jw1behuyh" path="res://actors/components/random_movement_ai.tscn" id="3_jvisx"]
+[ext_resource type="PackedScene" uid="uid://b4ljei1a8qbgx" path="res://actors/components/tank_range_visualizer.tscn" id="4_ilewo"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ilewo"]
 load_path = "res://.godot/imported/tank.png-66aa283f2ec402513bec11bf212c8554.ctex"
@@ -182,3 +183,5 @@ frame_progress = 0.42323977
 centered = false
 
 [node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_jvisx")]
+
+[node name="TankRangeVisualizer" parent="." unique_id=873552947 instance=ExtResource("4_ilewo")]

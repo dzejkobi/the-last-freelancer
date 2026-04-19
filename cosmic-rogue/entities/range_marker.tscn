@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://7c4vq4nhgu4n"]
+
+[ext_resource type="Script" uid="uid://jwhqkieayeid" path="res://entities/range_marker.gd" id="1_oqcj3"]
+[ext_resource type="Texture2D" uid="uid://v6dnnrtag2iw" path="res://assets/graphics/markers.png" id="2_kin1o"]
+
+[node name="RangeMarker" type="Node2D" unique_id=1756299374]
+script = ExtResource("1_oqcj3")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1414855312]
+scale = Vector2(4, 4)
+texture = ExtResource("2_kin1o")
+centered = false
+region_enabled = true
+region_rect = Rect2(16, 16, 16, 16)

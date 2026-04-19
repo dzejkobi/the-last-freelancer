@@ -9,6 +9,7 @@ const projectile_scene = preload("res://entities/projectile.tscn")
 @export var score: int = 5
 @export var color_name: String
 @export var projectile_type: Enums.PROJECTILE_TYPE
+@export var shoot_delay: float = 0.1 * movement_time
 @export_multiline var hint: String
 
 var is_moving: bool = false
@@ -18,12 +19,18 @@ var prev_grid_pos: Vector2i
 var direction: Vector2i = Vector2i.UP
 
 @onready var anim_sprite: AnimatedSprite2D = $AnimSprite
+@onready var range_visualizer: RangeVisualizer = \
+	get_node_or_null("RangeVisualizer")
+
+signal created
+signal movement_started
 
 
 func setup(_grid_pos: Vector2i) -> void:
 	grid_pos = _grid_pos
 	prev_grid_pos = _grid_pos
 	position = Grid.grid_pos_to_pos(grid_pos)
+	created.emit()
 
 
 func _ready() -> void:
@@ -38,11 +45,12 @@ func is_movement_valid(to_grid_pos: Vector2i) -> bool:
 	return target_cell and target_cell.is_passable()
 
 
-func _movement_finished_callback() -> void:
+func _movement_finished_callback(waited: bool = false) -> void:
 	anim_sprite.play("idle")
 	position = Grid.grid_pos_to_pos(grid_pos)
 	is_moving = false
-	Globals.board.movement_man.unregister_actor(self)
+	if not waited:
+		Globals.board.movement_man.unregister_actor(self)
 
 
 func play_movement_animation() -> void:
@@ -69,6 +77,7 @@ func move_to_cell(to_grid_pos: Vector2i) -> void:
 	direction = to_grid_pos - grid_pos
 	prev_grid_pos = grid_pos
 	grid_pos = to_grid_pos
+	movement_started.emit()
 
 	play_movement_animation()
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -77,11 +86,13 @@ func move_to_cell(to_grid_pos: Vector2i) -> void:
 	)
 	tween.tween_callback(_movement_finished_callback)
 	
-	var timer: SceneTreeTimer = get_tree().create_timer(0.1 * movement_time)
-	timer.timeout.connect(func ():
-		# we need to wait until all actors updates their grid positions
-		try_to_shoot()
-	)
+	delayed_try_to_shoot()
+
+
+func wait() -> void:
+	movement_started.emit()
+	_movement_finished_callback(true)
+	delayed_try_to_shoot()
 
 
 func find_enemies_in_range() -> Array[Actor]:
@@ -104,6 +115,8 @@ func shoot(target: Actor) -> void:
 
 
 func try_to_shoot() -> void:
+	# the delay is useful to wait until all actors
+	# updates their grid positions
 	var targets = find_enemies_in_range()
 	if len(targets):
 		targets.sort_custom(func (a: Actor, b: Actor):
@@ -116,6 +129,11 @@ func try_to_shoot() -> void:
 		shoot(targets[0])
 
 
+func delayed_try_to_shoot() -> void:
+	var timer: SceneTreeTimer = get_tree().create_timer(shoot_delay)
+	timer.timeout.connect(try_to_shoot)
+
+
 func die(_killer: Actor = null) -> void:
 	Globals.grid.cells.get(grid_pos).actor = null
 	is_dying = true
@@ -124,11 +142,12 @@ func die(_killer: Actor = null) -> void:
 			Globals.board.score += score
 		Globals.board.enemies.erase(self)
 		Sounds.enemy_dies.play({"global_position": global_position})
-		Globals.board.check_level_completion()
+
 	var tween := create_tween()
 	tween.tween_property(self, "modulate:a", 0, 0.1)
 	tween.tween_callback(func (): 
 		Globals.board.movement_man.unregister_actor(self, true)
+		Globals.board.check_level_completion()
 		queue_free()
 	)
 
@@ -146,6 +165,6 @@ func get_predicted_grid_pos() -> Vector2i:
 			grid_pos + Vector2i.LEFT,
 		].pick_random()
 	else:
-		var direction: Vector2i = grid_pos - prev_grid_pos
-		return grid_pos + direction
+		var _direction: Vector2i = grid_pos - prev_grid_pos
+		return grid_pos + _direction
 	

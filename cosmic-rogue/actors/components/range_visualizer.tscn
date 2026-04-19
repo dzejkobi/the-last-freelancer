@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://inunbf0cxn0v"]
+
+[ext_resource type="Script" uid="uid://crdvlf2pst1hq" path="res://actors/components/range_visualizer.gd" id="1_324fg"]
+
+[node name="RangeVisualizer" type="Node" unique_id=873552947]
+script = ExtResource("1_324fg")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

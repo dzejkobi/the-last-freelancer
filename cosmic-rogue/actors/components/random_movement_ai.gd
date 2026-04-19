@@ -24,7 +24,7 @@ func move_randomly() -> void:
 	if len(moves):
 		actor.move_to_cell(moves.pick_random())
 	else:
-		actor.try_to_shoot()
+		actor.delayed_try_to_shoot()
 	
 	
 func move() -> void:

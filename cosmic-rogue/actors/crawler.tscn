@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://kk24snwcd2er" path="res://actors/actor.gd" id="1_g6tml"]
 [ext_resource type="Texture2D" uid="uid://cudj45yj27ei4" path="res://assets/graphics/actors.png" id="2_caswg"]
 [ext_resource type="PackedScene" uid="uid://b1x2jw1behuyh" path="res://actors/components/random_movement_ai.tscn" id="3_nesf5"]
+[ext_resource type="PackedScene" uid="uid://inunbf0cxn0v" path="res://actors/components/range_visualizer.tscn" id="4_caswg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o54sw"]
 atlas = ExtResource("2_caswg")
@@ -76,3 +77,5 @@ autoplay = "idle"
 centered = false
 
 [node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_nesf5")]
+
+[node name="RangeVisualizer" parent="." unique_id=873552947 instance=ExtResource("4_caswg")]

@@ -21,6 +21,9 @@ func execute_movement_action(action_name: String) -> void:
 		direction = Vector2i.UP
 	elif action_name == "ui_down":
 		direction = Vector2i.DOWN
+	elif action_name == "ui_accept":
+		actor.wait()
+		return
 	else:
 		push_error('Unsupported action "%s".' % action_name)
 		return
@@ -36,12 +39,16 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 	elif Globals.board.movement_man.in_movement:
 		if not stacked_action_name:
-			for action_str in ["ui_left", "ui_right", "ui_up", "ui_down"]:
+			for action_str in [
+				"ui_left", "ui_right", "ui_up", "ui_down", "ui_accept"
+			]:
 				if Input.is_action_just_pressed(action_str):
 					stacked_action_name = action_str
 		return
 	
-	for action_name: String in ["ui_left", "ui_right", "ui_up", "ui_down"]:
+	for action_name: String in [
+		"ui_left", "ui_right", "ui_up", "ui_down", "ui_accept"
+	]:
 		if Input.is_action_just_pressed(action_name):
 			execute_movement_action(action_name)
 

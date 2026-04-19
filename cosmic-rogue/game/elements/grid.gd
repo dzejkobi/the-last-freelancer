@@ -32,8 +32,29 @@ static func find_actors_in_range(
 		vec.x = actor.grid_pos.x - center.x
 		vec.y = actor.grid_pos.y - center.y
 		distance = sqrt(vec.x * vec.x + vec.y * vec.y)
-		if distance <= _range:
+		if distance < _range:
 			result.append(actor)
+	
+	return result
+	
+	
+func get_cells_in_range(
+	center: Vector2i, _range: int
+) -> Array[Vector2i]:
+	var vec: Vector2i
+	var distance: float
+	var result: Array[Vector2i] = []
+	var y1: int = clampi(center.y - _range, 0, size.y - 1)
+	var y2: int = clampi(center.y + _range, 0, size.y - 1)
+	var x1: int = clampi(center.x - _range, 0, size.x - 1)
+	var x2: int = clampi(center.x + _range, 0, size.x - 1)
+
+	for y in range(y1, y2 + 1):
+		for x in range(x1, x2 + 1):
+			vec = Vector2i(x - center.x, y - center.y)
+			distance = sqrt(vec.x * vec.x + vec.y * vec.y)
+			if distance < _range:
+				result.append(Vector2i(x, y))
 	
 	return result
 

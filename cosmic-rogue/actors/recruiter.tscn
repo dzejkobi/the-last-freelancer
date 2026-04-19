@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://kk24snwcd2er" path="res://actors/actor.gd" id="1_f2fmp"]
 [ext_resource type="Texture2D" uid="uid://cudj45yj27ei4" path="res://assets/graphics/actors.png" id="2_sfvuy"]
 [ext_resource type="PackedScene" uid="uid://b1x2jw1behuyh" path="res://actors/components/random_movement_ai.tscn" id="3_g8rms"]
+[ext_resource type="PackedScene" uid="uid://inunbf0cxn0v" path="res://actors/components/range_visualizer.tscn" id="4_sfvuy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f2fmp"]
 atlas = ExtResource("2_sfvuy")
@@ -83,7 +84,7 @@ projectile_type = 2
 hint = "Recruiters can be ruthless and cunning,
 but they can be overcome
 by keeping your distance
-and approaching from an angle."
+and wait for them to enter your range."
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
 scale = Vector2(4, 4)
@@ -93,3 +94,5 @@ autoplay = "idle"
 centered = false
 
 [node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_g8rms")]
+
+[node name="RangeVisualizer" parent="." unique_id=873552947 instance=ExtResource("4_sfvuy")]

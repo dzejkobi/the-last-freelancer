@@ -26,6 +26,7 @@ var score: int = 0:
 @onready var level_man: LevelMan = %LevelMan
 @onready var movement_man: MovementMan = $MovementMan
 
+signal level_loaded
 @warning_ignore("unused_signal")
 signal player_movement_started(player: Actor)
 @warning_ignore("unused_signal")
@@ -46,8 +47,8 @@ func setup() -> void:
 	if player:
 		player.queue_free()
 		player = null
-	for node: Node in entity_layer.get_children():
-		node.queue_free()
+	#for node: Node in entity_layer.get_children():
+		#node.queue_free()
 	for enemy: Actor in enemies:
 		enemy.queue_free()
 	enemies.clear()
@@ -55,6 +56,7 @@ func setup() -> void:
 	level_man.setup_board(self)
 	terrain_layer.update_tilemaps(grid)
 	is_set = true
+	level_loaded.emit()
 
 
 func reset() -> void:
