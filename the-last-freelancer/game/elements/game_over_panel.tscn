@@ -2,13 +2,25 @@
 
 [ext_resource type="Script" uid="uid://nfyah4um77il" path="res://game/elements/game_over_panel.gd" id="1_tgd3c"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ft810"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgd3c"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.101960786, 0.09411765, 0.21176471, 1)
 corner_detail = 1
-expand_margin_left = 32.0
-expand_margin_top = 32.0
-expand_margin_right = 32.0
-expand_margin_bottom = 32.0
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+shadow_color = Color(0, 0, 0, 0.83137256)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
 
 [node name="GameOverPanel" type="PanelContainer" unique_id=595611579]
 anchors_preset = 8
@@ -22,7 +34,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ft810")
+theme_override_styles/panel = SubResource("StyleBoxFlat_tgd3c")
 script = ExtResource("1_tgd3c")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=585931531]

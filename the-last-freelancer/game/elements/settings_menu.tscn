@@ -3,11 +3,24 @@
 [ext_resource type="Script" uid="uid://dv4405fp425u4" path="res://game/elements/settings_menu.gd" id="1_jj1jf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8y0b"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.101960786, 0.09411765, 0.21176471, 1)
+corner_detail = 1
 expand_margin_left = 8.0
 expand_margin_top = 8.0
 expand_margin_right = 8.0
 expand_margin_bottom = 8.0
+shadow_color = Color(0, 0, 0, 0.83137256)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
 
 [node name="SettingsMenu" type="CenterContainer" unique_id=1294574790]
 script = ExtResource("1_jj1jf")
@@ -21,8 +34,8 @@ layout_mode = 2
 
 [node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1778061709]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Cosmic Rogue"
+theme_override_font_sizes/font_size = 56
+text = "The Last Freelancer"
 horizontal_alignment = 1
 vertical_alignment = 1
 

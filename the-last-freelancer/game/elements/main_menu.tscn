@@ -2,12 +2,25 @@
 
 [ext_resource type="Script" uid="uid://chfu7my43rxih" path="res://game/elements/main_menu.gd" id="1_86yxx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bkrw4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86yxx"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.101960786, 0.09411765, 0.21176471, 1)
+corner_detail = 1
 expand_margin_left = 8.0
 expand_margin_top = 8.0
 expand_margin_right = 8.0
 expand_margin_bottom = 8.0
+shadow_color = Color(0, 0, 0, 0.83137256)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
 
 [node name="MainMenu" type="CenterContainer" unique_id=345281571]
 anchors_preset = 8
@@ -26,7 +39,7 @@ script = ExtResource("1_86yxx")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=346318636]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bkrw4")
+theme_override_styles/panel = SubResource("StyleBoxFlat_86yxx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=724425545]
 layout_mode = 2
