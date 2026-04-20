@@ -12,6 +12,7 @@ var music_player: AudioStreamPlayer
 @onready var music_vol_slider: HSlider = %MusicVolSlider
 @onready var bloom_chk_btn: CheckButton = %BloomChkBtn
 @onready var crt_chk_btn: CheckButton = %CrtChkBtn
+@onready var brightness_slider: HSlider = %BrightnessSlider
 
 
 func toggle() -> void:
@@ -36,6 +37,8 @@ func toggle_music() -> void:
 func _ready() -> void:
 	Settings.load()
 	set_display(Settings.fullscreen_on)
+	brightness_slider.value = Settings.brightness
+	_on_brightness_slider_value_changed(brightness_slider.value)
 	master_vol_slider.value = Settings.master_vol
 	_on_master_vol_slider_value_changed(master_vol_slider.value)
 	sfx_vol_slider.value = Settings.sfx_vol
@@ -117,3 +120,9 @@ func _on_bloom_chk_btn_toggled(toggled_on: bool) -> void:
 func _on_crt_chk_btn_toggled(toggled_on: bool) -> void:
 	Settings.crt_on = toggled_on
 	%CrtLayer.visible = toggled_on
+
+
+func _on_brightness_slider_value_changed(value: float) -> void:
+	Settings.brightness = value
+	%AdjustmentsLayer/Adjustments.material\
+		.set_shader_parameter("brightness", value)

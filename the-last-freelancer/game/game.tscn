@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ca0f87b32oivb" path="res://game/elements/victory_panel.tscn" id="5_l8g03"]
 [ext_resource type="Shader" uid="uid://d1wtuqejjek2d" path="res://shaders/bloom.gdshader" id="6_dakft"]
 [ext_resource type="Shader" uid="uid://d0gd0l2ni37ak" path="res://shaders/crt.gdshader" id="7_u5opy"]
+[ext_resource type="Shader" uid="uid://qywabfwew2l3" path="res://shaders/adjustments.gdshader" id="10_j8tme"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5opy"]
 bg_color = Color(0, 0, 0, 1)
@@ -19,6 +20,10 @@ expand_margin_right = 16.0
 bg_color = Color(0, 0, 0, 1)
 expand_margin_left = 16.0
 expand_margin_right = 16.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3vho3"]
+shader = ExtResource("10_j8tme")
+shader_parameter/brightness = 2.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u5opy"]
 shader = ExtResource("6_dakft")
@@ -40,7 +45,7 @@ shader_parameter/roll_variation = 1.8
 shader_parameter/distort_intensity = 0.05
 shader_parameter/noise_opacity = 0.4
 shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.050000002375
+shader_parameter/static_noise_intensity = 0.0400000019
 shader_parameter/aberration = 0.01000004797499998
 shader_parameter/brightness = 1.4
 shader_parameter/discolor = true
@@ -168,6 +173,18 @@ unique_name_in_owner = true
 [node name="LevelMan" parent="SubViewportContainer/SubViewport/Board" unique_id=186858389 instance=ExtResource("3_4fuuu")]
 unique_name_in_owner = true
 level_names = Array[String](["level1", "level2", "level3"])
+
+[node name="AdjustmentsLayer" type="CanvasLayer" parent="." unique_id=1790017533]
+unique_name_in_owner = true
+
+[node name="Adjustments" type="ColorRect" parent="AdjustmentsLayer" unique_id=83922385]
+material = SubResource("ShaderMaterial_3vho3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="BloomLayer" type="CanvasLayer" parent="." unique_id=1661826613]
 unique_name_in_owner = true

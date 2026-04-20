@@ -26,6 +26,10 @@ https://github.com/dzejkobi/the-last-freelancer
 
 - Original code with active development
 
+- Shaders
+  Bloom - VEGAMETA - https://godotshaders.com/shader/bloom/
+  CRT Visual Shader godot 4.0+ - Lord0Sanz - https://godotshaders.com/shader/crt-visual-shader-godot-4-0/
+
 ---
 
 ## 🎨 Art Assets

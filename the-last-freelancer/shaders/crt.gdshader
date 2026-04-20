@@ -1,3 +1,5 @@
+// Copied from: https://godotshaders.com/shader/crt-visual-shader-godot-4-0/
+
 shader_type canvas_item;
 
 

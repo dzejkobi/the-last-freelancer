@@ -1,3 +1,5 @@
+// Copied from: https://godotshaders.com/shader/bloom/
+
 shader_type canvas_item;
 
 uniform sampler2D t0 : hint_screen_texture;

@@ -2,7 +2,7 @@ class_name RangeMarker extends Node2D
 
 const anim_time: float = 0.2
 
-@export var transparency: float = 0.08
+@export var transparency: float = 0.15
 
 var actor: Actor
 var grid_pos: Vector2i

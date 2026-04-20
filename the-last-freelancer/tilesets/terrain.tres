@@ -1,6 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://sw64kb2abd4r"]
 
 [ext_resource type="Texture2D" uid="uid://b3ryeu82otixl" path="res://assets/graphics/objects.png" id="1_ufxj2"]
+[ext_resource type="Texture2D" uid="uid://blqlv5a88bsr8" path="res://assets/graphics/floor.png" id="2_ndmgv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ndmgv"]
 texture = ExtResource("1_ufxj2")
@@ -26,6 +27,53 @@ texture = ExtResource("1_ufxj2")
 2:3/0 = 0
 3:3/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nfrjq"]
+texture = ExtResource("2_ndmgv")
+0:0/0 = 0
+0:0/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/probability = 0.01
+1:0/0 = 0
+1:0/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/probability = 0.01
+2:0/0 = 0
+2:0/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/probability = 0.01
+0:1/0 = 0
+0:1/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/probability = 0.01
+2:1/0 = 0
+2:1/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+2:1/0/terrain_set = 0
+2:1/0/terrain = 0
+2:1/0/probability = 0.01
+0:2/0 = 0
+0:2/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/probability = 0.01
+1:2/0 = 0
+1:2/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+1:2/0/terrain_set = 0
+1:2/0/terrain = 0
+1:2/0/probability = 0.01
+2:2/0 = 0
+2:2/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+2:2/0/terrain_set = 0
+2:2/0/terrain = 0
+2:2/0/probability = 0.01
+1:1/0 = 0
+1:1/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+
 [resource]
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Floor"
@@ -35,3 +83,4 @@ terrain_set_0/terrain_1/color = Color(0.22352941, 0.25882354, 1, 1)
 terrain_set_0/terrain_2/name = "Rocks"
 terrain_set_0/terrain_2/color = Color(0.6509804, 0.43529412, 0.3254902, 1)
 sources/0 = SubResource("TileSetAtlasSource_ndmgv")
+sources/1 = SubResource("TileSetAtlasSource_nfrjq")

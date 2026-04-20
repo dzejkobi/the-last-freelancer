@@ -16,6 +16,7 @@ var master_vol: float
 var sfx_vol: float
 var music_vol: float
 
+var brightness: float
 var fullscreen_on: bool
 var bloom_on: bool
 var crt_on: bool
@@ -47,6 +48,7 @@ func save():
 	config.set_value("audio", "master_vol", master_vol)
 	config.set_value("audio", "sfx_vol", sfx_vol)
 	config.set_value("audio", "music_vol", music_vol)
+	config.set_value("video", "brightness", brightness)
 	config.set_value("video", "fullscreen", fullscreen_on)
 	config.set_value("video", "bloom", bloom_on)
 	config.set_value("video", "crt", crt_on)
@@ -63,6 +65,7 @@ func load():
 	master_vol = config.get_value("audio", "master_vol", 1.0)
 	sfx_vol = config.get_value("audio", "sfx_vol", 1.0)
 	music_vol = config.get_value("audio", "music_vol", 1.0)
+	brightness = config.get_value("video", "brightness", 1.2)
 	fullscreen_on = config.get_value("video", "fullscreen", false)
 	bloom_on = config.get_value("video", "bloom", true)
 	crt_on = config.get_value("video", "crt", true)

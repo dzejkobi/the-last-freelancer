@@ -7,6 +7,7 @@ extends Node
 @export_group("Terrain")
 @export var wall_color: Color
 @export var stone_color: Color
+@export var floor_color: Color
 
 @export_group("Actors")
 @export var player_color: Color
