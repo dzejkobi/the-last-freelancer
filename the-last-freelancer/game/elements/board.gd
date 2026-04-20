@@ -1,12 +1,38 @@
 class_name Board extends Node
 
+const DIFFICULTY_MAP := {
+	Enums.DIFFICULTY.EASY: {
+		"shield_count": 3
+	},
+	Enums.DIFFICULTY.NORMAL: {
+		"shield_count": 1
+	},
+	Enums.DIFFICULTY.HARD: {
+		"shield_count": 0,
+		"no_extra_shields": true
+	},
+	Enums.DIFFICULTY.IMPOSSIBLE: {
+		"shield_count": 0,
+		"no_extra_shields": true,
+		"no_range_markers": true
+	},
+}
+
 @export var grid: Grid
 @export var level_def: String
 @export var is_paused: bool = true
+@export var difficulty: Enums.DIFFICULTY = Enums.DIFFICULTY.NORMAL
 
 var size: Vector2i = Vector2i.ZERO
 var player: Player
+var player_shield_count: int = 0:
+	set(value):
+		if value != player_shield_count:
+			player_shield_count = value
+			%ShieldInfoContainer.update_shield_display(value)
+		
 var enemies: Array[Actor] = []
+var entities: Array[Entity] = []
 
 var is_set: bool = false
 var pending_projectiles: bool = false
@@ -16,8 +42,6 @@ var score: int = 0:
 	set(value):
 		score = value
 		%ScoreLabel.text = "Score: %s" % score
-	get():
-		return score
 
 @onready var terrain_layer: TerrainLayer = $TerrainLayer
 @onready var actor_layer: Node2D = $ActorLayer
@@ -47,13 +71,15 @@ func setup() -> void:
 	if player:
 		player.queue_free()
 		player = null
-	#for node: Node in entity_layer.get_children():
-		#node.queue_free()
+	for entity: Entity in entities:
+		entity.queue_free()
+	entities.clear()
 	for enemy: Actor in enemies:
 		enemy.queue_free()
 	enemies.clear()
 	grid.cleanup()
 	level_man.setup_board(self)
+	player.shield_count = player_shield_count
 	terrain_layer.update_tilemaps(grid)
 	is_set = true
 	level_loaded.emit()
@@ -62,6 +88,7 @@ func setup() -> void:
 func reset() -> void:
 	score = 0
 	level_man.set_next_level(level_man.first_level_index, level_man.first_loop)
+	player_shield_count = DIFFICULTY_MAP[difficulty]["shield_count"]
 	setup()
 
 

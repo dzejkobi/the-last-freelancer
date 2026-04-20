@@ -13,5 +13,6 @@ player_color = Color(0, 1, 0.41666675, 1)
 crawler_color = Color(1, 0.77254903, 0.34901962, 1)
 recruiter_color = Color(0.6125002, 0.25, 1, 1)
 headhunter_color = Color(0.66, 0.27808, 0.2508, 1)
-tank_color = Color(0.32759997, 0.63, 0.62496, 1)
+tank_color = Color(0.17999998, 0.4319999, 0.9, 1)
+shield_color = Color(0, 0.9666667, 1, 1)
 metadata/_custom_type_script = "uid://dobwc8a2ss8oy"

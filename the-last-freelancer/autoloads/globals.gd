@@ -1,5 +1,6 @@
 extends Node
 
+var game: Game
 var grid: Grid
 var board: Board
 

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dcukdbf1lqb2g" path="res://game/game.gd" id="1_h7iqs"]
 [ext_resource type="PackedScene" uid="uid://1s0uywhr1pp7" path="res://game/elements/board.tscn" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://cyd5qjbx1wgjd" path="res://levels/level_man.tscn" id="3_4fuuu"]
+[ext_resource type="PackedScene" uid="uid://hi84dfcefsvj" path="res://game/elements/shield_info_container.tscn" id="4_3vho3"]
 [ext_resource type="PackedScene" uid="uid://dksx8adgvjahv" path="res://game/elements/main_menu.tscn" id="4_4fuuu"]
 [ext_resource type="PackedScene" uid="uid://defbeu4225vwe" path="res://game/elements/game_over_panel.tscn" id="4_y36n6"]
 [ext_resource type="PackedScene" uid="uid://bghihuxbtw58j" path="res://game/elements/settings_menu.tscn" id="5_dxrkv"]
@@ -11,12 +12,12 @@
 [ext_resource type="Shader" uid="uid://d0gd0l2ni37ak" path="res://shaders/crt.gdshader" id="7_u5opy"]
 [ext_resource type="Shader" uid="uid://qywabfwew2l3" path="res://shaders/adjustments.gdshader" id="10_j8tme"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5opy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8g03"]
 bg_color = Color(0, 0, 0, 1)
 expand_margin_left = 16.0
 expand_margin_right = 16.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8g03"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5opy"]
 bg_color = Color(0, 0, 0, 1)
 expand_margin_left = 16.0
 expand_margin_right = 16.0
@@ -93,6 +94,20 @@ offset_bottom = 79.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="MenuInfoContainer" type="PanelContainer" parent="CanvasLayer/GUIRoot" unique_id=1874216015]
+layout_mode = 1
+offset_left = 84.0
+offset_top = 8.0
+offset_right = 236.0
+offset_bottom = 56.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8g03")
+
+[node name="MenuInfoLabel" type="Label" parent="CanvasLayer/GUIRoot/MenuInfoContainer" unique_id=337030223]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "ESC - menu"
+
 [node name="TopPanelContainer" type="PanelContainer" parent="CanvasLayer/GUIRoot" unique_id=1915464721]
 layout_mode = 1
 anchors_preset = 5
@@ -122,6 +137,19 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 42
 text = "Score: 0"
 
+[node name="ShieldInfoContainer" parent="CanvasLayer/GUIRoot" unique_id=188658118 instance=ExtResource("4_3vho3")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.0
+offset_top = 8.0
+offset_right = -88.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8g03")
+
 [node name="GameOverPanel" parent="CanvasLayer/GUIRoot" unique_id=595611579 instance=ExtResource("4_y36n6")]
 unique_name_in_owner = true
 visible = false
@@ -135,20 +163,6 @@ offset_bottom = 81.0
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-
-[node name="MenuInfoContainer" type="PanelContainer" parent="CanvasLayer/GUIRoot" unique_id=1874216015]
-layout_mode = 1
-offset_left = 84.0
-offset_top = 8.0
-offset_right = 236.0
-offset_bottom = 56.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_l8g03")
-
-[node name="MenuInfoLabel" type="Label" parent="CanvasLayer/GUIRoot/MenuInfoContainer" unique_id=337030223]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 42
-text = "ESC - menu"
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=398546351]
 layout_mode = 1

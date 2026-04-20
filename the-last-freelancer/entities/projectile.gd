@@ -1,7 +1,5 @@
 class_name Projectile extends Node2D
 
-const  SplashScene := preload("res://entities/splash.tscn")
-
 @export var kind: Enums.PROJECTILE_TYPE
 @export var speed: float = 800.0  # pixels / sec
 
@@ -59,12 +57,7 @@ func move_to(_to_grid_pos: Vector2i) -> void:
 	
 func _at_target_reached() -> void:
 	var cell: GridCell = Globals.board.grid.cells.get(to_grid_pos)
-	var splash: Splash
 	if cell and cell.actor:
-		splash = SplashScene.instantiate()
-		splash.position = cell.actor.position + floor(0.5 * Consts.TILE_SIZE)
-		Globals.board.entity_layer.add_child(splash)
-		splash.display(Colors.get(cell.actor.color_name))
 		cell.actor.hit_by_projectile(self)
 	Globals.board.movement_man.unregister_projectile(self)
 	queue_free()

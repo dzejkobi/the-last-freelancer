@@ -21,3 +21,7 @@ func _movement_finished_callback(waited: bool = false) -> void:
 	super._movement_finished_callback(waited)
 	await Globals.board.until_no_movement()
 	Globals.board.player_movement_finished.emit(self)
+	
+	
+func _on_shield_count_changed(value: int) -> void:
+	Globals.board.player_shield_count = value

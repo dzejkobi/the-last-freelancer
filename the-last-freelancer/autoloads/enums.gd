@@ -26,3 +26,17 @@ enum PROJECTILE_TYPE {
 	TANK_BOLT = 4,
 	WEB = 5
 }
+
+enum ENTITY_TYPE {
+	UNKNOWN = 0,
+	NONE = 1,
+	SHIELD = 2
+}
+
+enum DIFFICULTY {
+	UNKNOWN = 0,
+	EASY = 1,
+	NORMAL = 2,
+	HARD = 3,
+	IMPOSSIBLE = 4
+}

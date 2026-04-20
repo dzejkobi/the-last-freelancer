@@ -184,4 +184,4 @@ centered = false
 
 [node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_jvisx")]
 
-[node name="TankRangeVisualizer" parent="." unique_id=873552947 instance=ExtResource("4_ilewo")]
+[node name="RangeVisualizer" parent="." unique_id=873552947 instance=ExtResource("4_ilewo")]

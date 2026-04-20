@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b4oetmwhiivfs"]
+
+[ext_resource type="Texture2D" uid="uid://cj23qi1k5scsp" path="res://assets/graphics/shield.png" id="1_ug8e1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyhbt"]
+atlas = ExtResource("1_ug8e1")
+region = Rect2(0, 0, 16, 16)
+margin = Rect2(0, -2, 0, -4)
+
+[node name="ShieldIcon" type="TextureRect" unique_id=938128708]
+modulate = Color(0, 0.96862745, 1, 1)
+custom_minimum_size = Vector2(32, 32)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_cyhbt")
+stretch_mode = 6

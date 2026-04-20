@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://klnfrd86nugg"]
+
+[ext_resource type="Script" uid="uid://cknywvlo1ru15" path="res://entities/shield_absorb.gd" id="1_56kx6"]
+
+[sub_resource type="Curve" id="Curve_gwvus"]
+_data = [Vector2(0, 0.49839228), 0.0, -0.026609661, 0, 0, Vector2(1, 0), -0.9102398, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_clj3c"]
+curve = SubResource("Curve_gwvus")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1b0yi"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 38.0
+emission_ring_inner_radius = 38.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, -1, 0)
+spread = 120.0
+initial_velocity_min = 10.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, 40, 0)
+damping_min = 40.0
+damping_max = 40.0
+scale_min = 8.0
+scale_max = 8.0
+color = Color(0, 0.96862745, 1, 1)
+alpha_curve = SubResource("CurveTexture_clj3c")
+
+[node name="ShieldAbsorb" type="Node2D" unique_id=1808132841]
+script = ExtResource("1_56kx6")
+color_name = "shield_color"
+
+[node name="Particles" type="GPUParticles2D" parent="." unique_id=390708365]
+amount = 32
+lifetime = 0.3
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1b0yi")
+
+[node name="Timer" type="Timer" parent="." unique_id=509911733]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

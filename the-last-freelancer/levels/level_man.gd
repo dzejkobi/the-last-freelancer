@@ -35,7 +35,20 @@ const ACTOR_CHAR_MAP: Dictionary = {
 	}
 }
 
-const EMPTY_CELL = [TERRAIN_CHAR_MAP[" "], ACTOR_CHAR_MAP[" "]]
+const ENTITY_CHAR_MAP: Dictionary = {
+	" ": {
+		"type": Enums.ENTITY_TYPE.NONE,
+		"scene": null
+	},
+	"@": {
+		"type": Enums.ENTITY_TYPE.SHIELD,
+		"scene": preload("res://entities/shield.tscn")
+	}
+}
+
+const EMPTY_CELL = [
+	TERRAIN_CHAR_MAP[" "], ACTOR_CHAR_MAP[" "], ENTITY_CHAR_MAP[" "]
+]
 
 @export var level_names: Array[String] = ["level1"]
 @export var first_loop: int = 1
@@ -67,7 +80,9 @@ func read_cell_from_str(_cell_str: String) -> Array:
 	if cell_str[1] == ' ':
 		cell_str[1] = '1'
 	assert(
-		cell_str[0] in TERRAIN_CHAR_MAP or cell_str[0] in ACTOR_CHAR_MAP,
+		cell_str[0] in TERRAIN_CHAR_MAP or
+		cell_str[0] in ACTOR_CHAR_MAP or 
+		cell_str[0] in ENTITY_CHAR_MAP,
 		'Unknown _cell_str definition "%s".' % _cell_str
 	)
 	if not cell_str[1].is_valid_int():
@@ -84,15 +99,21 @@ func read_cell_from_str(_cell_str: String) -> Array:
 	var actor_def: Dictionary = ACTOR_CHAR_MAP.get(
 		cell_str[0], ACTOR_CHAR_MAP[" "]
 	)
-	return [terrain_type, actor_def]
+	var entity_def: Dictionary = ENTITY_CHAR_MAP.get(
+		cell_str[0], ENTITY_CHAR_MAP[" "]
+	)
+	return [terrain_type, actor_def, entity_def]
 	
 
 func setup_board(board: Board):
 	var grid: Grid = board.grid
 	var grid_pos: Vector2i
 	var actor: Actor = null
+	var entity: Entity = null
 	var cell_def: Array
 	var level_def: String
+	var difficulty_settings: Dictionary = \
+		board.DIFFICULTY_MAP.get(board.difficulty)
 	
 	level_def = FileAccess.get_file_as_string(
 		"res://levels/%s.txt" % level_names[curr_level_index]
@@ -105,9 +126,12 @@ func setup_board(board: Board):
 		for index in range(0, len(row), 2):
 			cell_def = read_cell_from_str(row.substr(index, 2))
 			if cell_def[1]["scene"]:
+				# Actor
 				actor = cell_def[1]["scene"].instantiate()
 				actor.setup(grid_pos)
-				board.add_child(actor)
+				board.actor_layer.add_child(actor)
+				if difficulty_settings.get("no_range_markers", false):
+					actor.range_visualizer.is_active = false
 				if actor is Player:
 					board.player = actor
 				elif actor.is_enemy:
@@ -115,7 +139,19 @@ func setup_board(board: Board):
 			else:
 				actor = null
 			
-			grid.cells[grid_pos] = GridCell.new(cell_def[0], actor)
+			if cell_def[2]["scene"]:
+				if (
+					cell_def[2]["type"] != Enums.ENTITY_TYPE.SHIELD or
+					not difficulty_settings.get("no_extra_shields", false)
+				):
+					# Entity
+					entity = cell_def[2]["scene"].instantiate()
+					entity.setup(grid_pos)
+					board.entity_layer.add_child(entity)
+			else:
+				entity = null
+			
+			grid.cells[grid_pos] = GridCell.new(cell_def[0], actor, entity)
 			grid_pos.x += 1
 		grid_pos.y += 1
 		

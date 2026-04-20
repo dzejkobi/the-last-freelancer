@@ -1,10 +1,18 @@
 class_name Actor extends Node2D
 
+const splash_scene := preload("res://entities/splash.tscn")
 const projectile_scene = preload("res://entities/projectile.tscn")
+const shield_absorb_scene = preload("res://entities/shield_absorb.tscn")
 
 @export var verbose_name: String = "Actor"
 @export var movement_time: float = 0.5
 @export var attack_range: int = 3
+@export var shield_count: int = 0:
+	set(value):
+		if shield_count != value:
+			shield_count = value
+			shield_count_changed.emit(value)
+			
 @export var is_enemy: bool = true
 @export var score: int = 5
 @export var color_name: String
@@ -24,6 +32,7 @@ var direction: Vector2i = Vector2i.UP
 
 signal created
 signal movement_started
+signal shield_count_changed(value: int)
 
 
 func setup(_grid_pos: Vector2i) -> void:
@@ -45,12 +54,23 @@ func is_movement_valid(to_grid_pos: Vector2i) -> bool:
 	return target_cell and target_cell.is_passable()
 
 
+func interact_with_cell() -> void:
+	var cell: GridCell = Globals.grid.cells[grid_pos]
+	if (
+		cell.entity and
+		cell.entity is Collectable and
+		cell.entity.is_collectable_by(self)
+	):
+		cell.entity.collect_by(self)
+	
+
 func _movement_finished_callback(waited: bool = false) -> void:
 	anim_sprite.play("idle")
 	position = Grid.grid_pos_to_pos(grid_pos)
 	is_moving = false
 	if not waited:
 		Globals.board.movement_man.unregister_actor(self)
+	interact_with_cell()
 
 
 func play_movement_animation() -> void:
@@ -154,7 +174,23 @@ func die(_killer: Actor = null) -> void:
 
 
 func hit_by_projectile(projectile: Projectile) -> void:
-	die(projectile.shooter if is_instance_valid(projectile.shooter) else null)
+	if shield_count <= 0:
+		var splash: Splash
+		splash = splash_scene.instantiate()
+		splash.setup(
+			position + floor(0.5 * Consts.TILE_SIZE),
+			Colors.get(color_name)
+		)
+		splash.display()
+		die(
+			projectile.shooter if is_instance_valid(projectile.shooter)
+			else null
+		)
+	else:
+		shield_count -= 1
+		var shield_absorb: ShieldAbsorb = shield_absorb_scene.instantiate()
+		shield_absorb.setup(position + floor(0.5 * Consts.TILE_SIZE))
+		shield_absorb.display()
 
 
 func get_predicted_grid_pos() -> Vector2i:

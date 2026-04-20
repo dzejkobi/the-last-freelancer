@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bw7r7jqw3850g"]
+
+[ext_resource type="Script" uid="uid://bm8gthrm4vttd" path="res://entities/shield.gd" id="1_dxjvd"]
+[ext_resource type="Texture2D" uid="uid://cj23qi1k5scsp" path="res://assets/graphics/shield.png" id="2_x0awu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc80v"]
+atlas = ExtResource("2_x0awu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee70q"]
+atlas = ExtResource("2_x0awu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7i456"]
+atlas = ExtResource("2_x0awu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yibs7"]
+atlas = ExtResource("2_x0awu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbvg1"]
+atlas = ExtResource("2_x0awu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ffi"]
+atlas = ExtResource("2_x0awu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_th2go"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc80v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee70q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7i456")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yibs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbvg1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8ffi")
+}],
+"loop": true,
+"name": &"static",
+"speed": 5.0
+}]
+
+[node name="Shield" type="Node2D" unique_id=1985499416]
+script = ExtResource("1_dxjvd")
+for_player = true
+collect_sound_name = "shield_collect"
+color_name = "shield_color"
+
+[node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=1552173420]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_th2go")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.215579
+centered = false

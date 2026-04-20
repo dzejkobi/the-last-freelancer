@@ -92,3 +92,5 @@ centered = false
 [node name="InputController" parent="." unique_id=1689396434 instance=ExtResource("3_esgq3")]
 
 [node name="RangeVisualizer" parent="." unique_id=873552947 instance=ExtResource("4_esgq3")]
+
+[connection signal="shield_count_changed" from="." to="." method="_on_shield_count_changed"]
