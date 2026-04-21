@@ -2,16 +2,16 @@ class_name Board extends Node
 
 const DIFFICULTY_MAP := {
 	Enums.DIFFICULTY.EASY: {
-		"shield_count": 3
+		"shield_count": 2
 	},
 	Enums.DIFFICULTY.NORMAL: {
-		"shield_count": 1
+		"shield_count": 0
 	},
 	Enums.DIFFICULTY.HARD: {
 		"shield_count": 0,
 		"no_extra_shields": true
 	},
-	Enums.DIFFICULTY.IMPOSSIBLE: {
+	Enums.DIFFICULTY.HEROIC: {
 		"shield_count": 0,
 		"no_extra_shields": true,
 		"no_range_markers": true
@@ -78,6 +78,7 @@ func setup() -> void:
 		enemy.queue_free()
 	enemies.clear()
 	grid.cleanup()
+	movement_man.reset()
 	level_man.setup_board(self)
 	player.shield_count = player_shield_count
 	terrain_layer.update_tilemaps(grid)

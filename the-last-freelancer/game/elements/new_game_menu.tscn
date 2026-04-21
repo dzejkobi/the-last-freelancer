@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://b83jecpx6g28h"]
+
+[ext_resource type="Script" uid="uid://omy84urbdhdx" path="res://game/elements/new_game_menu.gd" id="1_nyi1n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86yxx"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.101960786, 0.09411765, 0.21176471, 1)
+corner_detail = 1
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+shadow_color = Color(0, 0, 0, 0.83137256)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[node name="NewGameMenu" type="CenterContainer" unique_id=345281571]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -17.5
+offset_right = 54.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_nyi1n")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=346318636]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_86yxx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=724425545]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1737867909]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "The Last Freelancer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=759375207]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "New game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=756150035]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Select difficulty level"
+horizontal_alignment = 1
+
+[node name="CommentLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1537207112]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Select difficulty level"
+horizontal_alignment = 1
+
+[node name="GoBackBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1059358787]
+layout_mode = 2
+focus_neighbor_top = NodePath("../HeroicBtn")
+focus_previous = NodePath("../HeroicBtn")
+text = "Go back
+"
+
+[node name="EasyBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1610259932]
+layout_mode = 2
+text = "Easy
+"
+
+[node name="NormalBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1529636996]
+layout_mode = 2
+text = "Normal
+"
+
+[node name="HardBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1307209772]
+layout_mode = 2
+text = "Hard
+"
+
+[node name="HeroicBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2022122194]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../GoBackBtn")
+focus_next = NodePath("../GoBackBtn")
+text = "Heroic
+"
+
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/GoBackBtn" to="." method="_on_btn_focus_entered"]
+[connection signal="focus_exited" from="PanelContainer/VBoxContainer/GoBackBtn" to="." method="clear_comment"]
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/GoBackBtn" to="." method="_on_btn_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/GoBackBtn" to="." method="clear_comment"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/GoBackBtn" to="." method="_on_go_back_btn_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/EasyBtn" to="." method="_on_btn_focus_entered"]
+[connection signal="focus_exited" from="PanelContainer/VBoxContainer/EasyBtn" to="." method="clear_comment"]
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/EasyBtn" to="." method="_on_btn_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/EasyBtn" to="." method="clear_comment"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/EasyBtn" to="." method="_on_easy_btn_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/NormalBtn" to="." method="_on_btn_focus_entered"]
+[connection signal="focus_exited" from="PanelContainer/VBoxContainer/NormalBtn" to="." method="clear_comment"]
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/NormalBtn" to="." method="_on_btn_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/NormalBtn" to="." method="clear_comment"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/NormalBtn" to="." method="_on_normal_btn_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HardBtn" to="." method="_on_btn_focus_entered"]
+[connection signal="focus_exited" from="PanelContainer/VBoxContainer/HardBtn" to="." method="clear_comment"]
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/HardBtn" to="." method="_on_btn_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/HardBtn" to="." method="clear_comment"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HardBtn" to="." method="_on_hard_btn_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HeroicBtn" to="." method="_on_btn_focus_entered"]
+[connection signal="focus_exited" from="PanelContainer/VBoxContainer/HeroicBtn" to="." method="clear_comment"]
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/HeroicBtn" to="." method="_on_btn_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/HeroicBtn" to="." method="clear_comment"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HeroicBtn" to="." method="_on_heroic_btn_pressed"]

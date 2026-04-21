@@ -8,6 +8,12 @@ signal movement_started
 signal movement_finished
 
 
+func reset() -> void:
+	moving_actors.clear()
+	moving_projectiles.clear()
+	in_movement = false
+
+
 func register_actor(actor: Actor) -> void:
 	if actor in moving_actors:
 		push_error('Actor "%s" is already registered.' % actor)

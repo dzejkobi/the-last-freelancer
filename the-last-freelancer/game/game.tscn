@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cyd5qjbx1wgjd" path="res://levels/level_man.tscn" id="3_4fuuu"]
 [ext_resource type="PackedScene" uid="uid://hi84dfcefsvj" path="res://game/elements/shield_info_container.tscn" id="4_3vho3"]
 [ext_resource type="PackedScene" uid="uid://dksx8adgvjahv" path="res://game/elements/main_menu.tscn" id="4_4fuuu"]
+[ext_resource type="PackedScene" uid="uid://b83jecpx6g28h" path="res://game/elements/new_game_menu.tscn" id="4_qf6n1"]
 [ext_resource type="PackedScene" uid="uid://defbeu4225vwe" path="res://game/elements/game_over_panel.tscn" id="4_y36n6"]
 [ext_resource type="PackedScene" uid="uid://bghihuxbtw58j" path="res://game/elements/settings_menu.tscn" id="5_dxrkv"]
 [ext_resource type="PackedScene" uid="uid://ca0f87b32oivb" path="res://game/elements/victory_panel.tscn" id="5_l8g03"]
@@ -93,6 +94,15 @@ offset_right = 100.5
 offset_bottom = 79.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="NewGameMenu" parent="CanvasLayer/GUIRoot" unique_id=1338073158 instance=ExtResource("4_qf6n1")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = -199.0
+offset_top = -232.0
+offset_right = 199.0
+offset_bottom = 232.0
 
 [node name="MenuInfoContainer" type="PanelContainer" parent="CanvasLayer/GUIRoot" unique_id=1874216015]
 layout_mode = 1

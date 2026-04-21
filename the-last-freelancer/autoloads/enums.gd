@@ -38,5 +38,5 @@ enum DIFFICULTY {
 	EASY = 1,
 	NORMAL = 2,
 	HARD = 3,
-	IMPOSSIBLE = 4
+	HEROIC = 4
 }

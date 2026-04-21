@@ -1,8 +1,10 @@
 class_name MainMenu extends CenterContainer
 
 @onready var settings_menu: SettingsMenu = %SettingsMenu
+@onready var new_game_menu: NewGameMenu = %NewGameMenu
 @onready var resume_btn: Button = %ResumeBtn
 @onready var new_game_btn: Button = %NewGameBtn
+@onready var version_label: Label = $PanelContainer/VBoxContainer/VersionLabel
 
 
 func set_focus() -> void:
@@ -13,6 +15,8 @@ func set_focus() -> void:
 
 
 func _ready() -> void:
+	version_label.text = "Version: Alpha %s"\
+		% ProjectSettings.get_setting("application/config/version")
 	set_focus()
 
 
@@ -35,8 +39,8 @@ func _on_resume_btn_pressed() -> void:
 
 
 func _on_new_game_btn_pressed() -> void:
-	Globals.board.reset()
 	toggle()
+	new_game_menu.toggle()
 
 
 func _on_settings_btn_pressed() -> void:

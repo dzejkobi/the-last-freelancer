@@ -87,10 +87,10 @@ focus_next = NodePath("../ResumeBtn")
 text = "Quit
 "
 
-[node name="VesionLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=170449805]
+[node name="VersionLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=170449805]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Version: Alpha 0.2"
+theme_override_font_sizes/font_size = 26
+text = "Version: Alpha 0.3"
 horizontal_alignment = 1
 vertical_alignment = 1
 

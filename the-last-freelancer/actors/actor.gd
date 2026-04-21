@@ -70,7 +70,6 @@ func _movement_finished_callback(waited: bool = false) -> void:
 	is_moving = false
 	if not waited:
 		Globals.board.movement_man.unregister_actor(self)
-	interact_with_cell()
 
 
 func play_movement_animation() -> void:
@@ -107,6 +106,7 @@ func move_to_cell(to_grid_pos: Vector2i) -> void:
 	tween.tween_callback(_movement_finished_callback)
 	
 	delayed_try_to_shoot()
+	delayed_interact_with_cell()
 
 
 func wait() -> void:
@@ -114,6 +114,7 @@ func wait() -> void:
 	movement_started.emit()
 	_movement_finished_callback(true)
 	delayed_try_to_shoot()
+	delayed_interact_with_cell()
 
 
 func find_enemies_in_range() -> Array[Actor]:
@@ -153,6 +154,11 @@ func try_to_shoot() -> void:
 func delayed_try_to_shoot() -> void:
 	var timer: SceneTreeTimer = get_tree().create_timer(shoot_delay)
 	timer.timeout.connect(try_to_shoot)
+
+
+func delayed_interact_with_cell() -> void:
+	var timer: SceneTreeTimer = get_tree().create_timer(movement_time / 2)
+	timer.timeout.connect(interact_with_cell)
 
 
 func die(_killer: Actor = null) -> void:

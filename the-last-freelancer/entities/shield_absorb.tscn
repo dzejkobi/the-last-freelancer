@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cknywvlo1ru15" path="res://entities/shield_absorb.gd" id="1_56kx6"]
 
 [sub_resource type="Curve" id="Curve_gwvus"]
-_data = [Vector2(0, 0.49839228), 0.0, -0.026609661, 0, 0, Vector2(1, 0), -0.9102398, 0.0, 0, 0]
+_data = [Vector2(0, 0.32867557), 0.0, -0.026609661, 0, 0, Vector2(1, 0), -0.9102398, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_clj3c"]
@@ -37,6 +37,7 @@ color_name = "shield_color"
 amount = 32
 lifetime = 0.3
 explosiveness = 1.0
+local_coords = true
 process_material = SubResource("ParticleProcessMaterial_1b0yi")
 
 [node name="Timer" type="Timer" parent="." unique_id=509911733]
