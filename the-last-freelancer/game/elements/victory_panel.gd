@@ -12,7 +12,8 @@ func _unhandled_input(event):
 	if (
 		visible and (
 			event is InputEventKey and event.pressed or
-			event is InputEventMouseButton and event.pressed
+			event is InputEventMouseButton and event.pressed or 
+			event is InputEventJoypadButton and event.pressed
 		)
 	):
 		visible = false

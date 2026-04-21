@@ -31,11 +31,14 @@ func ensure_dir(path: String):
 func set_build() -> void:
 	if build == BuildKind.WEB:
 		var action_name := "ui_cancel"
+		var events = InputMap.action_get_events(action_name)
 		var key_event := InputEventKey.new()
-		
-		InputMap.action_erase_events(action_name)
+
+		for event in events:
+			if event is InputEventKey:
+				InputMap.action_erase_event(action_name, event)
+
 		key_event.physical_keycode = KEY_F1
-		menu_key_name = "F1"
 		InputMap.action_add_event(action_name, key_event)
 
 

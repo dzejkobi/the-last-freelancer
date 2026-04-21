@@ -130,7 +130,10 @@ func setup_board(board: Board):
 				actor = cell_def[1]["scene"].instantiate()
 				actor.setup(grid_pos)
 				board.actor_layer.add_child(actor)
-				if difficulty_settings.get("no_range_markers", false):
+				if (
+					difficulty_settings.get("no_range_markers", false) and
+					actor.range_visualizer
+				):
 					actor.range_visualizer.is_active = false
 				if actor is Player:
 					board.player = actor
