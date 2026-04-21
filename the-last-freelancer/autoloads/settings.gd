@@ -40,6 +40,7 @@ func set_build() -> void:
 
 		key_event.physical_keycode = KEY_F1
 		InputMap.action_add_event(action_name, key_event)
+		menu_key_name = "F1"
 
 
 func _ready() -> void:

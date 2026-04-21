@@ -116,7 +116,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_l8g03")
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
-text = "ESC - menu"
+text = "ESC: menu"
 
 [node name="TopPanelContainer" type="PanelContainer" parent="CanvasLayer/GUIRoot" unique_id=1915464721]
 layout_mode = 1
