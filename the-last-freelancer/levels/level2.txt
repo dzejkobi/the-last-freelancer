@@ -2,13 +2,13 @@ x x x x x x x x x x x x x x x x x x x x
 x           x                         x
 x     p     x           o       r     x
 x           x       r2                x
-x           x                   m3    x
+x                               m3    x
 x           x           m             x
-x           x             x o         x
+x           x                 o       x
 x   o   m2  x             x       m   x
 x                     r   x           x
 x m               o       x           x
-x                         x       r3  x
+x                             e4  r3  x
 x     m2                  x           x
 x               m         x   o       x
 x   r2  o             r2  x       t2  x

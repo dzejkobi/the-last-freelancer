@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://bgctwiydxwtgm"]
+
+[ext_resource type="Script" uid="uid://cnasmorps28kh" path="res://actors/executive.gd" id="1_6fg7v"]
+[ext_resource type="Texture2D" uid="uid://bkaot4thwtp4j" path="res://assets/graphics/executive.png" id="2_6fg7v"]
+[ext_resource type="PackedScene" uid="uid://gdoyncfeb8eq" path="res://actors/components/status_man.tscn" id="4_6fg7v"]
+[ext_resource type="PackedScene" uid="uid://barw5mggq1i53" path="res://actors/components/generic_ai.tscn" id="4_n53tg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n53tg"]
+atlas = ExtResource("2_6fg7v")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tilk4"]
+atlas = ExtResource("2_6fg7v")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kukif"]
+atlas = ExtResource("2_6fg7v")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmnod"]
+atlas = ExtResource("2_6fg7v")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8rl7"]
+atlas = ExtResource("2_6fg7v")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efx17"]
+atlas = ExtResource("2_6fg7v")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2wit"]
+atlas = ExtResource("2_6fg7v")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swr3v"]
+atlas = ExtResource("2_6fg7v")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_240qr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n53tg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tilk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kukif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmnod")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8rl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efx17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2wit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swr3v")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 10.0
+}]
+
+[node name="Executive" type="Node2D" unique_id=1742221200]
+script = ExtResource("1_6fg7v")
+int_boost = 0.6
+verbose_name = "Executive"
+attack_range = 7
+score = 20
+color_name = "executive_color"
+hint = "He won’t attack you personally — he has people for that."
+
+[node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_240qr")
+animation = &"walking"
+autoplay = "idle"
+frame = 3
+frame_progress = 0.74590504
+centered = false
+
+[node name="AI" parent="." unique_id=2048733410 instance=ExtResource("4_n53tg")]
+base_int = 0.8
+activity_level = 0.9
+attitude = 3
+
+[node name="StatusMan" parent="." unique_id=371772200 instance=ExtResource("4_6fg7v")]

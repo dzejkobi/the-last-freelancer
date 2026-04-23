@@ -54,6 +54,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 
 func _at_movement_finished() -> void:
-	if stacked_action_name and not actor.is_dying:
-		execute_movement_action(stacked_action_name)
-		stacked_action_name = ""
+	if not actor.is_dying:
+		Globals.board.update_statuses()
+		if stacked_action_name:
+			execute_movement_action(stacked_action_name)
+			stacked_action_name = ""

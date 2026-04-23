@@ -16,11 +16,11 @@ static func get_dir_name(_direction: Vector2i) -> String:
 			return ""
 
 
-func _movement_finished_callback(_waited: bool = false) -> void:
+func _movement_finished_callback(waited: bool = false) -> void:
 	anim_sprite.play("idle_%s" % get_dir_name(direction))
 	position = Grid.grid_pos_to_pos(grid_pos)
 	is_moving = false
-	Globals.board.movement_man.unregister_actor(self)
+	Globals.board.movement_man.unregister_actor(self, waited)
 
 
 func play_movement_animation() -> void:

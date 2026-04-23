@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://gdoyncfeb8eq"]
+
+[ext_resource type="Script" uid="uid://cod312c24gvk6" path="res://actors/components/status_man.gd" id="1_34nf5"]
+[ext_resource type="PackedScene" uid="uid://5w46swjw87dm" path="res://actors/components/int_boost_icon.tscn" id="2_0jpve"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34nf5"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" unique_id=371772200]
+custom_minimum_size = Vector2(20, 20)
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("1_34nf5")
+
+[node name="IntBoost" type="PanelContainer" parent="." unique_id=1331671312]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_34nf5")
+
+[node name="Icon" parent="IntBoost" unique_id=186327446 instance=ExtResource("2_0jpve")]
+layout_mode = 2

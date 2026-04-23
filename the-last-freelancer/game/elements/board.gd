@@ -67,6 +67,11 @@ func _ready() -> void:
 	AudioPlayer.setup(%AudioListener)
 
 
+func at_level_start() -> void:
+	for actor: Actor in [player] + enemies:
+		actor.at_level_start()
+
+
 func setup() -> void:
 	if player:
 		player.queue_free()
@@ -82,6 +87,8 @@ func setup() -> void:
 	level_man.setup_board(self)
 	player.shield_count = player_shield_count
 	terrain_layer.update_tilemaps(grid)
+	at_level_start()
+	update_statuses()
 	is_set = true
 	level_loaded.emit()
 
@@ -91,6 +98,11 @@ func reset() -> void:
 	level_man.set_next_level(level_man.first_level_index, level_man.first_loop)
 	player_shield_count = DIFFICULTY_MAP[difficulty]["shield_count"]
 	setup()
+
+
+func update_statuses() -> void:
+	for actor: Actor in [player] + enemies:
+		actor.status_man.update()
 
 
 func game_over(killer: Actor) -> void:

@@ -4,7 +4,7 @@ extends Node
 
 
 var music := AudioPlayer.Music.new(
-	"res://assets/music/trance5.ogg",
+	"res://assets/music/theme.ogg",
 	{
 		"volume": 0.5
 	}

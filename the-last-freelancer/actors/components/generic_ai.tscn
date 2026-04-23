@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://barw5mggq1i53"]
+
+[ext_resource type="Script" uid="uid://bk3h4j0d05bkx" path="res://actors/components/generic_ai.gd" id="1_e1edc"]
+
+[node name="GenericAI" type="Node" unique_id=2048733410]
+script = ExtResource("1_e1edc")
+base_int = 0.3
+max_int = 0.9
+activity_level = 0.8

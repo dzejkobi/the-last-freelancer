@@ -1,7 +1,5 @@
 class_name BaseAI extends Node
 
-var board: Board
-
 @onready var actor: Actor = get_parent()
 
 

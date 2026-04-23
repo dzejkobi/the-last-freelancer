@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://be6j4owvfvxas" path="res://actors/headhunter.gd" id="1_dvgd7"]
 [ext_resource type="Texture2D" uid="uid://cudj45yj27ei4" path="res://assets/graphics/actors.png" id="2_tasfr"]
-[ext_resource type="PackedScene" uid="uid://b1x2jw1behuyh" path="res://actors/components/random_movement_ai.tscn" id="3_2gi4b"]
+[ext_resource type="PackedScene" uid="uid://barw5mggq1i53" path="res://actors/components/generic_ai.tscn" id="3_dvgd7"]
+[ext_resource type="PackedScene" uid="uid://gdoyncfeb8eq" path="res://actors/components/status_man.tscn" id="4_tasfr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dvgd7"]
 atlas = ExtResource("2_tasfr")
@@ -93,6 +94,10 @@ autoplay = "idle"
 frame_progress = 0.53797966
 centered = false
 
-[node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_2gi4b")]
+[node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_dvgd7")]
+base_int = 0.5
+attitude = 4
+
+[node name="StatusMan" parent="." unique_id=371772200 instance=ExtResource("4_tasfr")]
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

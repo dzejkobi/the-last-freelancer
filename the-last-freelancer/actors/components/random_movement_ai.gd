@@ -1,5 +1,7 @@
 class_name RandomMovementAI extends BaseAI
 
+# TODO: Delete - logic moved to GenericAI
+
 
 func get_valid_moves() -> Array[Vector2i]:
 	var moves: Array[Vector2i] = []
@@ -26,6 +28,10 @@ func move_randomly() -> void:
 	else:
 		actor.delayed_try_to_shoot()
 		actor.delayed_interact_with_cell()
+		
+		
+func move_intelligently() -> void:
+	pass
 	
 	
 func move() -> void:

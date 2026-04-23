@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://kk24snwcd2er" path="res://actors/actor.gd" id="1_f2fmp"]
 [ext_resource type="Texture2D" uid="uid://cudj45yj27ei4" path="res://assets/graphics/actors.png" id="2_sfvuy"]
-[ext_resource type="PackedScene" uid="uid://b1x2jw1behuyh" path="res://actors/components/random_movement_ai.tscn" id="3_g8rms"]
+[ext_resource type="PackedScene" uid="uid://barw5mggq1i53" path="res://actors/components/generic_ai.tscn" id="4_g8rms"]
 [ext_resource type="PackedScene" uid="uid://inunbf0cxn0v" path="res://actors/components/range_visualizer.tscn" id="4_sfvuy"]
+[ext_resource type="PackedScene" uid="uid://gdoyncfeb8eq" path="res://actors/components/status_man.tscn" id="5_g8rms"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f2fmp"]
 atlas = ExtResource("2_sfvuy")
@@ -94,6 +95,9 @@ animation = &"idle"
 autoplay = "idle"
 centered = false
 
-[node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_g8rms")]
-
 [node name="RangeVisualizer" parent="." unique_id=873552947 instance=ExtResource("4_sfvuy")]
+
+[node name="AI" parent="." unique_id=2048733410 instance=ExtResource("4_g8rms")]
+base_int = 0.5
+
+[node name="StatusMan" parent="." unique_id=371772200 instance=ExtResource("5_g8rms")]

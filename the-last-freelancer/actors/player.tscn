@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cudj45yj27ei4" path="res://assets/graphics/actors.png" id="2_1yqc4"]
 [ext_resource type="PackedScene" uid="uid://iamw260mj7ta" path="res://actors/components/input_controller.tscn" id="3_esgq3"]
 [ext_resource type="PackedScene" uid="uid://inunbf0cxn0v" path="res://actors/components/range_visualizer.tscn" id="4_esgq3"]
+[ext_resource type="PackedScene" uid="uid://gdoyncfeb8eq" path="res://actors/components/status_man.tscn" id="5_kjkj0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kjkj0"]
 atlas = ExtResource("2_1yqc4")
@@ -92,5 +93,7 @@ centered = false
 [node name="InputController" parent="." unique_id=1689396434 instance=ExtResource("3_esgq3")]
 
 [node name="RangeVisualizer" parent="." unique_id=873552947 instance=ExtResource("4_esgq3")]
+
+[node name="StatusMan" parent="." unique_id=371772200 instance=ExtResource("5_kjkj0")]
 
 [connection signal="shield_count_changed" from="." to="." method="_on_shield_count_changed"]

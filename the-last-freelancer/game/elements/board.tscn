@@ -22,9 +22,9 @@ scale = Vector2(4, 4)
 tile_set = ExtResource("2_0c24q")
 script = ExtResource("3_wxh40")
 
-[node name="ActorLayer" type="Node2D" parent="." unique_id=2085718794]
-
 [node name="EntityLayer" type="Node2D" parent="." unique_id=994830883]
+
+[node name="ActorLayer" type="Node2D" parent="." unique_id=2085718794]
 
 [node name="Grid" parent="." unique_id=1234281924 instance=ExtResource("1_dsf1b")]
 

@@ -15,7 +15,8 @@ enum ACTOR_TYPE {
 	CRAWLER = 3,
 	RECRUITER = 4,
 	HEADHUNTER = 5,
-	TANK = 6
+	TANK = 6,
+	EXECUTIVE = 7
 }
 
 enum PROJECTILE_TYPE {
@@ -39,4 +40,17 @@ enum DIFFICULTY {
 	NORMAL = 2,
 	HARD = 3,
 	HEROIC = 4
+}
+
+enum ATTITUDE {
+	UNKNOWN = 0,
+	CHAOTIC = 1,
+	AGRESSIVE = 2,
+	CAUTIOUS = 3,
+	FEARFUL = 4
+}
+
+enum ACTOR_STATUS {
+	UNKNOWN = 0,
+	INT_BOOSTED = 1
 }

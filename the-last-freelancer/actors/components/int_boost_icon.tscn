@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://5w46swjw87dm"]
+
+[ext_resource type="Texture2D" uid="uid://b3ryeu82otixl" path="res://assets/graphics/objects.png" id="2_rmiki"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkf3t"]
+atlas = ExtResource("2_rmiki")
+region = Rect2(48, 16, 5, 5)
+
+[node name="IntBoostIcon" type="TextureRect" unique_id=186327446]
+modulate = Color(0.19215687, 0.21568628, 0.8392157, 1)
+custom_minimum_size = Vector2(20, 20)
+texture = SubResource("AtlasTexture_xkf3t")
+expand_mode = 3
+stretch_mode = 6

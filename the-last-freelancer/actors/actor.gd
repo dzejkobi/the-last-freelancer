@@ -25,10 +25,13 @@ var is_dying: bool = false
 var grid_pos: Vector2i
 var prev_grid_pos: Vector2i
 var direction: Vector2i = Vector2i.UP
+var _shield_activated: bool = false
 
 @onready var anim_sprite: AnimatedSprite2D = $AnimSprite
+@onready var status_man: StatusMan = $StatusMan
 @onready var range_visualizer: RangeVisualizer = \
 	get_node_or_null("RangeVisualizer")
+@onready var ai: BaseAI = get_node_or_null("AI")
 
 signal created
 signal movement_started
@@ -47,6 +50,12 @@ func _ready() -> void:
 		var color: Color = Colors.get(color_name)
 		if color:
 			anim_sprite.modulate = color
+
+
+func at_level_start(_data: Dictionary = {}) -> void:
+	# Override in derived class to add any custom logic
+	# before the first turn begins.
+	pass
 
 
 func is_movement_valid(to_grid_pos: Vector2i) -> bool:
@@ -153,6 +162,7 @@ func try_to_shoot() -> void:
 
 func delayed_try_to_shoot() -> void:
 	var timer: SceneTreeTimer = get_tree().create_timer(shoot_delay)
+	_shield_activated = false  # need to reset this each turn
 	timer.timeout.connect(try_to_shoot)
 
 
@@ -180,6 +190,8 @@ func die(_killer: Actor = null) -> void:
 
 
 func hit_by_projectile(projectile: Projectile) -> void:
+	if _shield_activated:
+		return
 	if shield_count <= 0:
 		var splash: Splash
 		splash = splash_scene.instantiate()
@@ -193,6 +205,7 @@ func hit_by_projectile(projectile: Projectile) -> void:
 			else null
 		)
 	else:
+		_shield_activated = true
 		shield_count -= 1
 		var shield_absorb: ShieldAbsorb = shield_absorb_scene.instantiate()
 		shield_absorb.setup(position + floor(0.5 * Consts.TILE_SIZE))
