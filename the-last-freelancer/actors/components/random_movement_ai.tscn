@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://b1x2jw1behuyh"]
-
-[ext_resource type="Script" uid="uid://db38ccwmttplo" path="res://actors/components/random_movement_ai.gd" id="1_1r8a4"]
-
-[node name="RandomMovementAi" type="Node" unique_id=2048733410]
-script = ExtResource("1_1r8a4")
