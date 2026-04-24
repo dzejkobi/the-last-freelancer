@@ -3,7 +3,13 @@ class_name GenericAI extends BaseAI
 @export var base_int: float = 0
 @export var max_int: float = 1
 @export var activity_level: float = 1
-@export var attitude: Enums.ATTITUDE = Enums.ATTITUDE.AGRESSIVE
+@export var attitude: Enums.ATTITUDE = Enums.ATTITUDE.AGGRESSIVE
+
+@export var further_axis_first: bool = true
+# If set to false then move_towards_player function will prefer movement
+# over proximal axis over further exis.
+# This is useful for tanks to get the player in their line of fire sooner.
+# This doesn't affect move_away_from_player function.
 
 var int_mod: float = 0
 
@@ -46,7 +52,9 @@ func move_randomly(valid_moves: Array[Vector2i]) -> void:
 
 
 func _find_move_towards_or_away(
-	valid_moves: Array[Vector2i], direction_sign: int
+	valid_moves: Array[Vector2i],
+	direction_sign: int,
+	_further_axis_first: bool = true
 ) -> Vector2i:
 	var pos: Vector2i = actor.grid_pos
 	var target: Vector2i = Globals.board.player.grid_pos
@@ -55,7 +63,9 @@ func _find_move_towards_or_away(
 	var x_dir: int = sign(delta.x)
 	var y_dir: int = sign(delta.y)
 	
-	var primary_first: bool = abs(delta.x) >= abs(delta.y)
+	var primary_first: bool = abs(delta.x) >= abs(delta.y)\
+		if _further_axis_first \
+		else abs(delta.x) < abs(delta.y)
 	
 	var primary_move: Vector2i
 	var secondary_move: Vector2i
@@ -77,7 +87,7 @@ func _find_move_towards_or_away(
 
 func move_towards_player(valid_moves: Array[Vector2i]):
 	move_or_wait(
-		_find_move_towards_or_away(valid_moves, 1)
+		_find_move_towards_or_away(valid_moves, 1, further_axis_first)
 	)
 
 
@@ -87,7 +97,7 @@ func move_away_from_player(valid_moves: Array[Vector2i]):
 	)
 
 
-func move_agressively(valid_moves: Array[Vector2i]) -> void:
+func move_aggresively(valid_moves: Array[Vector2i]) -> void:
 	move_towards_player(valid_moves)
 
 
@@ -109,8 +119,8 @@ func move_intelligently(valid_moves: Array[Vector2i]) -> void:
 	match attitude:
 		Enums.ATTITUDE.CHAOTIC:
 			move_randomly(valid_moves)
-		Enums.ATTITUDE.AGRESSIVE:
-			move_agressively(valid_moves)
+		Enums.ATTITUDE.AGGRESSIVE:
+			move_aggresively(valid_moves)
 		Enums.ATTITUDE.CAUTIOUS:
 			move_cautiously(valid_moves)
 		Enums.ATTITUDE.FEARFUL:

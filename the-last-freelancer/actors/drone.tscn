@@ -61,14 +61,15 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Crawler" type="Node2D" unique_id=1742221200]
+[node name="Drone" type="Node2D" unique_id=1742221200]
 script = ExtResource("1_g6tml")
-verbose_name = "Crawler"
-color_name = "crawler_color"
+verbose_name = "Drone"
+color_name = "drone_color"
 projectile_type = 5
-hint = "It is very humiliating to be
-defeated by such a pathetic
-and disgusting creature."
+hint = "They’re rather unintelligent
+and short-ranged,
+but can become a serious threat
+if you’re outnumbered."
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
 scale = Vector2(4, 4)

@@ -29,7 +29,7 @@ var kind_map: Dictionary = {
 	},
 	Enums.PROJECTILE_TYPE.WEB: {
 		"region": Rect2(32, 0, 16, 16),
-		"color": Colors.crawler_color
+		"color": Colors.drone_color
 	},
 }
 

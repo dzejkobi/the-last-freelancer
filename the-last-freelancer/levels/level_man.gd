@@ -18,8 +18,8 @@ const ACTOR_CHAR_MAP: Dictionary = {
 		"scene": preload("res://actors/player.tscn")
 	},
 	"m": {
-		"type": Enums.ACTOR_TYPE.CRAWLER,
-		"scene": preload("res://actors/crawler.tscn")
+		"type": Enums.ACTOR_TYPE.DRONE,
+		"scene": preload("res://actors/drone.tscn")
 	},
 	"r": {
 		"type": Enums.ACTOR_TYPE.RECRUITER,

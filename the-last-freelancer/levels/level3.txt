@@ -1,5 +1,5 @@
 x x x x x x x x x x x x x x x x x x x x
-x t3        r2      m     r           x
+x           r2      r                 x
 x     m                         m   r x
 x h2    x x x x x     x x x x x       x
 x       x                     x   h3  x
@@ -10,6 +10,6 @@ x                                     x
 x   r   x                     x       x
 x       x                     x       x
 x       x x x x x     x x x x x     r2x
-x     m                       m       x
-x   r2      r       m2              t3x
+x                             m       x
+x   r2      m       m2              t3x
 x x x x x x x x x x x x x x x x x x x x

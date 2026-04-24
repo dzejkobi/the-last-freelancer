@@ -186,8 +186,8 @@ centered = false
 [node name="RangeVisualizer" parent="." unique_id=873552947 instance=ExtResource("4_ilewo")]
 
 [node name="AI" parent="." unique_id=2048733410 instance=ExtResource("4_jvisx")]
-base_int = 0.5
-activity_level = 0.9
+base_int = 0.4
 attitude = 3
+further_axis_first = false
 
 [node name="StatusMan" parent="." unique_id=371772200 instance=ExtResource("5_jvisx")]
