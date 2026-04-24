@@ -96,6 +96,7 @@ centered = false
 
 [node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_dvgd7")]
 base_int = 0.5
+activity_level = 0.6
 attitude = 4
 
 [node name="StatusMan" parent="." unique_id=371772200 instance=ExtResource("4_tasfr")]
