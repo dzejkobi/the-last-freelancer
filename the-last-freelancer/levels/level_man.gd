@@ -17,7 +17,7 @@ const ACTOR_CHAR_MAP: Dictionary = {
 		"type": Enums.ACTOR_TYPE.PLAYER,
 		"scene": preload("res://actors/player.tscn")
 	},
-	"m": {
+	"d": {
 		"type": Enums.ACTOR_TYPE.DRONE,
 		"scene": preload("res://actors/drone.tscn")
 	},
@@ -36,6 +36,10 @@ const ACTOR_CHAR_MAP: Dictionary = {
 	"e": {
 		"type": Enums.ACTOR_TYPE.EXECUTIVE,
 		"scene": preload("res://actors/executive.tscn")
+	},
+	"c": {
+		"type": Enums.ACTOR_TYPE.CUBICLE,
+		"scene": preload("res://actors/cubicle.tscn")
 	}
 }
 
@@ -116,8 +120,6 @@ func setup_board(board: Board):
 	var entity: Entity = null
 	var cell_def: Array
 	var level_def: String
-	var difficulty_settings: Dictionary = \
-		board.DIFFICULTY_MAP.get(board.difficulty)
 	
 	level_def = FileAccess.get_file_as_string(
 		"res://levels/%s.txt" % level_names[curr_level_index]
@@ -134,11 +136,6 @@ func setup_board(board: Board):
 				actor = cell_def[1]["scene"].instantiate()
 				actor.setup(grid_pos)
 				board.actor_layer.add_child(actor)
-				if (
-					difficulty_settings.get("no_range_markers", false) and
-					actor.range_visualizer
-				):
-					actor.range_visualizer.is_active = false
 				if actor is Player:
 					board.player = actor
 				elif actor.is_enemy:
@@ -147,13 +144,11 @@ func setup_board(board: Board):
 				actor = null
 			
 			if cell_def[2]["scene"]:
-				if (
-					cell_def[2]["type"] != Enums.ENTITY_TYPE.SHIELD or
-					not difficulty_settings.get("no_extra_shields", false)
-				):
+				if cell_def[2]["scene"]:
 					# Entity
 					entity = cell_def[2]["scene"].instantiate()
-					entity.setup(grid_pos)
+					if entity.shoud_create():
+						entity.setup(grid_pos)
 					board.entity_layer.add_child(entity)
 			else:
 				entity = null

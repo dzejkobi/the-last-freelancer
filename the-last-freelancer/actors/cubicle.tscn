@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://7rww4ai5kv08"]
+
+[ext_resource type="Script" uid="uid://ntaseo1qgff8" path="res://actors/cubicle.gd" id="1_ghj1v"]
+[ext_resource type="PackedScene" uid="uid://2e637uqlsrmt" path="res://actors/drone.tscn" id="2_6sawu"]
+[ext_resource type="Texture2D" uid="uid://dvcbceycmdvv3" path="res://assets/graphics/cubicle.png" id="3_n3q42"]
+[ext_resource type="PackedScene" uid="uid://gdoyncfeb8eq" path="res://actors/components/status_man.tscn" id="4_yt5k1"]
+[ext_resource type="Script" uid="uid://bk3h4j0d05bkx" path="res://actors/components/generic_ai.gd" id="5_n3q42"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tpl7"]
+atlas = ExtResource("3_n3q42")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n87b"]
+atlas = ExtResource("3_n3q42")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h14e"]
+atlas = ExtResource("3_n3q42")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dxkv"]
+atlas = ExtResource("3_n3q42")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o1122"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tpl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8n87b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h14e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dxkv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[node name="Cubicle" type="Node2D" unique_id=1154200132]
+script = ExtResource("1_ghj1v")
+scene_to_spawn = ExtResource("2_6sawu")
+verbose_name = "Glass Cubicle"
+attack_range = 0
+score = 30
+color_name = "cubicle_color"
+metadata/_custom_type_script = "uid://kk24snwcd2er"
+
+[node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=1594247502]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_o1122")
+animation = &"idle"
+autoplay = "idle"
+frame = 3
+frame_progress = 0.7014584
+centered = false
+
+[node name="StatusMan" parent="." unique_id=371772200 instance=ExtResource("4_yt5k1")]
+
+[node name="GenericAI" type="Node" parent="." unique_id=273471294]
+script = ExtResource("5_n3q42")
+activity_level = 0.0
+attitude = 1
+metadata/_custom_type_script = "uid://bk3h4j0d05bkx"

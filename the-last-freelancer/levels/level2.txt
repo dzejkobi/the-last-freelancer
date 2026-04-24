@@ -2,14 +2,14 @@ x x x x x x x x x x x x x x x x x x x x
 x           x                     e4  x
 x     p     x           o       r     x
 x           x       r2                x
-x                                     x
-x           x           m             x
+x                                 c5  x
+x           x           d             x
 x           x               o   o     x
-x   o   m2  x             x       m   x
+x   o   d2  x             x       d   x
 x                         x       o   x
-x m               o       x   o       x
+x d               o       x   o       x
 x                                 r3  x
-x     m2                  x     o     x
-x               m         x       o   x
+x     d2                  x     o     x
+x               d         x       o   x
 x   r2  o             r2  x       t2  x
 x x x x x x x x x x x x x x x x x x x x

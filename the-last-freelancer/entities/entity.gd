@@ -7,6 +7,11 @@ var grid_pos: Vector2i
 @onready var anim_sprite: AnimatedSprite2D = $AnimSprite
 
 
+func shoud_create() -> bool:
+	# Override if you want to create this node conditionally
+	return true
+
+
 func setup(_grid_pos: Vector2i) -> void:
 	grid_pos = _grid_pos
 	position = Grid.grid_pos_to_pos(grid_pos)

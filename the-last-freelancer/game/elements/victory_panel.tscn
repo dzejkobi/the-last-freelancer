@@ -49,11 +49,13 @@ horizontal_alignment = 1
 
 [node name="TextLabel" type="Label" parent="VBoxContainer" unique_id=352422245]
 layout_mode = 2
-text = "You made it
-with great style"
+text = "You made it — and in great style!
+You can chill out now — everything has calmed down,
+and no one is asking too many questions.
+See you on another mission, Last Freelancer…"
 horizontal_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="VBoxContainer" unique_id=2116429821]
 layout_mode = 2
-text = "and score:"
+text = "Final score:"
 horizontal_alignment = 1

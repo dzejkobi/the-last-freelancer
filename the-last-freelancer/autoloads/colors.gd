@@ -16,6 +16,7 @@ extends Node
 @export var headhunter_color: Color
 @export var tank_color: Color
 @export var executive_color: Color
+@export var cubicle_color: Color
 
 @export_group("Entities")
 @export var shield_color: Color

@@ -4,7 +4,7 @@ extends PanelContainer
 
 
 func display() -> void:
-	score_label.text = "and score: %s" % Globals.board.score
+	score_label.text = "Final score: %s" % Globals.board.score
 	visible = true
 	
 	

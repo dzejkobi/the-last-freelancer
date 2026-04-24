@@ -50,6 +50,12 @@ func _ready() -> void:
 		var color: Color = Colors.get(color_name)
 		if color:
 			anim_sprite.modulate = color
+	if (
+		Globals.board.get_difficulty_settings()
+			.get("no_range_markers", false) and
+		range_visualizer
+	):
+		range_visualizer.is_active = false
 
 
 func at_level_start(_data: Dictionary = {}) -> void:
@@ -61,6 +67,23 @@ func at_level_start(_data: Dictionary = {}) -> void:
 func is_movement_valid(to_grid_pos: Vector2i) -> bool:
 	var target_cell: GridCell = Globals.grid.cells.get(to_grid_pos)
 	return target_cell and target_cell.is_passable()
+
+
+func get_valid_moves() -> Array[Vector2i]:
+	var moves: Array[Vector2i] = []
+	var cell: GridCell
+	
+	for try_pos: Vector2i in [
+		grid_pos + Vector2i.UP,
+		grid_pos + Vector2i.RIGHT,
+		grid_pos + Vector2i.DOWN,
+		grid_pos + Vector2i.LEFT,
+	]:
+		cell = Globals.grid.cells.get(try_pos)
+		if cell and cell.is_passable():
+			moves.append(try_pos)
+
+	return moves
 
 
 func interact_with_cell() -> void:
@@ -84,6 +107,24 @@ func _movement_finished_callback(waited: bool = false) -> void:
 func play_movement_animation() -> void:
 	anim_sprite.play("walking")
 
+
+func play_spawn_animation(from_grid_pos: Vector2i) -> void:
+	var tween := create_tween()
+	var from_pos: Vector2 = Grid.grid_pos_to_pos(from_grid_pos)
+	var to_pos: Vector2 = Grid.grid_pos_to_pos(grid_pos)
+	
+	Globals.board.movement_man.register_actor(self)
+	play_movement_animation()
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	position = from_pos
+	modulate.a = 0.3
+	tween.tween_property(self, "position", to_pos, movement_time)
+	tween.parallel()
+	tween.tween_property(self, "modulate:a", 1.0, movement_time)
+	tween.tween_callback(func ():
+		anim_sprite.play("idle")
+		Globals.board.movement_man.unregister_actor(self)
+	)
 
 func move_to_cell(to_grid_pos: Vector2i) -> void:
 	var target_pos: Vector2 = Grid.grid_pos_to_pos(to_grid_pos)
@@ -146,8 +187,10 @@ func shoot(target: Actor) -> void:
 
 
 func try_to_shoot() -> void:
-	# the delay is useful to wait until all actors
-	# updates their grid positions
+	# TODO: Change the name of this function to be more general e.g. "act()".
+	
+	# The delay is useful to wait until all actors
+	# updates their grid positions.
 	var targets = find_enemies_in_range()
 	if len(targets):
 		targets.sort_custom(func (a: Actor, b: Actor):

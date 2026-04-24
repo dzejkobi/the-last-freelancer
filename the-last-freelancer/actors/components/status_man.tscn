@@ -13,6 +13,7 @@ offset_bottom = 20.0
 script = ExtResource("1_34nf5")
 
 [node name="IntBoost" type="PanelContainer" parent="." unique_id=1331671312]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_34nf5")

@@ -18,24 +18,6 @@ var curr_int: float:
 		return clamp(base_int + int_mod, 0, max_int)
 
 
-func get_valid_moves() -> Array[Vector2i]:
-	var moves: Array[Vector2i] = []
-	var grid_pos: Vector2i = actor.grid_pos
-	var cell: GridCell
-	
-	for try_pos: Vector2i in [
-		grid_pos + Vector2i.UP,
-		grid_pos + Vector2i.RIGHT,
-		grid_pos + Vector2i.DOWN,
-		grid_pos + Vector2i.LEFT,
-	]:
-		cell = Globals.grid.cells.get(try_pos)
-		if cell and cell.is_passable():
-			moves.append(try_pos)
-
-	return moves
-
-
 func move_or_wait(to_grid_pos: Vector2i) -> void:
 	if to_grid_pos == Vector2i.ZERO:
 		actor.delayed_try_to_shoot()
@@ -130,7 +112,7 @@ func move_intelligently(valid_moves: Array[Vector2i]) -> void:
 func move() -> void:
 	var activity_roll: float = randf()
 	var int_roll: float = randf()
-	var valid_moves: Array[Vector2i] = get_valid_moves()
+	var valid_moves: Array[Vector2i] = actor.get_valid_moves()
 	
 	if activity_roll > activity_level:
 		actor.wait()

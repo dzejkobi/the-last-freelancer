@@ -2,16 +2,20 @@ class_name Board extends Node
 
 const DIFFICULTY_MAP := {
 	Enums.DIFFICULTY.EASY: {
+		"difficulty": Enums.DIFFICULTY.EASY,
 		"shield_count": 2
 	},
 	Enums.DIFFICULTY.NORMAL: {
+		"difficulty": Enums.DIFFICULTY.NORMAL,
 		"shield_count": 0
 	},
 	Enums.DIFFICULTY.HARD: {
+		"difficulty": Enums.DIFFICULTY.HARD,
 		"shield_count": 0,
 		"no_extra_shields": true
 	},
 	Enums.DIFFICULTY.HEROIC: {
+		"difficulty": Enums.DIFFICULTY.HEROIC,
 		"shield_count": 0,
 		"no_extra_shields": true,
 		"no_range_markers": true
@@ -55,6 +59,10 @@ signal level_loaded
 signal player_movement_started(player: Actor)
 @warning_ignore("unused_signal")
 signal player_movement_finished(player: Actor)
+
+
+func get_difficulty_settings() -> Dictionary: 
+	return DIFFICULTY_MAP.get(difficulty)
 
 
 func center_camera() -> void:
