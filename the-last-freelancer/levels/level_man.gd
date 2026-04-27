@@ -139,11 +139,11 @@ func setup_board(board: Board):
 				# Actor
 				actor = cell_def[1]["scene"].instantiate()
 				actor.setup(grid_pos)
-				board.actor_layer.add_child(actor)
+				Globals.board.actor_layer.add_child(actor)
 				if actor is Player:
-					board.player = actor
+					Globals.board.player = actor
 				elif actor.is_enemy:
-					board.enemies.append(actor)
+					Globals.board.enemies.append(actor)
 			else:
 				actor = null
 			
@@ -151,7 +151,7 @@ func setup_board(board: Board):
 				if cell_def[2]["scene"]:
 					# Entity
 					entity = cell_def[2]["scene"].instantiate()
-					if entity.shoud_create():
+					if entity.should_create():
 						entity.setup(grid_pos)
 					board.entity_layer.add_child(entity)
 			else:

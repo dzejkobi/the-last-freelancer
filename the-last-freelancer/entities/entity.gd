@@ -7,7 +7,7 @@ var grid_pos: Vector2i
 @onready var anim_sprite: AnimatedSprite2D = $AnimSprite
 
 
-func shoud_create() -> bool:
+func should_create() -> bool:
 	# Override if you want to create this node conditionally
 	return true
 

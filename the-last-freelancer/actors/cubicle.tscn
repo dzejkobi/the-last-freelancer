@@ -62,7 +62,7 @@ centered = false
 
 [node name="StatusMan" parent="." unique_id=371772200 instance=ExtResource("4_yt5k1")]
 
-[node name="GenericAI" type="Node" parent="." unique_id=273471294]
+[node name="AI" type="Node" parent="." unique_id=273471294]
 script = ExtResource("5_n3q42")
 activity_level = 0.0
 attitude = 1

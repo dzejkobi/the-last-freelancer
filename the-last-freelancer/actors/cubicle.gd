@@ -10,6 +10,7 @@ var turns_to_spawn: int
 
 
 func _ready() -> void:
+	super._ready()
 	turns_to_spawn = spawn_intervel
 
 
@@ -37,6 +38,11 @@ func spawn(at_grid_pos: Vector2i) -> void:
 	child.score = 1
 	Globals.board.actor_layer.add_child(child)
 	Globals.board.enemies.append(child)
+	assert(
+		not Globals.grid.cells[at_grid_pos].actor,
+		'Grid position "%s" is already occupied.' % at_grid_pos
+	)
+	Globals.grid.cells[at_grid_pos].actor = child
 	child.play_spawn_animation(grid_pos)
 	
 
