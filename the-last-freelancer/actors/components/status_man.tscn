@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cod312c24gvk6" path="res://actors/components/status_man.gd" id="1_34nf5"]
 [ext_resource type="PackedScene" uid="uid://5w46swjw87dm" path="res://actors/components/int_boost_icon.tscn" id="2_0jpve"]
+[ext_resource type="PackedScene" uid="uid://cldqy1hhq7b5d" path="res://actors/components/cooldown_icon.tscn" id="3_0jpve"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34nf5"]
 bg_color = Color(0, 0, 0, 1)
@@ -13,10 +14,17 @@ offset_bottom = 20.0
 script = ExtResource("1_34nf5")
 
 [node name="IntBoost" type="PanelContainer" parent="." unique_id=1331671312]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_34nf5")
 
 [node name="Icon" parent="IntBoost" unique_id=186327446 instance=ExtResource("2_0jpve")]
+layout_mode = 2
+
+[node name="Cooldown" type="PanelContainer" parent="." unique_id=10574838]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_34nf5")
+
+[node name="Icon" parent="Cooldown" unique_id=880956540 instance=ExtResource("3_0jpve")]
 layout_mode = 2

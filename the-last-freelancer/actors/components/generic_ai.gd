@@ -20,10 +20,12 @@ var curr_int: float:
 
 func move_or_wait(to_grid_pos: Vector2i) -> void:
 	if to_grid_pos == Vector2i.ZERO:
-		actor.delayed_try_to_shoot()
+		if actor.is_operational():
+			actor.delayed_try_to_shoot()
 		actor.delayed_interact_with_cell()
 	else:
-		actor.move_to_cell(to_grid_pos)
+		if actor.is_operational():
+			actor.move_to_cell(to_grid_pos)
 
 	
 func move_randomly(valid_moves: Array[Vector2i]) -> void:

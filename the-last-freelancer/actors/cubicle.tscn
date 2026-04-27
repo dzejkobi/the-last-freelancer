@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ntaseo1qgff8" path="res://actors/cubicle.gd" id="1_ghj1v"]
 [ext_resource type="PackedScene" uid="uid://2e637uqlsrmt" path="res://actors/drone.tscn" id="2_6sawu"]
-[ext_resource type="Texture2D" uid="uid://c7i21trnhgxc6" path="res://assets/graphics/glass-cubicle.png" id="3_n3q42"]
+[ext_resource type="Texture2D" uid="uid://c7i21trnhgxc6" path="res://assets/graphics/glass_cubicle.png" id="3_n3q42"]
 [ext_resource type="PackedScene" uid="uid://gdoyncfeb8eq" path="res://actors/components/status_man.tscn" id="4_yt5k1"]
 [ext_resource type="Script" uid="uid://bk3h4j0d05bkx" path="res://actors/components/generic_ai.gd" id="5_n3q42"]
 

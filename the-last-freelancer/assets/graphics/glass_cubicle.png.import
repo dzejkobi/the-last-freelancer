@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7i21trnhgxc6"
-path="res://.godot/imported/glass-cubicle.png-dda0a82c18c24a386cd9edf455a4b99d.ctex"
+path="res://.godot/imported/glass_cubicle.png-b77ca15789ba1d7cae35230997bbc2da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/glass-cubicle.png"
-dest_files=["res://.godot/imported/glass-cubicle.png-dda0a82c18c24a386cd9edf455a4b99d.ctex"]
+source_file="res://assets/graphics/glass_cubicle.png"
+dest_files=["res://.godot/imported/glass_cubicle.png-b77ca15789ba1d7cae35230997bbc2da.ctex"]
 
 [params]
 

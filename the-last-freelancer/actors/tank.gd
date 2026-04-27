@@ -39,7 +39,9 @@ func find_enemies_in_range() -> Array[Actor]:
 func shoot(target: Actor) -> void:
 	var timer := get_tree().create_timer(0.4 * movement_time)
 	var player: Player = Globals.board.player
-	
+
+	status_man.set_status(Enums.ACTOR_STATUS.ON_COOLDOWN, 1)
+
 	timer.timeout.connect(func ():
 		var dir_name: String
 		if grid_pos.x == player.grid_pos.x:

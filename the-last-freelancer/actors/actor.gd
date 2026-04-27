@@ -64,6 +64,13 @@ func at_level_start(_data: Dictionary = {}) -> void:
 	pass
 
 
+func is_operational() -> bool:
+	return not (
+		is_dying or
+		status_man.has_status(Enums.ACTOR_STATUS.ON_COOLDOWN)
+	)
+
+
 func is_movement_valid(to_grid_pos: Vector2i) -> bool:
 	var target_cell: GridCell = Globals.grid.cells.get(to_grid_pos)
 	return target_cell and target_cell.is_passable()

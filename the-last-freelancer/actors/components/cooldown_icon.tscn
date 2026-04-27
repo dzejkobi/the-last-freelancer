@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cldqy1hhq7b5d"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ckfja"]
+load_path = "res://.godot/imported/objects.png-fc0cc74ea350328d310f1b8d4db1d89b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kqwf"]
+atlas = SubResource("CompressedTexture2D_ckfja")
+region = Rect2(54, 16.041, 5, 5)
+
+[node name="CooldownIcon" type="TextureRect" unique_id=186327446]
+modulate = Color(0.54, 0.09180001, 0.09180001, 1)
+custom_minimum_size = Vector2(20, 20)
+texture = SubResource("AtlasTexture_1kqwf")
+expand_mode = 3
+stretch_mode = 6

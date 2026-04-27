@@ -5,7 +5,11 @@ enum TERRAIN_TYPE {
 	UNKNOWN = 0,
 	FLOOR = 1,
 	WALL = 2,
-	ROCKS = 3
+	PYRAMID = 3,
+	ROCKS = 4,
+	SERVER = 5,
+	EMPTY_JAR = 6,
+	FILLED_JAR = 7
 }
 
 enum ACTOR_TYPE {
@@ -53,5 +57,6 @@ enum ATTITUDE {
 
 enum ACTOR_STATUS {
 	UNKNOWN = 0,
-	INT_BOOSTED = 1
+	INT_BOOSTED = 1,
+	ON_COOLDOWN = 2
 }

@@ -7,8 +7,17 @@ class_name StatusMan extends HBoxContainer
 		"turns_to_expire": -1,
 		"int_boost": 0.0,
 		"icon_node": $IntBoost
-	}
+	},
+	Enums.ACTOR_STATUS.ON_COOLDOWN: {
+		"is_active": false,
+		"turns_to_expire": -1,
+		"icon_node": $Cooldown
+	},
 }
+
+
+func has_status(status: Enums.ACTOR_STATUS) -> bool:
+	return statuses[status].is_active
 
 
 func set_status(
@@ -31,6 +40,8 @@ func set_status(
 					data["int_boost"]
 				if actor.ai and "int_mod" in actor.ai:
 					actor.ai.int_mod = data["int_boost"]
+		Enums.ACTOR_STATUS.ON_COOLDOWN:
+			pass
 		_:
 			push_error('Unsupported ACTOR_STATUS "%s".' % status)
 		
