@@ -3,11 +3,11 @@ class_name Board extends Node
 const DIFFICULTY_MAP := {
 	Enums.DIFFICULTY.EASY: {
 		"difficulty": Enums.DIFFICULTY.EASY,
-		"shield_count": 2
+		"shield_count": 4
 	},
 	Enums.DIFFICULTY.NORMAL: {
 		"difficulty": Enums.DIFFICULTY.NORMAL,
-		"shield_count": 0
+		"shield_count": 2
 	},
 	Enums.DIFFICULTY.HARD: {
 		"difficulty": Enums.DIFFICULTY.HARD,

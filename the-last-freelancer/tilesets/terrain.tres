@@ -1,25 +1,27 @@
 [gd_resource type="TileSet" format=3 uid="uid://sw64kb2abd4r"]
 
-[ext_resource type="Texture2D" uid="uid://b3ryeu82otixl" path="res://assets/graphics/objects.png" id="1_ufxj2"]
+[ext_resource type="Texture2D" uid="uid://hfdvr5nt77r" path="res://assets/graphics/objects2.png" id="1_ndmgv"]
 [ext_resource type="Texture2D" uid="uid://blqlv5a88bsr8" path="res://assets/graphics/floor.png" id="2_ndmgv"]
+[ext_resource type="Texture2D" uid="uid://daq8qtgrj82ne" path="res://assets/graphics/server.png" id="3_nfrjq"]
+[ext_resource type="Texture2D" uid="uid://bnfdwii166buc" path="res://assets/graphics/jars.png" id="4_kcw04"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ndmgv"]
-texture = ExtResource("1_ufxj2")
+texture = ExtResource("1_ndmgv")
 0:0/0 = 0
 0:0/0/modulate = Color(0.1882353, 0.22745098, 0.30980393, 1)
 0:0/0/terrain_set = 0
 0:0/0/terrain = 1
 3:0/0 = 0
-3:0/0/modulate = Color(0.42352942, 0.26666668, 0.1882353, 1)
+3:0/0/modulate = Color(0.2784314, 0.2, 0.16078432, 1)
 3:0/0/terrain_set = 0
-3:0/0/terrain = 2
+3:0/0/terrain = 3
 1:0/0 = 0
 1:0/0/modulate = Color(0.1882353, 0.22745098, 0.30980393, 1)
+1:0/0/terrain_set = 0
+1:0/0/terrain = 2
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
 2:2/0 = 0
 3:2/0 = 0
 0:3/0 = 0
@@ -27,6 +29,7 @@ texture = ExtResource("1_ufxj2")
 2:3/0 = 0
 3:3/0 = 0
 2:0/0 = 0
+3:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nfrjq"]
 texture = ExtResource("2_ndmgv")
@@ -105,13 +108,68 @@ texture = ExtResource("2_ndmgv")
 4:2/0/terrain = 0
 4:2/0/probability = 0.01
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kcw04"]
+texture = ExtResource("3_nfrjq")
+0:0/animation_columns = 2
+0:0/animation_speed = 0.5
+0:0/animation_mode = 1
+0:0/animation_frame_0/duration = 0.5
+0:0/animation_frame_1/duration = 0.5
+0:0/0 = 0
+0:0/0/modulate = Color(0.2108, 0.28023997, 0.31, 1)
+0:0/0/terrain_set = 0
+0:0/0/terrain = 4
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mvvlq"]
+texture = ExtResource("4_kcw04")
+0:0/animation_columns = 8
+0:0/animation_speed = 0.1
+0:0/animation_mode = 1
+0:0/animation_frame_0/duration = 0.1
+0:0/animation_frame_1/duration = 0.1
+0:0/animation_frame_2/duration = 0.1
+0:0/animation_frame_3/duration = 0.1
+0:0/animation_frame_4/duration = 0.1
+0:0/animation_frame_5/duration = 0.1
+0:0/animation_frame_6/duration = 0.1
+0:0/animation_frame_7/duration = 0.1
+0:0/0 = 0
+0:0/0/modulate = Color(0.20784314, 0.2901961, 0.2509804, 1)
+0:0/0/terrain_set = 0
+0:0/0/terrain = 5
+0:2/animation_columns = 8
+0:2/animation_speed = 0.1
+0:2/animation_mode = 1
+0:2/animation_frame_0/duration = 0.1
+0:2/animation_frame_1/duration = 0.1
+0:2/animation_frame_2/duration = 0.1
+0:2/animation_frame_3/duration = 0.1
+0:2/animation_frame_4/duration = 0.1
+0:2/animation_frame_5/duration = 0.1
+0:2/animation_frame_6/duration = 0.1
+0:2/animation_frame_7/duration = 0.1
+0:2/0 = 0
+0:2/0/modulate = Color(0.20784314, 0.2901961, 0.2509804, 1)
+0:2/0/terrain_set = 0
+0:2/0/terrain = 6
+
 [resource]
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Floor"
 terrain_set_0/terrain_0/color = Color(0.46875, 0.5, 0.25, 1)
-terrain_set_0/terrain_1/name = "Walls"
+terrain_set_0/terrain_1/name = "Wall"
 terrain_set_0/terrain_1/color = Color(0.22352941, 0.25882354, 1, 1)
-terrain_set_0/terrain_2/name = "Rocks"
-terrain_set_0/terrain_2/color = Color(0.42352942, 0.26666668, 0.1882353, 1)
+terrain_set_0/terrain_2/name = "Pyramid"
+terrain_set_0/terrain_2/color = Color(0.19839999, 0.27744, 0.32, 1)
+terrain_set_0/terrain_3/name = "Rocks"
+terrain_set_0/terrain_3/color = Color(0.2784314, 0.2, 0.16078432, 1)
+terrain_set_0/terrain_4/name = "Server"
+terrain_set_0/terrain_4/color = Color(0.21176471, 0.2784314, 0.30980393, 1)
+terrain_set_0/terrain_5/name = "Empty jar"
+terrain_set_0/terrain_5/color = Color(0.25, 0.5, 0.3125, 1)
+terrain_set_0/terrain_6/name = "Filled jar"
+terrain_set_0/terrain_6/color = Color(0.25, 0.5, 0.40625, 1)
 sources/0 = SubResource("TileSetAtlasSource_ndmgv")
 sources/1 = SubResource("TileSetAtlasSource_nfrjq")
+sources/2 = SubResource("TileSetAtlasSource_kcw04")
+sources/3 = SubResource("TileSetAtlasSource_mvvlq")

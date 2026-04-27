@@ -1,15 +1,15 @@
-x x x x x x x x x x x x x x x x x x x x
-x           x                     e4  x
-x     p     x           o       r     x
-x           x       r2                x
-x                                 c5  x
-x           x           d             x
-x           x               o   o     x
-x   o   d2  x             x       d   x
-x                         x       o   x
-x d               o       x   o       x
-x                                 r3  x
-x     d2                  x     o     x
-x               d         x       o   x
-x   r2  o             r2  x       t2  x
-x x x x x x x x x x x x x x x x x x x x
+# # # # # # # # # # # # # # # # # # # #
+#                                     #
+#           ^             r       h2  #
+#     p     ^                         #
+#           ^         &           d   #
+#                         ^           #
+#               & d     ^ ^ ^         #
+#           ^             ^       c3  #
+#         ^ ^ ^               &       #
+#           ^               &   r     #
+#     d                   ^     &   & #
+#                         ^   e3  &   #
+#             &     r     ^       t2  #
+#                     &       &       #
+# # # # # # # # # # # # # # # # # # # #

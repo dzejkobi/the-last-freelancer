@@ -10,9 +10,25 @@ var terrain_defs: Dictionary[Enums.TERRAIN_TYPE, Dictionary] = {
 		"coords": [],
 		"terrain_id": 1
 	},
-	Enums.TERRAIN_TYPE.ROCKS: {
+	Enums.TERRAIN_TYPE.PYRAMID: {
 		"coords": [],
 		"terrain_id": 2
+	},
+	Enums.TERRAIN_TYPE.ROCKS: {
+		"coords": [],
+		"terrain_id": 3
+	},
+	Enums.TERRAIN_TYPE.SERVER: {
+		"coords": [],
+		"terrain_id": 4
+	},
+	Enums.TERRAIN_TYPE.EMPTY_JAR: {
+		"coords": [],
+		"terrain_id": 5
+	},
+	Enums.TERRAIN_TYPE.FILLED_JAR: {
+		"coords": [],
+		"terrain_id": 6
 	}
 }
 

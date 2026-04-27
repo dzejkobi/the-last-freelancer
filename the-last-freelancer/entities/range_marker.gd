@@ -1,6 +1,6 @@
 class_name RangeMarker extends Node2D
 
-const anim_time: float = 0.2
+const anim_time: float = 0.1
 
 @export var transparency: float = 0.15
 

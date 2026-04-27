@@ -4,8 +4,12 @@ class_name LevelMan extends Node
 
 const TERRAIN_CHAR_MAP = {
 	" ": Enums.TERRAIN_TYPE.FLOOR,
-	"x": Enums.TERRAIN_TYPE.WALL,
-	"o": Enums.TERRAIN_TYPE.ROCKS
+	"#": Enums.TERRAIN_TYPE.WALL,
+	"^": Enums.TERRAIN_TYPE.PYRAMID,
+	"&": Enums.TERRAIN_TYPE.ROCKS,
+	"$": Enums.TERRAIN_TYPE.SERVER,
+	"[": Enums.TERRAIN_TYPE.EMPTY_JAR,
+	"]": Enums.TERRAIN_TYPE.FILLED_JAR
 }
 
 const ACTOR_CHAR_MAP: Dictionary = {

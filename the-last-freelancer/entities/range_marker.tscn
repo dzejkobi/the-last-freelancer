@@ -5,6 +5,7 @@
 
 [node name="RangeMarker" type="Node2D" unique_id=1756299374]
 script = ExtResource("1_oqcj3")
+transparency = 0.1
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1414855312]
 scale = Vector2(4, 4)
