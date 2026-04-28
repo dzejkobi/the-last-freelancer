@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dcukdbf1lqb2g" path="res://game/game.gd" id="1_h7iqs"]
 [ext_resource type="PackedScene" uid="uid://1s0uywhr1pp7" path="res://game/elements/board.tscn" id="1_l1rk1"]
+[ext_resource type="PackedScene" uid="uid://cie7tis2yn4hj" path="res://interludes/dynamic_bg/bg_screen.tscn" id="2_vsp63"]
 [ext_resource type="PackedScene" uid="uid://cyd5qjbx1wgjd" path="res://levels/level_man.tscn" id="3_4fuuu"]
 [ext_resource type="PackedScene" uid="uid://hi84dfcefsvj" path="res://game/elements/shield_info_container.tscn" id="4_3vho3"]
 [ext_resource type="PackedScene" uid="uid://dksx8adgvjahv" path="res://game/elements/main_menu.tscn" id="4_4fuuu"]
@@ -66,6 +67,9 @@ grow_vertical = 2
 script = ExtResource("1_h7iqs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1126406438]
+
+[node name="BgScreen" parent="CanvasLayer" unique_id=140237763 instance=ExtResource("2_vsp63")]
+unique_name_in_owner = true
 
 [node name="GUIRoot" type="Control" parent="CanvasLayer" unique_id=1320106535]
 layout_mode = 3

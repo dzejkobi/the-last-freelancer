@@ -106,6 +106,7 @@ func reset() -> void:
 	level_man.set_next_level(level_man.first_level_index, level_man.first_loop)
 	player_shield_count = DIFFICULTY_MAP[difficulty]["shield_count"]
 	setup()
+	%BgScreen.disable()
 
 
 func update_statuses() -> void:

@@ -50,12 +50,12 @@ func _ready() -> void:
 		var color: Color = Colors.get(color_name)
 		if color:
 			anim_sprite.modulate = color
-	if (
-		Globals.board.get_difficulty_settings()
-			.get("no_range_markers", false) and
-		range_visualizer
-	):
-		range_visualizer.is_active = false
+	if range_visualizer:
+		range_visualizer.is_active = \
+			not Globals.board.get_difficulty_settings()\
+				.get("no_range_markers", false)
+		if range_visualizer.is_active:
+			range_visualizer.mark_range()
 
 
 func at_level_start(_data: Dictionary = {}) -> void:
