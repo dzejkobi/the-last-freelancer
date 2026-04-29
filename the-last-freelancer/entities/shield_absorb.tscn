@@ -34,6 +34,7 @@ script = ExtResource("1_56kx6")
 color_name = "shield_color"
 
 [node name="Particles" type="GPUParticles2D" parent="." unique_id=390708365]
+position = Vector2(32, 32)
 amount = 32
 lifetime = 0.3
 explosiveness = 1.0

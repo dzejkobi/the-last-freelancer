@@ -50,8 +50,26 @@ var game_over := AudioPlayer.Sound.new(
 var laser := AudioPlayer.Sound.new(
 	"res://assets/sounds/laser.ogg",
 	{
-		"volume": 0.7,
+		"volume": 0.5,
 		"pitch_scale_variancy": 0.4
+	},
+	true
+)
+
+var beam_in := AudioPlayer.Sound.new(
+	"res://assets/sounds/beam_in.ogg",
+	{
+		"volume": 1.8,
+		"pitch_scale_variancy": 0.2
+	},
+	true
+)
+
+var beam_out := AudioPlayer.Sound.new(
+	"res://assets/sounds/beam_out.ogg",
+	{
+		"volume": 1.8,
+		"pitch_scale_variancy": 0.2
 	},
 	true
 )

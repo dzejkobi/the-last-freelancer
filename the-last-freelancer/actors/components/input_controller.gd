@@ -34,7 +34,7 @@ func execute_movement_action(action_name: String) -> void:
 
 
 func _unhandled_input(_event: InputEvent) -> void:
-	if Globals.board.is_paused or not actor:
+	if Globals.board.is_paused or not actor or actor.is_dying:
 		return
 
 	elif Globals.board.movement_man.in_movement:

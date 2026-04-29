@@ -3,6 +3,7 @@ class_name Actor extends Node2D
 const splash_scene := preload("res://entities/splash.tscn")
 const projectile_scene = preload("res://entities/projectile.tscn")
 const shield_absorb_scene = preload("res://entities/shield_absorb.tscn")
+const teleport_beam_scene = preload("res://entities/teleport_beam.tscn")
 
 @export var verbose_name: String = "Actor"
 @export var movement_time: float = 0.5
@@ -109,6 +110,20 @@ func _movement_finished_callback(waited: bool = false) -> void:
 	is_moving = false
 	if not waited:
 		Globals.board.movement_man.unregister_actor(self)
+
+
+func play_beam_in_animation() -> void:
+	var tween = anim_sprite.create_tween()
+	var beam: TeleportBeam = teleport_beam_scene.instantiate()
+	
+	Globals.board.movement_man.register_actor(self)
+	anim_sprite.modulate.a = 0.0
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.tween_property(anim_sprite, "modulate:a", 1.0, beam.anim_time)
+	add_child(beam)
+	beam.beam_in(func ():
+		Globals.board.movement_man.unregister_actor(self)
+	)
 
 
 func play_movement_animation() -> void:
@@ -258,7 +273,8 @@ func hit_by_projectile(projectile: Projectile) -> void:
 		_shield_activated = true
 		shield_count -= 1
 		var shield_absorb: ShieldAbsorb = shield_absorb_scene.instantiate()
-		shield_absorb.setup(position + floor(0.5 * Consts.TILE_SIZE))
+		shield_absorb.setup()
+		add_child(shield_absorb)
 		shield_absorb.display()
 
 

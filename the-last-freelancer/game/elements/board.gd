@@ -115,11 +115,12 @@ func update_statuses() -> void:
 
 
 func game_over(killer: Actor) -> void:
-	%GameOverPanel.display(killer)
-	Sounds.game_over.play()
 	is_paused = true
 	is_set = false
-	
+	get_tree().create_timer(0.5).timeout.connect(func ():
+		%GameOverPanel.display(killer)
+	)
+
 
 func victory() -> void:
 	%VictoryPanel.display()
@@ -128,6 +129,8 @@ func victory() -> void:
 
 
 func complete_level() -> void:
+	player.finish_level()
+	await until_no_movement()
 	Sounds.victory.play()
 	if level_man.set_next_level():
 		setup()

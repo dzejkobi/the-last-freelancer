@@ -11,13 +11,11 @@ var sound: AudioPlayer.Sound
 @onready var timer: Timer = $Timer
 
 
-func setup(pos: Vector2) -> void:
-	position = pos
+func setup() -> void:
 	if color_name:
 		color = Colors.get(color_name)
 	if sound_name:
 		sound = Sounds.get(sound_name)
-	Globals.board.entity_layer.add_child(self)
 
 
 func display() -> void:
