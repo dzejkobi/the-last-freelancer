@@ -54,7 +54,7 @@ func _ready() -> void:
 
 func shoot(enemy: OffScreenChar) -> void:
 	var bullet: OffScreenBullet = BulletScene.instantiate()
-	bullet.setup(position, Colors.get(color_name))
+	bullet.setup(position, Colors.get(color_name), self)
 	screen.add_child(bullet)
 	Sounds.laser.play({
 		"global_position": bullet.global_position,
@@ -140,7 +140,22 @@ func start_hiding() -> void:
 	tween.tween_property(self, "position", start_pos, state_time)
 
 
-func _set_rotation() -> void:
+func _get_y_range() -> Array[float]:
+	return [2 * full_size.y, screen.size.y - full_size.y]
+
+
+func _set_visuals() -> void:
+	# Scale
+	var y_range: Array[float] = _get_y_range()
+	var scale_factor = lerpf(
+		0.5, 1.0, (position.y - y_range[0]) / (y_range[1] - y_range[0])
+	)
+	scale = Vector2(scale_factor, scale_factor)
+	
+	# Alpha
+	modulate.a = scale_factor
+	
+	# Roatation
 	if position.x < 0.33 * screen.size.x:
 		anim_sprite.rotation = deg_to_rad(10.0)
 	elif position.x < 0.66 * screen.size.x:
@@ -154,11 +169,13 @@ func setup(where: BORDER) -> void:
 		full_size != Vector2.ZERO,
 		"OffScreenChar's full_size hasn't yet been set."
 	)
+	var y_range := _get_y_range()
+	
 	match where:
 		BORDER.LEFT:
 			start_pos = Vector2(
 				0 - full_size.x,
-				randf_range(2 * full_size.y, screen.size.y - full_size.y)
+				randf_range(y_range[0], y_range[1])
 			)
 			end_pos = Vector2(
 				start_pos.x + 1.1 * full_size.x,
@@ -184,4 +201,4 @@ func setup(where: BORDER) -> void:
 			)
 	
 	position = start_pos
-	_set_rotation()
+	_set_visuals()

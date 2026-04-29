@@ -85,7 +85,7 @@ projectile_type = 2
 hint = "Recruiters can be ruthless and cunning,
 but they can be overcome
 by keeping your distance
-and wait for them [space]
+and wait for them [spacebar]
 to enter your range."
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]

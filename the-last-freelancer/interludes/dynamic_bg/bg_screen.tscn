@@ -205,7 +205,39 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 0.5
+"speed": 0.9
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5qyyo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_447ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5qtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2atmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16uye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6tsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv5hj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnuxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpvau")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.8
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afdng"]
@@ -333,42 +365,42 @@ grow_vertical = 2
 
 [node name="Server" type="AnimatedSprite2D" parent="Container" unique_id=1402745658]
 modulate = Color(0.2108, 0.2785867, 0.31, 0.34901962)
-position = Vector2(160, -69)
-scale = Vector2(5, 5)
+position = Vector2(114.40001, 3.0000076)
+scale = Vector2(3.500001, 3.500001)
 sprite_frames = SubResource("SpriteFrames_ol5s8")
 autoplay = "default"
 
 [node name="Server2" type="AnimatedSprite2D" parent="Container" unique_id=1706580838]
 modulate = Color(0.2108, 0.2785867, 0.31, 0.61960787)
-position = Vector2(128, 40)
-scale = Vector2(6.5, 6.5)
+position = Vector2(80.399994, 101)
+scale = Vector2(4.8249984, 4.8249984)
 sprite_frames = SubResource("SpriteFrames_cxuxg")
 autoplay = "default"
 
 [node name="Server3" type="AnimatedSprite2D" parent="Container" unique_id=2119151792]
 modulate = Color(0.21176471, 0.2784314, 0.30980393, 1)
-position = Vector2(75, 175)
-scale = Vector2(8, 8)
+position = Vector2(38.399994, 228)
+scale = Vector2(6.799999, 6.799999)
 sprite_frames = SubResource("SpriteFrames_447ag")
 autoplay = "default"
 
 [node name="Jar" type="AnimatedSprite2D" parent="Container" unique_id=546803675]
 modulate = Color(0.2088, 0.29, 0.2507533, 0.31764707)
 position = Vector2(714, -25)
-scale = Vector2(5, 5)
+scale = Vector2(4.25, 4.25)
 sprite_frames = SubResource("SpriteFrames_etpnk")
 autoplay = "default"
 
 [node name="Jar2" type="AnimatedSprite2D" parent="Container" unique_id=273926373]
 modulate = Color(0.2088, 0.29, 0.2507533, 0.59607846)
-position = Vector2(750, 83)
-scale = Vector2(6.5, 6.5)
-sprite_frames = SubResource("SpriteFrames_etpnk")
+position = Vector2(766.00006, 66)
+scale = Vector2(5.525, 5.525)
+sprite_frames = SubResource("SpriteFrames_5qyyo")
 autoplay = "default"
 
 [node name="FilledJar" type="AnimatedSprite2D" parent="Container" unique_id=503598283]
 modulate = Color(0.20784314, 0.2901961, 0.2509804, 1)
-position = Vector2(787, 223)
-scale = Vector2(8, 8)
+position = Vector2(823, 189)
+scale = Vector2(6.8, 6.8)
 sprite_frames = SubResource("SpriteFrames_mkmgd")
 autoplay = "default"
