@@ -24,6 +24,7 @@ func try_to_shoot() -> void:
 		)
 		
 
-func _on_tree_exiting() -> void:
+func die(_killer: Actor = null) -> void:
 	if crosshair:
 		crosshair.disappear()
+	super.die(_killer)

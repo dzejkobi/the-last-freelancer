@@ -247,10 +247,15 @@ func die(_killer: Actor = null) -> void:
 
 	var tween := create_tween()
 	tween.tween_property(self, "modulate:a", 0, 0.1)
+	if range_visualizer:
+		range_visualizer.clear_markers()
 	tween.tween_callback(func (): 
 		Globals.board.movement_man.unregister_actor(self, true)
 		Globals.board.check_level_completion()
-		queue_free()
+		get_tree().create_timer(1.0).timeout.connect(func ():
+			# Additional timeout before we remove the node.
+			queue_free()
+		)
 	)
 
 

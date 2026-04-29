@@ -153,7 +153,9 @@ func setup_board(board: Board):
 					entity = cell_def[2]["scene"].instantiate()
 					if entity.should_create():
 						entity.setup(grid_pos)
-					board.entity_layer.add_child(entity)
+						board.entity_layer.add_child(entity)
+					else:
+						entity.queue_free()
 			else:
 				entity = null
 			

@@ -6,7 +6,8 @@ enum BuildKind {
 	UNKNOWN=0,
 	WINDOWS=1,
 	WEB=2,
-	MAC=3
+	LINUX=3,
+	MAC=4
 }
 
 @export var config_path: String = "user://settings.cfg"
