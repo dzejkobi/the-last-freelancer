@@ -28,7 +28,7 @@ const BulletScene = preload("res://interludes/dynamic_bg/off_screen_bullet.tscn"
 @export var anim_sprite: AnimatedSprite2D
 @export var shoot_interval: float = 0.2
 
-@onready var screen: BGScreen = get_parent()
+@onready var screen: StartScreen = get_parent()
 
 var state: STATE
 var start_pos: Vector2

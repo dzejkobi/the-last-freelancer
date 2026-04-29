@@ -1,4 +1,4 @@
-class_name BGScreen extends Control
+class_name StartScreen extends Control
 
 
 var char_map: Dictionary[OffScreenChar.BORDER, OffScreenChar] = {

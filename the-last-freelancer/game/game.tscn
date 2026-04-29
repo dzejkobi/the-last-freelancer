@@ -68,8 +68,9 @@ script = ExtResource("1_h7iqs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1126406438]
 
-[node name="BgScreen" parent="CanvasLayer" unique_id=140237763 instance=ExtResource("2_vsp63")]
+[node name="StartScreen" parent="CanvasLayer" unique_id=140237763 instance=ExtResource("2_vsp63")]
 unique_name_in_owner = true
+process_mode = 4
 
 [node name="GUIRoot" type="Control" parent="CanvasLayer" unique_id=1320106535]
 layout_mode = 3

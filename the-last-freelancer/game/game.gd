@@ -9,4 +9,4 @@ func _ready() -> void:
 	Globals.set_board(board)
 	Globals.game = self
 	menu_info_label.text = "%s: menu" % Settings.menu_key_name
-	%BgScreen.enable()
+	%StartScreen.enable()

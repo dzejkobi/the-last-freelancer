@@ -304,8 +304,7 @@ animations = [{
 "speed": 0.7
 }]
 
-[node name="BgScreen" type="Control" unique_id=140237763]
-process_mode = 4
+[node name="StartScreen" type="Control" unique_id=140237763]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
