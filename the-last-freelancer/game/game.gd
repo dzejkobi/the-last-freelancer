@@ -23,7 +23,16 @@ func remove_start_screen() -> void:
 		start_screen = null
 
 
+func optimize() -> void:
+	if Settings.build == Settings.BuildKind.WEB:
+		var web_optimizer: WebOptimizer = \
+			load("res://utilities/web_optimizer.tscn").instantiate()
+		add_child(web_optimizer)
+		web_optimizer.queue_free()
+
+
 func _ready() -> void:
+	optimize()
 	RenderingServer.set_default_clear_color(Colors.bg_color)
 	Globals.set_board(board)
 	Globals.game = self

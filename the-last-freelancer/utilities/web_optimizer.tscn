@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://j4hqpymfywdy"]
+
+[ext_resource type="Script" uid="uid://bjucd25plbtrq" path="res://utilities/web_optimizer.gd" id="1_cq1w1"]
+[ext_resource type="PackedScene" uid="uid://dpuqgtrcu0kia" path="res://entities/splash.tscn" id="2_cq1w1"]
+[ext_resource type="PackedScene" uid="uid://klnfrd86nugg" path="res://entities/shield_absorb.tscn" id="3_ta08w"]
+[ext_resource type="PackedScene" uid="uid://dh3kmjgoepq7e" path="res://entities/teleport_beam.tscn" id="4_xul1p"]
+[ext_resource type="PackedScene" uid="uid://cxnoifbqlgvp4" path="res://interludes/victory_screen/rocket.tscn" id="5_8uswn"]
+
+[node name="WebOptimizer" type="Node2D" unique_id=1233907839]
+script = ExtResource("1_cq1w1")
+
+[node name="Splash" parent="." unique_id=1808132841 instance=ExtResource("2_cq1w1")]
+
+[node name="ShieldAbsorb" parent="." unique_id=1292761593 instance=ExtResource("3_ta08w")]
+
+[node name="TeleportBeam" parent="." unique_id=1757159913 instance=ExtResource("4_xul1p")]
+
+[node name="Rocket" parent="." unique_id=675918286 instance=ExtResource("5_8uswn")]
