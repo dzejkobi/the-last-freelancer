@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bof7xd4jlofrq"]
 
-[ext_resource type="Script" uid="uid://chw4sa2dou24x" path="res://interludes/dynamic_bg/off_screen_char.gd" id="1_tx0m1"]
+[ext_resource type="Script" uid="uid://chw4sa2dou24x" path="res://interludes/start_screen/off_screen_char.gd" id="1_tx0m1"]
 
 [node name="OffScreenChar" type="Node2D" unique_id=535258019]
 script = ExtResource("1_tx0m1")

@@ -1,5 +1,8 @@
 class_name Board extends Node
 
+const VictoryScreenScene = \
+	preload("res://interludes/victory_screen/victory_screen.tscn")
+
 const DIFFICULTY_MAP := {
 	Enums.DIFFICULTY.EASY: {
 		"difficulty": Enums.DIFFICULTY.EASY,
@@ -106,7 +109,6 @@ func reset() -> void:
 	level_man.set_next_level(level_man.first_level_index, level_man.first_loop)
 	player_shield_count = DIFFICULTY_MAP[difficulty]["shield_count"]
 	setup()
-	%StartScreen.disable()
 
 
 func update_statuses() -> void:
@@ -123,9 +125,11 @@ func game_over(killer: Actor) -> void:
 
 
 func victory() -> void:
-	%VictoryPanel.display()
 	is_paused = true
 	is_set = false
+	
+	var victory_screen: VictoryScreen = VictoryScreenScene.instantiate()
+	%GUIRoot.add_child(victory_screen)
 
 
 func complete_level() -> void:

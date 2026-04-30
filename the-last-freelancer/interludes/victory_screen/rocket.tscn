@@ -1,0 +1,207 @@
+[gd_scene format=3 uid="uid://cxnoifbqlgvp4"]
+
+[ext_resource type="Script" uid="uid://cyws7h7ovwpdn" path="res://interludes/victory_screen/rocket.gd" id="1_qe4nb"]
+[ext_resource type="Texture2D" uid="uid://bbgjiowf2r6id" path="res://assets/graphics/rocket.png" id="1_t6fcg"]
+[ext_resource type="Texture2D" uid="uid://cudj45yj27ei4" path="res://assets/graphics/actors.png" id="3_iraf7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iraf7"]
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe4nb"]
+size = Vector2(64, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki6ii"]
+atlas = ExtResource("3_iraf7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qabth"]
+atlas = ExtResource("3_iraf7")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5otn4"]
+atlas = ExtResource("3_iraf7")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk2pl"]
+atlas = ExtResource("3_iraf7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1f2le"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ki6ii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qabth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5otn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk2pl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pyktf"]
+radius = 20.0
+height = 60.0
+
+[sub_resource type="Curve" id="Curve_t6fcg"]
+_data = [Vector2(0, 0.79775286), 0.0, -0.20820907, 0, 0, Vector2(1, 0), -1.4745439, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qe4nb"]
+curve = SubResource("Curve_t6fcg")
+
+[sub_resource type="Gradient" id="Gradient_iraf7"]
+offsets = PackedFloat32Array(0.026737968, 0.1657754, 0.46524063, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.9626667, 0.44, 1, 1, 0.4585526, 0.26010692, 1, 1, 0.14999998, 0.14999998, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ki6ii"]
+gradient = SubResource("Gradient_iraf7")
+use_hdr = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qabth"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(16, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_min = 500.0
+initial_velocity_max = 600.0
+gravity = Vector3(0, 0, 0)
+scale_min = 16.0
+scale_max = 16.0
+color_ramp = SubResource("GradientTexture1D_ki6ii")
+alpha_curve = SubResource("CurveTexture_qe4nb")
+
+[sub_resource type="Curve" id="Curve_iraf7"]
+_data = [Vector2(0, 1), 0.0, -0.20820907, 0, 0, Vector2(1, 0), -1.4745439, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ki6ii"]
+curve = SubResource("Curve_iraf7")
+
+[sub_resource type="Gradient" id="Gradient_qabth"]
+offsets = PackedFloat32Array(0.026737968, 0.1657754, 0.46524063, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.9626667, 0.44, 1, 1, 0.4585526, 0.26010692, 1, 1, 0.14999998, 0.14999998, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5otn4"]
+gradient = SubResource("Gradient_qabth")
+use_hdr = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mk2pl"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 180, 1)
+emission_shape = 3
+emission_box_extents = Vector3(16, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 400.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 200, 0)
+scale_min = 8.0
+scale_max = 16.0
+color_ramp = SubResource("GradientTexture1D_5otn4")
+alpha_curve = SubResource("CurveTexture_ki6ii")
+
+[node name="Rocket" type="Node2D" unique_id=675918286]
+script = ExtResource("1_qe4nb")
+
+[node name="RocketPart1" type="RigidBody2D" parent="." unique_id=897054240]
+modulate = Color(0, 0.6, 0.25000006, 1)
+position = Vector2(0, -336)
+physics_material_override = SubResource("PhysicsMaterial_iraf7")
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RocketPart1" unique_id=272724037]
+scale = Vector2(8, 8)
+texture = ExtResource("1_t6fcg")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RocketPart1" unique_id=1599294279]
+polygon = PackedVector2Array(0, -63, 32, 0, 32, 56, -32, 56, -32, 0)
+
+[node name="RocketPart2" type="RigidBody2D" parent="." unique_id=1115212655]
+modulate = Color(0, 0.6, 0.25000006, 1)
+position = Vector2(0, -224)
+physics_material_override = SubResource("PhysicsMaterial_iraf7")
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RocketPart2" unique_id=482995742]
+scale = Vector2(8, 8)
+texture = ExtResource("1_t6fcg")
+region_enabled = true
+region_rect = Rect2(0, 16, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RocketPart2" unique_id=1736322481]
+shape = SubResource("RectangleShape2D_qe4nb")
+
+[node name="RocketPart3" type="RigidBody2D" parent="." unique_id=2051469050]
+modulate = Color(0, 0.6, 0.25000006, 1)
+position = Vector2(0, -112)
+physics_material_override = SubResource("PhysicsMaterial_iraf7")
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RocketPart3" unique_id=966449058]
+scale = Vector2(8, 8)
+texture = ExtResource("1_t6fcg")
+region_enabled = true
+region_rect = Rect2(0, 32, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RocketPart3" unique_id=1542599266]
+shape = SubResource("RectangleShape2D_qe4nb")
+
+[node name="Pilot" type="RigidBody2D" parent="." unique_id=1224482847]
+visible = false
+position = Vector2(2, -111.00001)
+rotation = 0.8320567
+collision_layer = 2
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_iraf7")
+freeze = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pilot" unique_id=117869195]
+modulate = Color(0, 1, 0.41568628, 1)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_1f2le")
+autoplay = "default"
+frame_progress = 0.42798
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pilot" unique_id=417825427]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_pyktf")
+
+[node name="RocketPart4" type="RigidBody2D" parent="." unique_id=2118411942]
+physics_material_override = SubResource("PhysicsMaterial_iraf7")
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RocketPart4" unique_id=119198016]
+modulate = Color(0, 0.6, 0.25000006, 1)
+scale = Vector2(8, 8)
+texture = ExtResource("1_t6fcg")
+region_enabled = true
+region_rect = Rect2(0, 48, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RocketPart4" unique_id=566725291]
+shape = SubResource("RectangleShape2D_qe4nb")
+
+[node name="EngineParticles" type="GPUParticles2D" parent="RocketPart4" unique_id=2143565893]
+position = Vector2(0, 56)
+amount = 32
+lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_qabth")
+
+[node name="ExplParticles" type="GPUParticles2D" parent="." unique_id=279890057]
+position = Vector2(0, -156)
+emitting = false
+amount = 64
+lifetime = 1.5999999999999999
+explosiveness = 1.0
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_mk2pl")

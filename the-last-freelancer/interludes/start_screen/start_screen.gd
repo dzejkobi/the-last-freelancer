@@ -8,16 +8,6 @@ var char_map: Dictionary[OffScreenChar.BORDER, OffScreenChar] = {
 }
 
 
-func enable() -> void:
-	process_mode = PROCESS_MODE_INHERIT
-	visible = true
-	
-	
-func  disable() -> void:
-	process_mode = PROCESS_MODE_DISABLED
-	visible = false
-	
-
 # Tries to find free border for OffScreenCHaracter.
 # It has to be unocuppied and diffrent than previous one.
 func get_free_border(_char: OffScreenChar) -> OffScreenChar.BORDER:

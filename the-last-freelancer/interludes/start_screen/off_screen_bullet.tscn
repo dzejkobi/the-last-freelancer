@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://pjgpaj4yip4g"]
 
-[ext_resource type="Script" uid="uid://xjc67hxffnvm" path="res://interludes/dynamic_bg/off_screen_bullet.gd" id="1_aktgi"]
+[ext_resource type="Script" uid="uid://xjc67hxffnvm" path="res://interludes/start_screen/off_screen_bullet.gd" id="1_aktgi"]
 [ext_resource type="Texture2D" uid="uid://dajqfddawor87" path="res://assets/graphics/bullets.png" id="2_fygdi"]
 
 [node name="OffScreenBullet" type="Node2D" unique_id=1833733781]

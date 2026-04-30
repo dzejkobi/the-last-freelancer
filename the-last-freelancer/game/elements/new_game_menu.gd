@@ -56,6 +56,7 @@ func _on_go_back_btn_pressed() -> void:
 
 
 func start_game_with_difficulty(difficulty: Enums.DIFFICULTY) -> void:
+	Globals.game.remove_start_screen()
 	Globals.board.difficulty = difficulty
 	Globals.board.reset()
 	toggle()

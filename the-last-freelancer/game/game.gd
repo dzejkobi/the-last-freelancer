@@ -1,7 +1,26 @@
 class_name Game extends Control
 
+const StartScreenScene = \
+	preload("res://interludes/start_screen/start_screen.tscn")
+
 @onready var board: Board = %Board
 @onready var menu_info_label: Label = %MenuInfoLabel
+@onready var gui_root: Control = %GUIRoot
+
+var start_screen: StartScreen
+
+
+func show_start_screen() -> void:
+	remove_start_screen()
+	start_screen = StartScreenScene.instantiate()
+	gui_root.add_child(start_screen)
+	gui_root.move_child(start_screen, 0)
+
+
+func remove_start_screen() -> void:
+	if start_screen:
+		start_screen.queue_free()
+		start_screen = null
 
 
 func _ready() -> void:
@@ -9,4 +28,4 @@ func _ready() -> void:
 	Globals.set_board(board)
 	Globals.game = self
 	menu_info_label.text = "%s: menu" % Settings.menu_key_name
-	%StartScreen.enable()
+	show_start_screen()

@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://cie7tis2yn4hj"]
 
-[ext_resource type="Script" uid="uid://c8npsnxx2jone" path="res://interludes/dynamic_bg/bg_screen.gd" id="1_7e30k"]
+[ext_resource type="Script" uid="uid://c8npsnxx2jone" path="res://interludes/start_screen/start_screen.gd" id="1_7e30k"]
 [ext_resource type="TileSet" uid="uid://sw64kb2abd4r" path="res://tilesets/terrain.tres" id="2_ol5s8"]
-[ext_resource type="PackedScene" uid="uid://bof7xd4jlofrq" path="res://interludes/dynamic_bg/off_screen_char.tscn" id="2_ygipu"]
+[ext_resource type="PackedScene" uid="uid://bof7xd4jlofrq" path="res://interludes/start_screen/off_screen_char.tscn" id="2_ygipu"]
 [ext_resource type="Texture2D" uid="uid://cudj45yj27ei4" path="res://assets/graphics/actors.png" id="3_ygipu"]
 [ext_resource type="Texture2D" uid="uid://daq8qtgrj82ne" path="res://assets/graphics/server.png" id="4_gbhcr"]
 [ext_resource type="Texture2D" uid="uid://bnfdwii166buc" path="res://assets/graphics/jars.png" id="5_68fng"]
@@ -312,6 +312,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7e30k")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=793876043]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02745098, 0.023529412, 0.078431375, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1003107787]
 scale = Vector2(8, 8)

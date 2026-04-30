@@ -16,7 +16,7 @@ enum BORDER {
 	BOTTOM = 3
 }
 
-const BulletScene = preload("res://interludes/dynamic_bg/off_screen_bullet.tscn")
+const BulletScene = preload("res://interludes/start_screen/off_screen_bullet.tscn")
 
 @export var color_name: String = "recruiter_color"
 @export var is_enemy: bool = true
@@ -111,6 +111,7 @@ func start_showing() -> void:
 		last_border = border
 		screen.char_map[border] = self
 		var tween := self.create_tween()
+		tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		tween.tween_property(self, "position", end_pos, state_time)
 	else:
 		start_waiting()
@@ -137,6 +138,7 @@ func start_hiding() -> void:
 		return
 	
 	var tween := self.create_tween()
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	tween.tween_property(self, "position", start_pos, state_time)
 
 

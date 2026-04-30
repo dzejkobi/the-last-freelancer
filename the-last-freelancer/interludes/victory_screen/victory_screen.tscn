@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bm0fj4hdl76s0"]
+
+[ext_resource type="Script" uid="uid://c7f84afruatce" path="res://interludes/victory_screen/victory_screen.gd" id="1_o57in"]
+[ext_resource type="PackedScene" uid="uid://cxnoifbqlgvp4" path="res://interludes/victory_screen/rocket.tscn" id="2_5gqyt"]
+[ext_resource type="PackedScene" uid="uid://ca0f87b32oivb" path="res://game/elements/victory_panel.tscn" id="3_uj8wp"]
+
+[sub_resource type="Gradient" id="Gradient_uj8wp"]
+colors = PackedColorArray(0.74, 0.74, 0.74, 1, 1, 0.97, 0.7, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c2t71"]
+gradient = SubResource("Gradient_uj8wp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xwtth"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1280, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 300.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 8.0
+color_initial_ramp = SubResource("GradientTexture1D_c2t71")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2t71"]
+size = Vector2(138, 1084)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwtth"]
+size = Vector2(664.5, 328)
+
+[node name="VictoryScreen" type="Control" unique_id=592230123]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o57in")
+
+[node name="BgRect" type="ColorRect" parent="." unique_id=1220792245]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="StarsParticles" type="GPUParticles2D" parent="." unique_id=1226392917]
+position = Vector2(625, 0)
+amount = 96
+lifetime = 5.0
+preprocess = 5.0
+process_material = SubResource("ParticleProcessMaterial_xwtth")
+
+[node name="WallLeft" type="StaticBody2D" parent="." unique_id=66421191]
+position = Vector2(1, 478)
+collision_mask = 3
+
+[node name="CollShape" type="CollisionShape2D" parent="WallLeft" unique_id=667432941]
+position = Vector2(-68, 4)
+shape = SubResource("RectangleShape2D_c2t71")
+
+[node name="Rocket" parent="." unique_id=675918286 instance=ExtResource("2_5gqyt")]
+position = Vector2(202, 645)
+
+[node name="PanelObj" type="StaticBody2D" parent="." unique_id=122870398]
+position = Vector2(420, 331)
+collision_layer = 3
+collision_mask = 3
+
+[node name="VictoryPanel" parent="PanelObj" unique_id=595611579 instance=ExtResource("3_uj8wp")]
+unique_name_in_owner = true
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 645.0
+offset_bottom = 310.0
+
+[node name="CollShape" type="CollisionShape2D" parent="PanelObj" unique_id=2046209633]
+position = Vector2(322.25, 154)
+shape = SubResource("RectangleShape2D_xwtth")
