@@ -109,7 +109,7 @@ func _movement_finished_callback(waited: bool = false) -> void:
 	position = Grid.grid_pos_to_pos(grid_pos)
 	is_moving = false
 	if not waited:
-		Globals.board.movement_man.unregister_actor(self)
+		Globals.board.movement_man.unregister_actor(self, true)
 
 
 func play_beam_in_animation() -> void:

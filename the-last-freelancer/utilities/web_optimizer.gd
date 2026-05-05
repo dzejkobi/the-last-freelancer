@@ -6,4 +6,7 @@ class_name WebOptimizer extends Node2D
 
 
 func _ready() -> void:
-	position = Vector2i(10000, 10000)  # to be sure it's off the screen
+	position = Vector2i(3000, 3000)  # to be sure it's off the screen
+	get_tree().create_timer(0.5).timeout.connect(func ():
+		queue_free()
+	)

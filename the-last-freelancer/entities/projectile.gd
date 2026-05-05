@@ -59,5 +59,5 @@ func _at_target_reached() -> void:
 	var cell: GridCell = Globals.board.grid.cells.get(to_grid_pos)
 	if cell and cell.actor:
 		cell.actor.hit_by_projectile(self)
-	Globals.board.movement_man.unregister_projectile(self)
+	Globals.board.movement_man.unregister_projectile(self, true)
 	queue_free()

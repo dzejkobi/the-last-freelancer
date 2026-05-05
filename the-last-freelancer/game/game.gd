@@ -27,8 +27,7 @@ func optimize() -> void:
 	if Settings.build == Settings.BuildKind.WEB:
 		var web_optimizer: WebOptimizer = \
 			load("res://utilities/web_optimizer.tscn").instantiate()
-		add_child(web_optimizer)
-		web_optimizer.queue_free()
+		gui_root.add_child(web_optimizer)
 
 
 func _ready() -> void:

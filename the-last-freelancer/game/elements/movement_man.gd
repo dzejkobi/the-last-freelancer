@@ -25,11 +25,9 @@ func register_actor(actor: Actor) -> void:
 	
 func unregister_actor(actor: Actor, ignore_missing: bool = false) -> void:
 	if actor not in moving_actors:
-		if ignore_missing:
-			return
-		else:
+		if not ignore_missing:
 			push_error('Actor "%s" is not registered.' % actor)
-			return
+		return
 	moving_actors.erase(actor)
 	if in_movement and not (moving_actors.size() or moving_projectiles.size()):
 		in_movement = false
@@ -45,9 +43,13 @@ func register_projectile(projectile: Projectile) -> void:
 		movement_started.emit()
 	
 	
-func unregister_projectile(projectile: Projectile) -> void:
+func unregister_projectile(
+	projectile: Projectile, ignore_missing: bool = false
+) -> void:
 	if projectile not in moving_projectiles:
-		push_error('Projectile "%s" is not registered.' % projectile)
+		if not ignore_missing:
+			push_error('Projectile "%s" is not registered.' % projectile)
+		return
 	moving_projectiles.erase(projectile)
 	if in_movement and not (moving_actors.size() or moving_projectiles.size()):
 		in_movement = false
