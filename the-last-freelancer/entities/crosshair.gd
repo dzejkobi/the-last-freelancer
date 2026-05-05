@@ -13,11 +13,12 @@ func _ready() -> void:
 	anim_sprite.modulate.a = 0.0
 	
 	
-func appear_at(_grid_pos: Vector2i) -> void:
+func appear_at(_grid_pos: Vector2i, _is_visible: bool) -> void:
 	grid_pos = _grid_pos
 	position = Grid.grid_pos_to_pos(grid_pos)
-	var tween := anim_sprite.create_tween()
-	tween.tween_property(anim_sprite, "modulate:a", 1.0, tween_time)
+	if _is_visible:
+		var tween := anim_sprite.create_tween()
+		tween.tween_property(anim_sprite, "modulate:a", 1.0, tween_time)
 	
 	
 func disappear() -> void:
