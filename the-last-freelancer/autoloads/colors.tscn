@@ -19,4 +19,5 @@ tank_color = Color(0.35999995, 0.5489999, 0.9, 1)
 executive_color = Color(0.19215687, 0.21568628, 0.8392157, 1)
 cubicle_color = Color(1, 0.8753333, 0.65999997, 1)
 shield_color = Color(0, 0.9666667, 1, 1)
+door_color = Color(0.38923305, 0.45086908, 0.57934415, 1)
 metadata/_custom_type_script = "uid://dobwc8a2ss8oy"

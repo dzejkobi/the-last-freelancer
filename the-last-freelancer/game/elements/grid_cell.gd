@@ -12,6 +12,11 @@ func _init(
 	terrain_type = _terrain_type
 	actor = _actor
 	entity = _entity
-	
+
+
 func is_passable() -> bool:
-	return terrain_type == Enums.TERRAIN_TYPE.FLOOR and actor == null
+	return (
+		terrain_type == Enums.TERRAIN_TYPE.FLOOR and
+		actor == null and
+		(not entity or entity.is_passable())
+	)

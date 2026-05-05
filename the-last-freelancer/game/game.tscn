@@ -12,12 +12,12 @@
 [ext_resource type="Shader" uid="uid://d0gd0l2ni37ak" path="res://shaders/crt.gdshader" id="7_u5opy"]
 [ext_resource type="Shader" uid="uid://qywabfwew2l3" path="res://shaders/adjustments.gdshader" id="10_j8tme"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8g03"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5opy"]
 bg_color = Color(0, 0, 0, 1)
 expand_margin_left = 16.0
 expand_margin_right = 16.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5opy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8g03"]
 bg_color = Color(0, 0, 0, 1)
 expand_margin_left = 16.0
 expand_margin_right = 16.0
@@ -104,70 +104,76 @@ offset_top = -232.0
 offset_right = 199.0
 offset_bottom = 232.0
 
-[node name="MenuInfoContainer" type="PanelContainer" parent="CanvasLayer/GUIRoot" unique_id=1874216015]
-layout_mode = 1
-offset_left = 84.0
-offset_top = 8.0
-offset_right = 236.0
-offset_bottom = 56.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_l8g03")
-
-[node name="MenuInfoLabel" type="Label" parent="CanvasLayer/GUIRoot/MenuInfoContainer" unique_id=337030223]
+[node name="GameOverPanel" parent="CanvasLayer/GUIRoot" unique_id=595611579 instance=ExtResource("4_y36n6")]
 unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 42
-text = "ESC: menu"
+visible = false
+layout_mode = 0
+anchors_preset = 0
+offset_left = -135.0
+offset_top = -134.0
+offset_right = 135.0
+offset_bottom = 134.0
 
-[node name="TopPanelContainer" type="PanelContainer" parent="CanvasLayer/GUIRoot" unique_id=1915464721]
+[node name="TopLeftContainer" type="PanelContainer" parent="CanvasLayer/GUIRoot" unique_id=1915464721]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -128.0
+offset_left = 24.0
 offset_top = 8.0
-offset_right = 128.0
+offset_right = 280.0
 offset_bottom = 56.0
-grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u5opy")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GUIRoot/TopPanelContainer" unique_id=982339928]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GUIRoot/TopLeftContainer" unique_id=982339928]
 layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="LevelLabel" type="Label" parent="CanvasLayer/GUIRoot/TopPanelContainer/HBoxContainer" unique_id=288329215]
+[node name="LevelLabel" type="Label" parent="CanvasLayer/GUIRoot/TopLeftContainer/HBoxContainer" unique_id=288329215]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
 text = "Level: 0"
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer/GUIRoot/TopPanelContainer/HBoxContainer" unique_id=828168804]
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/GUIRoot/TopLeftContainer/HBoxContainer" unique_id=828168804]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
 text = "Score: 0"
 
-[node name="ShieldInfoContainer" parent="CanvasLayer/GUIRoot" unique_id=188658118 instance=ExtResource("4_3vho3")]
-unique_name_in_owner = true
+[node name="TopRightContainer" type="PanelContainer" parent="CanvasLayer/GUIRoot" unique_id=998607843]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -240.0
+offset_left = -290.0
 offset_top = 8.0
-offset_right = -88.0
+offset_right = -26.0
 offset_bottom = 56.0
 grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u5opy")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GUIRoot/TopRightContainer" unique_id=1439117305]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GUIRoot/TopRightContainer" unique_id=1344344405]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="ShieldInfoContainer" parent="CanvasLayer/GUIRoot/TopRightContainer/HBoxContainer" unique_id=188658118 instance=ExtResource("4_3vho3")]
+unique_name_in_owner = true
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_l8g03")
 
-[node name="GameOverPanel" parent="CanvasLayer/GUIRoot" unique_id=595611579 instance=ExtResource("4_y36n6")]
+[node name="MenuInfoContainer" type="PanelContainer" parent="CanvasLayer/GUIRoot/TopRightContainer/HBoxContainer" unique_id=1874216015]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8g03")
+
+[node name="MenuInfoLabel" type="Label" parent="CanvasLayer/GUIRoot/TopRightContainer/HBoxContainer/MenuInfoContainer" unique_id=337030223]
 unique_name_in_owner = true
-visible = false
-layout_mode = 1
-offset_left = -109.0
-offset_top = -81.0
-offset_right = 109.0
-offset_bottom = 81.0
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "ESC: menu"
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=398546351]
 layout_mode = 1
@@ -191,7 +197,7 @@ unique_name_in_owner = true
 
 [node name="LevelMan" parent="SubViewportContainer/SubViewport/Board" unique_id=186858389 instance=ExtResource("3_4fuuu")]
 unique_name_in_owner = true
-level_names = Array[String](["level1", "level2", "level3", "level4", "level5", "level6"])
+level_names = Array[String](["test_level", "level1", "level2", "level3", "level4", "level5", "level6"])
 
 [node name="AdjustmentsLayer" type="CanvasLayer" parent="." unique_id=1790017533]
 unique_name_in_owner = true

@@ -22,3 +22,4 @@ extends Node
 
 @export_group("Entities")
 @export var shield_color: Color
+@export var door_color: Color

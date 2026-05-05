@@ -1,6 +1,12 @@
 # Enums
 extends Node
 
+enum ORIENTATION {
+	UNKNOWN = 0,
+	HORIZONTAL = 1,
+	VERTICAL = 2
+}
+
 enum TERRAIN_TYPE {
 	UNKNOWN = 0,
 	FLOOR = 1,
@@ -36,7 +42,8 @@ enum PROJECTILE_TYPE {
 enum ENTITY_TYPE {
 	UNKNOWN = 0,
 	NONE = 1,
-	SHIELD = 2
+	DOOR = 2,
+	SHIELD = 3
 }
 
 enum DIFFICULTY {

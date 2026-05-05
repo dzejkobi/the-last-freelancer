@@ -55,6 +55,10 @@ const ENTITY_CHAR_MAP: Dictionary = {
 	"@": {
 		"type": Enums.ENTITY_TYPE.SHIELD,
 		"scene": preload("res://entities/shield.tscn")
+	},
+	"=": {
+		"type": Enums.ENTITY_TYPE.DOOR,
+		"scene": preload("res://entities/door.tscn")
 	}
 }
 

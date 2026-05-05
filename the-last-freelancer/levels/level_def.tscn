@@ -1,0 +1,188 @@
+[gd_scene format=4 uid="uid://b2vg1ay0hjc1r"]
+
+[ext_resource type="Script" uid="uid://cxo4bn2pae8ex" path="res://levels/level_def.gd" id="1_3t3q5"]
+[ext_resource type="Texture2D" uid="uid://hfdvr5nt77r" path="res://assets/graphics/objects2.png" id="2_38uvm"]
+[ext_resource type="Texture2D" uid="uid://blqlv5a88bsr8" path="res://assets/graphics/floor.png" id="3_qm715"]
+[ext_resource type="Texture2D" uid="uid://daq8qtgrj82ne" path="res://assets/graphics/server.png" id="4_gppsl"]
+[ext_resource type="Texture2D" uid="uid://bnfdwii166buc" path="res://assets/graphics/jars.png" id="5_al3h7"]
+[ext_resource type="Texture2D" uid="uid://cudj45yj27ei4" path="res://assets/graphics/actors.png" id="6_00l32"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f17kh"]
+texture = ExtResource("2_38uvm")
+0:0/0 = 0
+0:0/0/modulate = Color(0.1882353, 0.22745098, 0.30980393, 1)
+0:0/0/terrain_set = 0
+0:0/0/terrain = 1
+3:0/0 = 0
+3:0/0/modulate = Color(0.2784314, 0.2, 0.16078432, 1)
+3:0/0/terrain_set = 0
+3:0/0/terrain = 3
+1:0/0 = 0
+1:0/0/modulate = Color(0.1882353, 0.22745098, 0.30980393, 1)
+1:0/0/terrain_set = 0
+1:0/0/terrain = 2
+3:2/0 = 0
+0:2/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jebdl"]
+texture = ExtResource("3_qm715")
+0:0/0 = 0
+0:0/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/probability = 0.01
+1:0/0 = 0
+1:0/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/probability = 0.01
+2:0/0 = 0
+2:0/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/probability = 0.01
+0:1/0 = 0
+0:1/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/probability = 0.01
+2:1/0 = 0
+2:1/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+2:1/0/terrain_set = 0
+2:1/0/terrain = 0
+2:1/0/probability = 0.01
+0:2/0 = 0
+0:2/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/probability = 0.01
+1:2/0 = 0
+1:2/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+1:2/0/terrain_set = 0
+1:2/0/terrain = 0
+1:2/0/probability = 0.01
+2:2/0 = 0
+2:2/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+2:2/0/terrain_set = 0
+2:2/0/terrain = 0
+2:2/0/probability = 0.01
+1:1/0 = 0
+1:1/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+3:0/0 = 0
+3:0/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+3:0/0/terrain_set = 0
+3:0/0/terrain = 0
+3:0/0/probability = 0.001
+4:0/0 = 0
+4:0/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+4:0/0/terrain_set = 0
+4:0/0/terrain = 0
+4:0/0/probability = 0.001
+4:1/0 = 0
+4:1/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+4:1/0/terrain_set = 0
+4:1/0/terrain = 0
+4:1/0/probability = 0.01
+5:1/0 = 0
+5:1/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+5:1/0/terrain_set = 0
+5:1/0/terrain = 0
+5:1/0/probability = 0.01
+5:2/0 = 0
+5:2/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+5:2/0/terrain_set = 0
+5:2/0/terrain = 0
+5:2/0/probability = 0.01
+4:2/0 = 0
+4:2/0/modulate = Color(0.101960786, 0.09411765, 0.21176471, 1)
+4:2/0/terrain_set = 0
+4:2/0/terrain = 0
+4:2/0/probability = 0.01
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aguu8"]
+texture = ExtResource("4_gppsl")
+0:0/animation_columns = 2
+0:0/animation_speed = 0.5
+0:0/animation_mode = 1
+0:0/animation_frame_0/duration = 0.5
+0:0/animation_frame_1/duration = 0.5
+0:0/0 = 0
+0:0/0/modulate = Color(0.2108, 0.28023997, 0.31, 1)
+0:0/0/terrain_set = 0
+0:0/0/terrain = 4
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3t78s"]
+texture = ExtResource("5_al3h7")
+0:0/animation_columns = 8
+0:0/animation_speed = 0.1
+0:0/animation_mode = 1
+0:0/animation_frame_0/duration = 0.1
+0:0/animation_frame_1/duration = 0.1
+0:0/animation_frame_2/duration = 0.1
+0:0/animation_frame_3/duration = 0.1
+0:0/animation_frame_4/duration = 0.1
+0:0/animation_frame_5/duration = 0.1
+0:0/animation_frame_6/duration = 0.1
+0:0/animation_frame_7/duration = 0.1
+0:0/0 = 0
+0:0/0/modulate = Color(0.20784314, 0.2901961, 0.2509804, 1)
+0:0/0/terrain_set = 0
+0:0/0/terrain = 5
+0:2/animation_columns = 8
+0:2/animation_speed = 0.1
+0:2/animation_mode = 1
+0:2/animation_frame_0/duration = 0.1
+0:2/animation_frame_1/duration = 0.1
+0:2/animation_frame_2/duration = 0.1
+0:2/animation_frame_3/duration = 0.1
+0:2/animation_frame_4/duration = 0.1
+0:2/animation_frame_5/duration = 0.1
+0:2/animation_frame_6/duration = 0.1
+0:2/animation_frame_7/duration = 0.1
+0:2/0 = 0
+0:2/0/modulate = Color(0.20784314, 0.2901961, 0.2509804, 1)
+0:2/0/terrain_set = 0
+0:2/0/terrain = 6
+
+[sub_resource type="TileSet" id="TileSet_0ngjs"]
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Floor"
+terrain_set_0/terrain_0/color = Color(0.46875, 0.5, 0.25, 1)
+terrain_set_0/terrain_1/name = "Wall"
+terrain_set_0/terrain_1/color = Color(0.22352941, 0.25882354, 1, 1)
+terrain_set_0/terrain_2/name = "Pyramid"
+terrain_set_0/terrain_2/color = Color(0.19839999, 0.27744, 0.32, 1)
+terrain_set_0/terrain_3/name = "Rocks"
+terrain_set_0/terrain_3/color = Color(0.2784314, 0.2, 0.16078432, 1)
+terrain_set_0/terrain_4/name = "Server"
+terrain_set_0/terrain_4/color = Color(0.21176471, 0.2784314, 0.30980393, 1)
+terrain_set_0/terrain_5/name = "Empty jar"
+terrain_set_0/terrain_5/color = Color(0.25, 0.5, 0.3125, 1)
+terrain_set_0/terrain_6/name = "Filled jar"
+terrain_set_0/terrain_6/color = Color(0.25, 0.5, 0.40625, 1)
+sources/0 = SubResource("TileSetAtlasSource_f17kh")
+sources/1 = SubResource("TileSetAtlasSource_jebdl")
+sources/2 = SubResource("TileSetAtlasSource_aguu8")
+sources/3 = SubResource("TileSetAtlasSource_3t78s")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfq8x"]
+texture = ExtResource("6_00l32")
+
+[sub_resource type="TileSet" id="TileSet_4gx38"]
+sources/0 = SubResource("TileSetAtlasSource_rfq8x")
+
+[node name="LevelDef" type="Node2D" unique_id=938135149]
+script = ExtResource("1_3t3q5")
+
+[node name="TerrainLayer" type="TileMapLayer" parent="." unique_id=521853562]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAATAAMAAAAAAAAAAAATAAQAAAAAAAAAAAATAAUAAAAAAAAAAAATAAYAAAAAAAAAAAATAAcAAAAAAAAAAAATAAgAAAAAAAAAAAATAAkAAAAAAAAAAAATAAoAAAAAAAAAAAATAAsAAAAAAAAAAAATAAwAAAAAAAAAAAATAA0AAAAAAAAAAAATAA4AAAAAAAAAAAASAA4AAAAAAAAAAAARAA4AAAAAAAAAAAAQAA4AAAAAAAAAAAAPAA4AAAAAAAAAAAAOAA4AAAAAAAAAAAANAA4AAAAAAAAAAAAMAA4AAAAAAAAAAAALAA4AAAAAAAAAAAAKAA4AAAAAAAAAAAAJAA4AAAAAAAAAAAAIAA4AAAAAAAAAAAAHAA4AAAAAAAAAAAAGAA4AAAAAAAAAAAAFAA4AAAAAAAAAAAAEAA4AAAAAAAAAAAADAA4AAAAAAAAAAAACAA4AAAAAAAAAAAABAA4AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA0AAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAANAAgAAAADAAAAAAA=")
+tile_set = SubResource("TileSet_0ngjs")
+
+[node name="ActorLayer" type="TileMapLayer" parent="." unique_id=702537307]
+tile_set = SubResource("TileSet_4gx38")
+
+[node name="EntityLayer" type="TileMapLayer" parent="." unique_id=1981881913]

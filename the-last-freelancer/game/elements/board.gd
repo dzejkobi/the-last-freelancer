@@ -81,6 +81,8 @@ func _ready() -> void:
 func at_level_start() -> void:
 	for actor: Actor in [player] + enemies:
 		actor.at_level_start()
+	for entity: Entity in entities:
+		entity.at_level_start()
 
 
 func setup() -> void:
