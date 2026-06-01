@@ -5,21 +5,21 @@
 [ext_resource type="PackedScene" uid="uid://barw5mggq1i53" path="res://actors/components/generic_ai.tscn" id="3_dvgd7"]
 [ext_resource type="PackedScene" uid="uid://gdoyncfeb8eq" path="res://actors/components/status_man.tscn" id="4_tasfr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dvgd7"]
-atlas = ExtResource("2_tasfr")
-region = Rect2(48, 48, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_tasfr"]
 atlas = ExtResource("2_tasfr")
 region = Rect2(64, 48, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2gi4b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvgd7"]
 atlas = ExtResource("2_tasfr")
-region = Rect2(80, 48, 16, 16)
+region = Rect2(48, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00rme"]
 atlas = ExtResource("2_tasfr")
 region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gi4b"]
+atlas = ExtResource("2_tasfr")
+region = Rect2(80, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xj11s"]
 atlas = ExtResource("2_tasfr")
@@ -41,16 +41,16 @@ region = Rect2(64, 48, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dvgd7")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_tasfr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2gi4b")
+"texture": SubResource("AtlasTexture_dvgd7")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_00rme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gi4b")
 }],
 "loop": true,
 "name": &"idle",
@@ -95,8 +95,7 @@ frame_progress = 0.53797966
 centered = false
 
 [node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_dvgd7")]
-base_int = 0.5
-activity_level = 0.6
+base_int = 0.6
 attitude = 4
 
 [node name="StatusMan" parent="." unique_id=371772200 instance=ExtResource("4_tasfr")]

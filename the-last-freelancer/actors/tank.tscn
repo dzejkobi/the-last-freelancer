@@ -180,14 +180,14 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_240qr")
 animation = &"moving_left"
 autoplay = "idle_up"
-frame = 1
-frame_progress = 0.42323977
+frame_progress = 0.29852858
 centered = false
 
 [node name="RangeVisualizer" parent="." unique_id=873552947 instance=ExtResource("4_ilewo")]
 
 [node name="AI" parent="." unique_id=2048733410 instance=ExtResource("4_jvisx")]
-base_int = 0.4
+base_int = 0.6
+base_activity = 0.7
 attitude = 3
 further_axis_first = false
 

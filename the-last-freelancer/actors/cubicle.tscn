@@ -64,6 +64,7 @@ centered = false
 
 [node name="AI" type="Node" parent="." unique_id=273471294]
 script = ExtResource("5_n3q42")
-activity_level = 0.0
+base_activity = 0.0
+max_activity = 0.0
 attitude = 1
 metadata/_custom_type_script = "uid://bk3h4j0d05bkx"

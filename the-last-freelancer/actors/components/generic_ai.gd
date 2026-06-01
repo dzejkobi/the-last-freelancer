@@ -1,8 +1,9 @@
 class_name GenericAI extends BaseAI
 
 @export var base_int: float = 0
-@export var max_int: float = 1
-@export var activity_level: float = 1
+@export var max_int: float = 0.9
+@export var base_activity: float = 0.5
+@export var max_activity: float = 0.9
 @export var attitude: Enums.ATTITUDE = Enums.ATTITUDE.AGGRESSIVE
 
 @export var further_axis_first: bool = true
@@ -12,16 +13,20 @@ class_name GenericAI extends BaseAI
 # This doesn't affect move_away_from_player function.
 
 var int_mod: float = 0
+var activity_mod: float = 0
 
 var curr_int: float:
 	get():
 		return clamp(base_int + int_mod, 0, max_int)
+		
+var curr_activity: float:
+	get():
+		return clamp(base_activity + activity_mod, 0, max_activity)
 
 
 func move_or_wait(to_grid_pos: Vector2i) -> void:
 	if to_grid_pos == Vector2i.ZERO:
-		if actor.is_operational():
-			actor.delayed_try_to_shoot()
+		actor.delayed_try_to_shoot()
 		actor.delayed_interact_with_cell()
 	else:
 		if actor.is_operational():
@@ -116,7 +121,7 @@ func move() -> void:
 	var int_roll: float = randf()
 	var valid_moves: Array[Vector2i] = actor.get_valid_moves()
 	
-	if activity_roll > activity_level:
+	if activity_roll > curr_activity:
 		actor.wait()
 		return
 	

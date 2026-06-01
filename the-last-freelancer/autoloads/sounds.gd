@@ -106,7 +106,7 @@ var victory := AudioPlayer.Sound.new(
 var explosion := AudioPlayer.Sound.new(
 	"res://assets/sounds/explosion.ogg",
 	{
-		"volume": 1.6,
+		"volume": 3.0,
 		"pitch_scale_variancy": 0.2
 	},
 	true

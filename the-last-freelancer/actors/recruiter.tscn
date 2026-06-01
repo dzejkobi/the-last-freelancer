@@ -6,21 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://inunbf0cxn0v" path="res://actors/components/range_visualizer.tscn" id="4_sfvuy"]
 [ext_resource type="PackedScene" uid="uid://gdoyncfeb8eq" path="res://actors/components/status_man.tscn" id="5_g8rms"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfvuy"]
+atlas = ExtResource("2_sfvuy")
+region = Rect2(32, 32, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_f2fmp"]
 atlas = ExtResource("2_sfvuy")
 region = Rect2(0, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sfvuy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sno1"]
 atlas = ExtResource("2_sfvuy")
 region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g8rms"]
 atlas = ExtResource("2_sfvuy")
 region = Rect2(64, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8sno1"]
-atlas = ExtResource("2_sfvuy")
-region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iqg8l"]
 atlas = ExtResource("2_sfvuy")
@@ -42,16 +42,16 @@ region = Rect2(64, 32, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f2fmp")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_sfvuy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g8rms")
+"texture": SubResource("AtlasTexture_f2fmp")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8sno1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8rms")
 }],
 "loop": true,
 "name": &"idle",
@@ -98,6 +98,7 @@ centered = false
 [node name="RangeVisualizer" parent="." unique_id=873552947 instance=ExtResource("4_sfvuy")]
 
 [node name="AI" parent="." unique_id=2048733410 instance=ExtResource("4_g8rms")]
-base_int = 0.5
+base_int = 0.6
+base_activity = 0.7
 
 [node name="StatusMan" parent="." unique_id=371772200 instance=ExtResource("5_g8rms")]

@@ -6,21 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://inunbf0cxn0v" path="res://actors/components/range_visualizer.tscn" id="4_esgq3"]
 [ext_resource type="PackedScene" uid="uid://gdoyncfeb8eq" path="res://actors/components/status_man.tscn" id="5_kjkj0"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tue77"]
+atlas = ExtResource("2_1yqc4")
+region = Rect2(48, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_kjkj0"]
 atlas = ExtResource("2_1yqc4")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tue77"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yqc4"]
 atlas = ExtResource("2_1yqc4")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33vod"]
 atlas = ExtResource("2_1yqc4")
 region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1yqc4"]
-atlas = ExtResource("2_1yqc4")
-region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_er1rk"]
 atlas = ExtResource("2_1yqc4")
@@ -42,16 +42,16 @@ region = Rect2(48, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kjkj0")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_tue77")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_33vod")
+"texture": SubResource("AtlasTexture_kjkj0")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1yqc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33vod")
 }],
 "loop": true,
 "name": &"idle",

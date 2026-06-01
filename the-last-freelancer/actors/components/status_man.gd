@@ -6,6 +6,7 @@ class_name StatusMan extends HBoxContainer
 		"is_active": false,
 		"turns_to_expire": -1,
 		"int_boost": 0.0,
+		"activity_boost": 0.0,
 		"icon_node": $IntBoost
 	},
 	Enums.ACTOR_STATUS.ON_COOLDOWN: {
@@ -32,14 +33,14 @@ func set_status(
 	# Running status-specific logic
 	match status:
 		Enums.ACTOR_STATUS.INT_BOOSTED:
-			if (
-				data["int_boost"] >
-				statuses[status]["int_boost"]
-			):
-				statuses[status]["int_boost"] = \
-					data["int_boost"]
+			if data["int_boost"] > statuses[status]["int_boost"]:
+				statuses[status]["int_boost"] = data["int_boost"]
 				if actor.ai and "int_mod" in actor.ai:
 					actor.ai.int_mod = data["int_boost"]
+			if data["activity_boost"] > statuses[status]["activity_boost"]:
+				statuses[status]["activity_boost"] = data["activity_boost"]
+				if actor.ai and "activity_mod" in actor.ai:
+					actor.ai.activity_mod = data["activity_boost"]
 		Enums.ACTOR_STATUS.ON_COOLDOWN:
 			pass
 		_:
@@ -53,8 +54,11 @@ func unset_status(status: Enums.ACTOR_STATUS) -> void:
 		# Running status-specific logic
 		match status:
 			Enums.ACTOR_STATUS.INT_BOOSTED:
-				if actor.ai and "int_mod" in actor.ai:
-					actor.ai.int_mod = 0.0
+				if actor.ai:
+					if "int_mod" in actor.ai:
+						actor.ai.int_mod = 0.0
+					if "activity_mod" in actor.ai:
+						actor.ai.activity_mod = 0.0
 
 
 func update_icons() -> void:

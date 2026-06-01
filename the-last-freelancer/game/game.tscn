@@ -191,7 +191,7 @@ unique_name_in_owner = true
 
 [node name="LevelMan" parent="SubViewportContainer/SubViewport/Board" unique_id=186858389 instance=ExtResource("3_4fuuu")]
 unique_name_in_owner = true
-level_names = Array[String](["level1", "level2", "level3", "level4", "level5", "level6"])
+level_names = Array[String](["level1", "level2", "level3", "level4", "level5", "level6", "level7"])
 
 [node name="AdjustmentsLayer" type="CanvasLayer" parent="." unique_id=1790017533]
 unique_name_in_owner = true

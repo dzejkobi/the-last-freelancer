@@ -6,15 +6,15 @@ const VictoryScreenScene = \
 const DIFFICULTY_MAP := {
 	Enums.DIFFICULTY.EASY: {
 		"difficulty": Enums.DIFFICULTY.EASY,
-		"shield_count": 4
+		"shield_count": 5
 	},
 	Enums.DIFFICULTY.NORMAL: {
 		"difficulty": Enums.DIFFICULTY.NORMAL,
-		"shield_count": 2
+		"shield_count": 3
 	},
 	Enums.DIFFICULTY.HARD: {
 		"difficulty": Enums.DIFFICULTY.HARD,
-		"shield_count": 0,
+		"shield_count": 1,
 		"no_extra_shields": true
 	},
 	Enums.DIFFICULTY.HEROIC: {

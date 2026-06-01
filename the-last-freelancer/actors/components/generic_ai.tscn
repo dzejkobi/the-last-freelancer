@@ -5,5 +5,3 @@
 [node name="GenericAI" type="Node" unique_id=2048733410]
 script = ExtResource("1_e1edc")
 base_int = 0.3
-max_int = 0.9
-activity_level = 0.8

@@ -2,6 +2,7 @@ class_name Executive extends Actor
 
 @export var influence_range: int = 7
 @export var int_boost: float = 0.5
+@export var activity_boost: float = 0.3
 
 
 func at_level_start(_data: Dictionary = {}) -> void:
@@ -17,7 +18,8 @@ func emanate_aura() -> void:
 	for ally: Actor in find_actors_in_infl_range():
 		if ally != self:
 			ally.status_man.set_status(
-				Enums.ACTOR_STATUS.INT_BOOSTED, 1, {"int_boost": int_boost}
+				Enums.ACTOR_STATUS.INT_BOOSTED, 1,
+				{"int_boost": int_boost, "activity_boost": activity_boost}
 			)
 
 

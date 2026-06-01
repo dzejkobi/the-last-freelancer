@@ -226,8 +226,14 @@ func try_to_shoot() -> void:
 
 
 func delayed_try_to_shoot() -> void:
-	var timer: SceneTreeTimer = get_tree().create_timer(shoot_delay)
+	var timer: SceneTreeTimer
+	
 	_shield_activated = false  # need to reset this each turn
+
+	if not is_operational():
+		return
+	
+	timer = get_tree().create_timer(shoot_delay)
 	timer.timeout.connect(try_to_shoot)
 
 
