@@ -4,5 +4,4 @@
 
 [node name="Settings" type="Node" unique_id=1496424200]
 script = ExtResource("1_ltn7h")
-config_path = null
 build = 1
