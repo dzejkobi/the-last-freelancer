@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://defbeu4225vwe"]
 
 [ext_resource type="Script" uid="uid://nfyah4um77il" path="res://game/elements/game_over_panel.gd" id="1_tgd3c"]
+[ext_resource type="PackedScene" uid="uid://dx2an4tdepe5l" path="res://game/elements/score_form.tscn" id="2_ft810"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgd3c"]
 content_margin_left = 8.0
@@ -72,3 +73,8 @@ visible = false
 layout_mode = 2
 text = "Did you know?: Something"
 horizontal_alignment = 1
+
+[node name="ScoreForm" parent="VBoxContainer" unique_id=2073898535 instance=ExtResource("2_ft810")]
+layout_mode = 2
+
+[connection signal="score_submitted" from="VBoxContainer/ScoreForm" to="." method="_on_score_form_score_submitted"]

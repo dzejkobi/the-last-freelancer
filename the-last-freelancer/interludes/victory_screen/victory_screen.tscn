@@ -28,7 +28,7 @@ color_initial_ramp = SubResource("GradientTexture1D_c2t71")
 size = Vector2(138, 1084)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwtth"]
-size = Vector2(664.5, 328)
+size = Vector2(664.5, 469)
 
 [node name="VictoryScreen" type="Control" unique_id=592230123]
 layout_mode = 3
@@ -79,5 +79,7 @@ offset_right = 645.0
 offset_bottom = 310.0
 
 [node name="CollShape" type="CollisionShape2D" parent="PanelObj" unique_id=2046209633]
-position = Vector2(322.25, 154)
+position = Vector2(322.25, 155.5)
 shape = SubResource("RectangleShape2D_xwtth")
+
+[connection signal="explosion_finished" from="Rocket" to="." method="_on_rocket_explosion_finished"]

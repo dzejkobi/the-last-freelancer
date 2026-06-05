@@ -201,7 +201,12 @@ process_material = SubResource("ParticleProcessMaterial_qabth")
 position = Vector2(0, -156)
 emitting = false
 amount = 64
-lifetime = 1.5999999999999999
+lifetime = 1.6
 explosiveness = 1.0
 randomness = 0.3
 process_material = SubResource("ParticleProcessMaterial_mk2pl")
+
+[node name="ExplTimer" type="Timer" parent="." unique_id=2003377196]
+wait_time = 3.0
+
+[connection signal="timeout" from="ExplTimer" to="." method="_on_expl_timer_timeout"]

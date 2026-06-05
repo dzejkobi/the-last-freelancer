@@ -76,7 +76,7 @@ var curr_level: int:
 
 var curr_progress: String:
 	get():
-		return "%s / %s" % [curr_loop, curr_level]
+		return "%s.%s" % [curr_loop, curr_level]
 
 
 func read_cell_from_str(_cell_str: String) -> Array:

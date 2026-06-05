@@ -32,6 +32,10 @@ func optimize() -> void:
 
 func _ready() -> void:
 	optimize()
+	
+	LootLocker.setup()
+	LootLocker.login()
+	
 	RenderingServer.set_default_clear_color(Colors.bg_color)
 	Globals.set_board(board)
 	Globals.game = self

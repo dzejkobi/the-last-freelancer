@@ -25,10 +25,6 @@ var crt_on: bool
 var menu_key_name: String = "ESC"
 
 
-func ensure_dir(path: String):
-	DirAccess.make_dir_recursive_absolute(path.get_base_dir())
-
-
 func set_build() -> void:
 	if build == BuildKind.WEB:
 		var action_name := "ui_cancel"
@@ -57,7 +53,7 @@ func save():
 	config.set_value("video", "fullscreen", fullscreen_on)
 	config.set_value("video", "bloom", bloom_on)
 	config.set_value("video", "crt", crt_on)
-	ensure_dir(config_path)
+	Helpers.ensure_dir(config_path)
 	config.save(config_path)
 
 

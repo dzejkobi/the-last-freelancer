@@ -42,6 +42,7 @@ var enemies: Array[Actor] = []
 var entities: Array[Entity] = []
 
 var is_set: bool = false
+var is_completed: bool = false
 var pending_projectiles: bool = false
 var killer_name: String = "Enemy"
 
@@ -106,6 +107,7 @@ func setup() -> void:
 
 func reset() -> void:
 	score = 0
+	is_completed = false
 	level_man.set_next_level(level_man.first_level_index, level_man.first_loop)
 	player_shield_count = DIFFICULTY_MAP[difficulty]["shield_count"]
 	setup()
@@ -127,6 +129,7 @@ func game_over(killer: Actor) -> void:
 func victory() -> void:
 	is_paused = true
 	is_set = false
+	is_completed = true
 	
 	var victory_screen: VictoryScreen = VictoryScreenScene.instantiate()
 	%GUIRoot.add_child(victory_screen)

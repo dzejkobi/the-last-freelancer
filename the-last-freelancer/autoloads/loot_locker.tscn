@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bnlx6jddcjwsc"]
+
+[ext_resource type="Script" uid="uid://dfi8hrcyfao87" path="res://autoloads/loot_locker.gd" id="1_bljyg"]
+
+[node name="LootLocker" type="Node" unique_id=306846496]
+script = ExtResource("1_bljyg")

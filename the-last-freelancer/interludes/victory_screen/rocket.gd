@@ -10,12 +10,16 @@ var time := 0.0
 @onready var rocket_part_4: RigidBody2D = $RocketPart4
 @onready var pilot: RigidBody2D = $Pilot
 @onready var expl_particles: GPUParticles2D = $ExplParticles
+@onready var expl_timer: Timer = $ExplTimer
 
 @onready var parts: Array[RigidBody2D] = [
 	rocket_part_1, rocket_part_2, rocket_part_3, rocket_part_4
 ]
 
 @onready var starting_pos: Vector2 = position
+
+
+signal explosion_finished()
 
 
 func _process(delta):
@@ -47,3 +51,8 @@ func explode() -> void:
 		Vector2.UP.rotated(randf_range(0.1 * PI, 0.15 * PI))
 		* randf_range(900, 1000)
 	)
+	expl_timer.start()
+
+
+func _on_expl_timer_timeout() -> void:
+	explosion_finished.emit()

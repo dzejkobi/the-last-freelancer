@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bxelcjjv116rq"]
+
+[ext_resource type="Script" uid="uid://dv7g24bl18x5t" path="res://game/elements/high_scores_panel.gd" id="1_chkvs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chkvs"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.101960786, 0.09411765, 0.21176471, 1)
+corner_detail = 1
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+shadow_color = Color(0, 0, 0, 0.83137256)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[node name="HighScoresPanel" type="CenterContainer" unique_id=1225888600]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = -394.0
+offset_right = 199.0
+offset_bottom = 394.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_chkvs")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=194449479]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_chkvs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1121570387]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=493691128]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "The Last Freelancer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1983259873]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "High Scores"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=531623688]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Go back
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=565208231]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer" unique_id=197947784]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+
+[node name="GridCnt" type="GridContainer" parent="PanelContainer/VBoxContainer/ScrollContainer" unique_id=1964992779]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 24
+columns = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer" unique_id=174187955]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="LoadingLabel" type="Label" parent="PanelContainer/CenterContainer" unique_id=216509256]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "... loading ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="loading_finished" from="." to="." method="_on_loading_finished"]
+[connection signal="loading_started" from="." to="." method="_on_loading_started"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackBtn" to="." method="_on_back_btn_pressed"]

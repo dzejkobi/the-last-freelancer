@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dx2an4tdepe5l"]
+
+[ext_resource type="Script" uid="uid://crpt14tjqvyr5" path="res://game/elements/score_form.gd" id="1_3jh82"]
+
+[node name="ScoreForm" type="VBoxContainer" unique_id=2073898535]
+script = ExtResource("1_3jh82")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1632492537]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="NameEdit" type="LineEdit" parent="." unique_id=807284282]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+focus_neighbor_left = NodePath("../SubmitBtn")
+focus_neighbor_top = NodePath("../SubmitBtn")
+focus_neighbor_right = NodePath("../SubmitBtn")
+focus_neighbor_bottom = NodePath("../SubmitBtn")
+focus_next = NodePath("../SubmitBtn")
+focus_previous = NodePath("../SubmitBtn")
+placeholder_text = "Enter your name"
+alignment = 1
+caret_blink = true
+caret_force_displayed = true
+
+[node name="SubmitBtn" type="Button" parent="." unique_id=1999743590]
+layout_mode = 2
+focus_neighbor_left = NodePath("../NameEdit")
+focus_neighbor_top = NodePath("../NameEdit")
+focus_neighbor_right = NodePath("../NameEdit")
+focus_neighbor_bottom = NodePath("../NameEdit")
+focus_next = NodePath("../NameEdit")
+focus_previous = NodePath("../NameEdit")
+text = "Submit score"
+
+[connection signal="text_changed" from="NameEdit" to="." method="_on_name_edit_text_changed"]
+[connection signal="text_submitted" from="NameEdit" to="." method="_on_name_edit_text_submitted"]
+[connection signal="pressed" from="SubmitBtn" to="." method="_on_submit_btn_pressed"]

@@ -4,6 +4,7 @@ extends PanelContainer
 @onready var level_label: Label = $VBoxContainer/LevelLabel
 @onready var score_label: Label = $VBoxContainer/ScoreLabel
 @onready var hint_label: Label = $VBoxContainer/HintLabel
+@onready var score_form: VBoxContainer = $VBoxContainer/ScoreForm
 
 
 func display(killer: Actor = null) -> void:
@@ -17,15 +18,22 @@ func display(killer: Actor = null) -> void:
 	else:
 		hint_label.visible = false
 	visible = true
-	
-	
+	score_form.set_focus()
+
+
 func _unhandled_input(event):
 	if (
 		visible and (
-			event is InputEventKey and event.pressed or
-			event is InputEventMouseButton and event.pressed or
+			event.is_action_pressed("ui_cancel") or
 			event is InputEventJoypadButton and event.pressed
+			# event is InputEventMouseButton and event.pressed
 		)
 	):
 		visible = false
 		%MainMenu.toggle()
+
+
+func _on_score_form_score_submitted() -> void:
+	if visible:
+		visible = false
+		%HighScoresPanel.toggle()

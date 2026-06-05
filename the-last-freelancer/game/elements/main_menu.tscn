@@ -73,6 +73,13 @@ layout_mode = 2
 text = "New Game
 "
 
+[node name="HighScoresBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=333516271]
+unique_name_in_owner = true
+layout_mode = 2
+text = "High Scores
+
+"
+
 [node name="SettingsBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1944949148]
 unique_name_in_owner = true
 layout_mode = 2
@@ -96,5 +103,6 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/NewGameBtn" to="." method="_on_new_game_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HighScoresBtn" to="." method="_on_high_scores_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]

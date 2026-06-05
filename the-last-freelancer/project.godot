@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="The Last Freelancer"
-config/version="0.3.3"
+config/version="0.3.4"
 run/main_scene="uid://cs02me5wqeif6"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://demfopeaqhnj8"
@@ -29,6 +29,7 @@ Consts="*uid://dtlbhxcbbmb6l"
 AudioPlayer="*uid://bs17q8d5nonjr"
 Sounds="*uid://duu8ic4ugjodr"
 Settings="*uid://d1k0ie8w7exmo"
+LootLocker="*uid://bnlx6jddcjwsc"
 
 [display]
 

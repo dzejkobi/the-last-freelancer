@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ca0f87b32oivb"]
 
+[ext_resource type="PackedScene" uid="uid://dx2an4tdepe5l" path="res://game/elements/score_form.tscn" id="1_dk1w0"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dk1w0"]
 content_margin_left = 8.0
 content_margin_top = 8.0
@@ -57,3 +59,7 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Final score:"
 horizontal_alignment = 1
+
+[node name="ScoreForm" parent="VBoxContainer" unique_id=2073898535 instance=ExtResource("1_dk1w0")]
+unique_name_in_owner = true
+layout_mode = 2
