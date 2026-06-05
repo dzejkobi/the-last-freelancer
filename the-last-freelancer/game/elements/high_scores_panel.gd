@@ -86,7 +86,7 @@ func update_data() -> void:
 	grid_cnt.add_child(make_grid_cell("Score"))
 
 	var scores = []
-	for difficulty: int in (range(1, 5)):
+	for difficulty: int in (range(4, 0, -1)):
 		scores = await LootLocker.get_scores(difficulty, 100)
 		populate_scores(scores)
 
